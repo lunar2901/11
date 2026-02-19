@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deutsch Täglich — German Daily</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇩🇪</text></svg>">
+  <style>
+    /* ── Reset global styles that conflict ── */
+    body {
+      background: #f5f0e8 !important;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0e0e0e;
+      min-height: 100vh;
+      display: flex !important;
+      flex-direction: column !important;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Top bar ── */
+    .dt-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(245, 240, 232, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(14, 14, 14, 0.10);
+      height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 8px;
+    }
+
+    /* Logo / home link */
+    .dt-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: #0e0e0e;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .dt-logo:hover { opacity: 0.7; }
+    .dt-logo svg { display: block; flex-shrink: 0; }
+
+    /* Centred nav links — hidden on mobile */
+    .dt-nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      overflow: hidden;
+    }
+    .dt-nav a {
+      white-space: nowrap;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #0e0e0e;
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.15s, background 0.15s;
+    }
+    .dt-nav a:hover { opacity: 1; background: rgba(14, 14, 14, 0.07); }
+    .dt-nav a.active { opacity: 1; background: #0e0e0e; color: #f5f0e8; }
+
+    /* Action buttons */
+    .dt-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .dt-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(14, 14, 14, 0.18);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      padding: 0;
+    }
+    .dt-btn:hover { background: rgba(14, 14, 14, 0.08); }
+    .dt-btn svg { display: block; }
+
+    /* Mobile: hide nav links, show hamburger only */
+    @media (max-width: 680px) {
+      .dt-nav { display: none; }
+      .dt-logo-text { display: none; }
+    }
+
+    /* ── Hero content ── */
+    .dt-hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Date + badge */
+    .dt-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .dt-date {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      font-weight: 500;
+    }
+    .dt-sep { opacity: 0.25; font-size: 12px; }
+    .dt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1.5px solid #c8973a;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #c8973a;
+    }
+    .dt-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #c0392b;
+      animation: dtblink 2s infinite;
+    }
+    @keyframes dtblink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* Type pill */
+    .dt-type {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: rgba(200,151,58,0.12);
+      border: 1px solid rgba(200,151,58,0.4);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #9a7225;
+      margin-bottom: 12px;
+    }
+
+    /* Big quote */
+    .dt-quote-mark {
+      font-family: Georgia, serif;
+      font-size: 70px;
+      line-height: 0.5;
+      color: #e8c06a;
+      opacity: 0.45;
+      display: block;
+      align-self: flex-start;
+      margin-left: max(12px, 4vw);
+      user-select: none;
+    }
+    .dt-german {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(22px, 4.5vw, 56px);
+      font-weight: bold;
+      line-height: 1.18;
+      text-align: center;
+      letter-spacing: -0.4px;
+      color: #0e0e0e;
+      max-width: 820px;
+      width: 100%;
+      margin: 10px 0 0;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+    .dt-german.anim-out { opacity: 0; transform: translateY(8px); }
+
+    /* Info cards */
+    .dt-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+      max-width: 680px;
+      margin: 24px auto 0;
+    }
+    @media (max-width: 480px) {
+      .dt-cards { grid-template-columns: 1fr; }
+    }
+    .dt-card {
+      background: #fff;
+      border: 1px solid rgba(14,14,14,0.08);
+      border-radius: 14px;
+      padding: 13px 15px;
+    }
+    .dt-card.full { grid-column: 1 / -1; }
+    .dt-card-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.38;
+      margin-bottom: 5px;
+    }
+    .dt-card-val {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #0e0e0e;
+    }
+    .dt-card-val.italic { font-style: italic; opacity: 0.7; }
+    .dt-card-val.bold   { font-weight: 600; }
+
+    /* Controls */
+    .dt-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0 6px;
+      flex-wrap: wrap;
+    }
+    .dt-ctrl {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(14,14,14,0.2);
+      background: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      box-shadow: 0 2px 8px rgba(14,14,14,0.07);
+    }
+    .dt-ctrl:hover  { background: #0e0e0e; color: #f5f0e8; border-color: #0e0e0e; transform: scale(1.08); }
+    .dt-ctrl:active { transform: scale(0.94); }
+
+    .dt-counter {
+      display: flex; flex-direction: column;
+      align-items: center; min-width: 48px;
+    }
+    .dt-counter-n {
+      font-family: Georgia, serif;
+      font-size: 24px; font-weight: bold; line-height: 1;
+    }
+    .dt-counter-t { font-size: 10px; opacity: 0.35; }
+
+    .dt-save {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(14,14,14,0.2);
+      background: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      box-shadow: 0 2px 8px rgba(14,14,14,0.07);
+      transition: all 0.15s;
+    }
+    .dt-save:hover { background: #c8973a; color: #fff; border-color: #c8973a; }
+    .dt-save.saved { background: #c8973a; color: #fff; border-color: #c8973a; }
+
+    /* Progress */
+    .dt-prog-wrap {
+      width: 100%; max-width: 680px;
+      margin: 4px auto 0;
+      padding: 0 4px;
+    }
+    .dt-prog-track { height: 2px; background: rgba(14,14,14,0.08); border-radius: 2px; }
+    .dt-prog-fill  { height: 100%; background: #c8973a; border-radius: 2px; transition: width 0.35s ease; }
+
+    /* Hint */
+    .dt-hint {
+      font-size: 11px;
+      opacity: 0.25;
+      text-align: center;
+      margin: 6px 0 16px;
+    }
+    kbd {
+      display: inline-block;
+      padding: 1px 5px;
+      border: 1px solid rgba(14,14,14,0.2);
+      border-radius: 3px;
+      font: inherit;
+      font-size: 10px;
+    }
+    @media (max-width: 480px) { .dt-hint { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ── Top bar ── -->
+<header class="dt-topbar">
+  <a href="index.html" class="dt-logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <rect width="26" height="8.67"  fill="#000"/>
+      <rect y="8.67"  width="26" height="8.67"  fill="#DD0000"/>
+      <rect y="17.33" width="26" height="8.67"  fill="#FFCE00"/>
+    </svg>
+    <span class="dt-logo-text">Deutsch Täglich</span>
+  </a>
+
+  <nav class="dt-nav">
+    <a href="index.html" class="active">✦ Daily</a>
+    <a href="verbs.html">Verbs</a>
+    <a href="nouns.html">Nouns</a>
+    <a href="adjectives.html">Adjectives</a>
+    <a href="adverbs.html">Adverbs</a>
+    <a href="practice.html">Practice</a>
+    <a href="grammar.html">Grammar</a>
+  </nav>
+
+  <div class="dt-actions">
+    <button class="dt-btn" id="btnGlobalSearch" aria-label="Search">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+      </svg>
+    </button>
+    <button class="dt-btn" id="btnSaved" aria-label="Saved">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+      </svg>
+    </button>
+    <button class="dt-btn menu-btn" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ── Drawer ── -->
+<div class="drawer-backdrop" hidden></div>
+<aside class="drawer" hidden>
+  <div class="drawer-top">
+    <div class="drawer-title">Menu</div>
+    <button class="icon-btn drawer-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="index.html"      class="drawer-link drawer-link--active">✦ Daily Idioms</a>
+    <a href="verbs.html"      class="drawer-link">🔤 Verbs</a>
+    <a href="nouns.html"      class="drawer-link">📦 Nouns</a>
+    <a href="adjectives.html" class="drawer-link">🎨 Adjectives</a>
+    <a href="adverbs.html"    class="drawer-link">💨 Adverbs</a>
+    <a href="practice.html"   class="drawer-link">✅ Practice</a>
+    <a href="grammar.html"    class="drawer-link">📖 Grammar</a>
+  </nav>
+</aside>
+
+<!-- ── Modals ── -->
+<div class="modal" id="globalSearchModal" hidden>
+  <div class="modal__backdrop" data-close="globalSearchModal"></div>
+  <div class="modal__panel">
+    <div class="modal__top">
+      <div class="modal__title">Search</div>
+      <button class="icon-btn" data-close="globalSearchModal">✕</button>
+    </div>
+    <input id="globalSearchInput" class="modal__input" placeholder="Search idioms, verbs, nouns…"/>
+    <div id="globalSearchResults" class="modal__results"></div>
+  </div>
+</div>
+
+<div class="modal" id="savedModal" hidden>
+  <div class="modal__backdrop" data-close="savedModal"></div>
+  <div class="modal__panel">
+    <div class="modal__top">
+      <div class="modal__title">Saved Words</div>
+      <button class="icon-btn" data-close="savedModal">✕</button>
+    </div>
+    <div id="savedResults" class="modal__results"></div>
+  </div>
+</div>
+
+<!-- ── Main hero ── -->
+<main class="dt-hero">
+  <div class="dt-meta">
+    <span class="dt-date" id="heroDate">—</span>
+    <span class="dt-sep">·</span>
+    <span class="dt-badge"><span class="dt-dot"></span> Phrase of the Day</span>
+  </div>
+
+  <div class="dt-type" id="typePill">Idiom</div>
+  <span class="dt-quote-mark">"</span>
+  <h1 class="dt-german" id="idiomText">Loading…</h1>
+
+  <div class="dt-cards">
+    <div class="dt-card">
+      <span class="dt-card-label">📖 Literal</span>
+      <p class="dt-card-val italic" id="infoLiteral">—</p>
+    </div>
+    <div class="dt-card">
+      <span class="dt-card-label">🏷 Category</span>
+      <p class="dt-card-val" id="infoCategory">—</p>
+    </div>
+    <div class="dt-card full">
+      <span class="dt-card-label">💡 Meaning</span>
+      <p class="dt-card-val bold" id="infoMeaning">—</p>
+    </div>
+    <div class="dt-card full">
+      <span class="dt-card-label">🗣 Example</span>
+      <p class="dt-card-val" id="infoExample">—</p>
+    </div>
+  </div>
+</main>
+
+<!-- Progress bar -->
+<div class="dt-prog-wrap">
+  <div class="dt-prog-track">
+    <div class="dt-prog-fill" id="progressFill" style="width:0.5%"></div>
+  </div>
+</div>
+
+<!-- Controls -->
+<div class="dt-controls">
+  <button class="dt-ctrl" id="btnPrev">←</button>
+  <div class="dt-counter">
+    <span class="dt-counter-n" id="cNum">1</span>
+    <span class="dt-counter-t" id="cTotal">of 200</span>
+  </div>
+  <button class="dt-ctrl" id="btnNext">→</button>
+  <button class="dt-save" id="btnSaveIdiom">
+    <span id="saveHeart">♡</span>
+    <span id="saveLabel">Save</span>
+  </button>
+</div>
+
+<p class="dt-hint"><kbd>←</kbd> prev · <kbd>→</kbd> next · <kbd>S</kbd> save</p>
+
+<!-- ── Scripts ── -->
+<script src="shared.js"></script>
+<script>
+  // Drawer
+  const _mb = document.querySelector('.menu-btn');
+  const _dw = document.querySelector('.drawer');
+  const _db = document.querySelector('.drawer-backdrop');
+  const _dc = document.querySelector('.drawer-close');
+  const openDr  = () => { _dw.hidden=false; _db.hidden=false; document.body.classList.add('drawer-open');    _mb?.setAttribute('aria-expanded','true'); };
+  const closeDr = () => { _dw.hidden=true;  _db.hidden=true;  document.body.classList.remove('drawer-open'); _mb?.setAttribute('aria-expanded','false'); };
+  _mb?.addEventListener('click', openDr);
+  _dc?.addEventListener('click', closeDr);
+  _db?.addEventListener('click', closeDr);
+  SharedApp.initSavedModal();
+  SharedApp.initSearchModal?.();
+</script>
+<script type="module" src="idioms.js"></script>
+</body>
+</html>
