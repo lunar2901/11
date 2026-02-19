@@ -21,7 +21,7 @@ function buildCrossPageItems() {
   const nDB={a1:nounsA1,a2:nounsA2,b1:nounsB1,b2:nounsB2,c1:nounsC1};
   const aDB={a1:adjectivesA1,a2:adjectivesA2,b1:adjectivesB1,b2:adjectivesB2,c1:adjectivesC1};
   return [
-    ...Object.keys(vDB).flatMap(l=>(vDB[l]||[]).map((v,i)=>({id:`verbs:${l}:${v.base||''}`,label:v.base||'—',translation:((v.translations||[])[0])||'',index:i,level:l,category:'Verbs',url:'index.html'}))),
+    ...Object.keys(vDB).flatMap(l=>(vDB[l]||[]).map((v,i)=>({id:`verbs:${l}:${v.base||''}`,label:v.base||'—',translation:((v.translations||[])[0])||'',index:i,level:l,category:'Verbs',url:'verbs.html'}))),
     ...Object.keys(nDB).flatMap(l=>(nDB[l]||[]).map((n,i)=>({id:`nouns:${l}:${n.base||''}`,label:n.base||'—',translation:(n.translations||[])[0]||'',index:i,level:l,category:'Nouns',url:'nouns.html'}))),
     ...Object.keys(aDB).flatMap(l=>(aDB[l]||[]).map((a,i)=>({id:`adjectives:${l}:${a.base||''}`,label:a.base||'—',translation:(a.translations||[])[0]||'',index:i,level:l,category:'Adjectives',url:'adjectives.html'}))),
   ];
