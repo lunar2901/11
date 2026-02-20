@@ -1,183 +1,106 @@
-// adverbs.js - Focus mode with level dropdowns + save
-import adverbsA1 from './js/adverbs-db-a1.js'; import adverbsA2 from './js/adverbs-db-a2.js'; import adverbsB1 from './js/adverbs-db-b1.js'; import adverbsB2 from './js/adverbs-db-b2.js'; import adverbsC1 from './js/adverbs-db-c1.js';
-import verbsA1 from './js/verbs-db-a1.js'; import verbsA2 from './js/verbs-db-a2.js'; import verbsB1 from './js/verbs-db-b1.js'; import verbsB2 from './js/verbs-db-b2.js'; import verbsC1 from './js/verbs-db-c1.js';
-import nounsA1 from './js/nouns-db-a1.js'; import nounsA2 from './js/nouns-db-a2.js'; import nounsB1 from './js/nouns-db-b1.js'; import nounsB2 from './js/nouns-db-b2.js'; import nounsC1 from './js/nouns-db-c1.js';
-import adjectivesA1 from './js/adjectives-db-a1.js'; import adjectivesA2 from './js/adjectives-db-a2.js'; import adjectivesB1 from './js/adjectives-db-b1.js'; import adjectivesB2 from './js/adjectives-db-b2.js'; import adjectivesC1 from './js/adjectives-db-c1.js';
-import { initFocusMode } from './focus-mode.js';
-
-const DB = { a1: adverbsA1, a2: adverbsA2, b1: adverbsB1, b2: adverbsB2, c1: adverbsC1 };
-const levelBtns = document.querySelectorAll('.level-btn');
-let currentLevel = 'a1'; let focusApi = null;
-const { getSaved, setSaved, setSaveBtnState, initSearchModal, registerPageItems, registerSearchItems } = window.SharedApp;
-
-function getLabel(a) { return a.base || a.word || '—'; }
-
-function buildPageItems(level) {
-  return (DB[level]||[]).map((a,i)=>({ id:`adverbs:${level}:${getLabel(a)}`, label:getLabel(a), translation:(a.translations||[])[0]||'', index:i, level, category:'Adverbs', url:'adverbs.html' }));
-}
-function buildAllPageItems() { return Object.keys(DB).flatMap(l=>buildPageItems(l)); }
-function buildCrossPageItems() {
-  const vDB={a1:verbsA1,a2:verbsA2,b1:verbsB1,b2:verbsB2,c1:verbsC1};
-  const nDB={a1:nounsA1,a2:nounsA2,b1:nounsB1,b2:nounsB2,c1:nounsC1};
-  const aDB={a1:adjectivesA1,a2:adjectivesA2,b1:adjectivesB1,b2:adjectivesB2,c1:adjectivesC1};
-  return [
-    ...Object.keys(vDB).flatMap(l=>(vDB[l]||[]).map((v,i)=>({id:`verbs:${l}:${v.base||''}`,label:v.base||'—',translation:((v.translations||[])[0])||'',index:i,level:l,category:'Verbs',url:'verbs.html'}))),
-    ...Object.keys(nDB).flatMap(l=>(nDB[l]||[]).map((n,i)=>({id:`nouns:${l}:${n.base||''}`,label:n.base||'—',translation:(n.translations||[])[0]||'',index:i,level:l,category:'Nouns',url:'nouns.html'}))),
-    ...Object.keys(aDB).flatMap(l=>(aDB[l]||[]).map((a,i)=>({id:`adjectives:${l}:${a.base||''}`,label:a.base||'—',translation:(a.translations||[])[0]||'',index:i,level:l,category:'Adjectives',url:'adjectives.html'}))),
-  ];
-}
-
-renderCurrent(); updateCounts(); buildAllDropdowns();
-registerPageItems(buildAllPageItems()); registerSearchItems(buildCrossPageItems());
-
-window.SharedApp.handleJumpHash(()=>currentLevel,(level,index)=>{
-  const btn=document.querySelector(`.level-btn[data-level="${level}"]`);
-  if(btn){levelBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
-  currentLevel=level;renderCurrent();setTimeout(()=>focusApi?.jumpTo(index),80);
-},()=>focusApi);
-
-initSearchModal((item)=>{
-  if(item.level!==currentLevel){
-    const btn=document.querySelector(`.level-btn[data-level="${item.level}"]`);
-    if(btn){levelBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
-    currentLevel=item.level;renderCurrent();setTimeout(()=>focusApi?.jumpTo(item.index),80);
-  } else { focusApi?.jumpTo(item.index); }
-});
-
-levelBtns.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const level=btn.dataset.level;
-    if(!btn.classList.contains('active')){levelBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentLevel=level;renderCurrent();}
-    const items=buildPageItems(level);
-    window.SharedApp.openLevelSheet(btn,items,(idx)=>{if(level!==currentLevel){currentLevel=level;renderCurrent();}setTimeout(()=>focusApi?.jumpTo(idx),40);},`${level.toUpperCase()} — ${items.length} adverbs`);
-  });
-});
-
-function renderCurrent() {
-  const root=document.getElementById('study-root'); if(!root) return;
-  root.classList.add('study-root');
-  const list=DB[currentLevel]||[];
-  const countEl=document.getElementById('adverb-count');
-  if(countEl) countEl.textContent=`${list.length} ${list.length===1?'adverb':'adverbs'}`;
-  if(!list.length){root.innerHTML='<div class="no-results"><p>No adverbs in this level yet.</p></div>';return;}
-  focusApi=initFocusMode({rootId:'study-root',items:list,level:currentLevel,storageKey:'adverbs',
-    getId:(a)=>`adverbs:${currentLevel}:${getLabel(a)}`, getLabel:(a)=>getLabel(a), renderCard:(a)=>createCard(a)});
-  wireDrawerReview(focusApi);
-  if(focusApi) focusApi.onChange=()=>wireDrawerReview(focusApi);
-}
-
-function buildAllDropdowns() {
-  Object.entries(DB).forEach(([level,items])=>{
-    const dd=document.getElementById(`dropdown-${level}`); if(!dd||!items?.length) return;
-    const frag=document.createDocumentFragment();
-    items.forEach((adv,i)=>{
-      const btn=document.createElement('button'); btn.type='button'; btn.className='level-dropdown-item';
-      btn.innerHTML=`${esc(getLabel(adv))}<span class="ddi-translation">${esc((adv.translations||[])[0]||'')}</span>`;
-      btn.addEventListener('click',(e)=>{
-        e.stopPropagation();
-        if(level!==currentLevel){const lb=document.querySelector(`.level-btn[data-level="${level}"]`);if(lb){levelBtns.forEach(b=>b.classList.remove('active'));lb.classList.add('active');currentLevel=level;renderCurrent();}}
-        setTimeout(()=>focusApi?.jumpTo(i),30);
-      });
-      frag.appendChild(btn);
-    });
-    dd.appendChild(frag);
-  });
-}
-
-function createCard(adv) {
-  const card = document.createElement('div'); card.className='verb-card';
-  const label  = getLabel(adv);
-  const saveId = `adverbs:${currentLevel}:${label}`;
-  const trans  = (adv.translations||[]).join(', ')||'—';
-  const category = adv.category || adv.type || '';
-  const subcategory = adv.subcategory || '';
-  const register = adv.register || '';
-
-  const positionRules    = Array.isArray(adv.position_rules)    ? adv.position_rules    : [];
-  const examplePositions = Array.isArray(adv.example_positions) ? adv.example_positions : [];
-
-  const synonyms       = Array.isArray(adv.synonyms)       ? adv.synonyms       : [];
-  const antonym        = adv.antonym || '';
-  const tip            = adv.tip || '';
-  const commonMistakes = Array.isArray(adv.common_mistakes) ? adv.common_mistakes : [];
-
-  const derivedFrom = adv.derived_from || null;
-
-  const derivedHtml = derivedFrom ? `
-    <div class="verb-info" style="background:rgba(80,120,255,.07);border-radius:10px;padding:6px 10px;margin-top:8px">
-      <span class="label">Base word:</span>
-      <span class="value">${esc(derivedFrom.base)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span></span>
-    </div>` : '';
-
-  const metaHtml = (category || subcategory || register) ? `
-    <div class="pill-row" style="margin-top:8px">
-      ${category    ? `<span class="meta-chip">${esc(category)}</span>`    : ''}
-      ${subcategory ? `<span class="meta-chip">${esc(subcategory)}</span>` : ''}
-      ${register    ? `<span class="meta-chip">${esc(register)}</span>`    : ''}
-    </div>` : '';
-
-  const synonymsHtml = synonyms.length ? `
-    <div class="verb-info" style="margin-top:8px;flex-wrap:wrap;gap:6px">
-      <span class="label">Synonyms:</span>
-      <span class="value">${synonyms.map(s=>`<span class="meta-chip">${esc(s)}</span>`).join(' ')}</span>
-    </div>` : '';
-
-  const antonymHtml = antonym ? `<div class="verb-info" style="margin-top:4px"><span class="label">Antonym:</span><span class="value">${esc(antonym)}</span></div>` : '';
-
-  const posRulesHtml = positionRules.length ? `
-    <div class="section-title" style="margin-top:12px">Position rules</div>
-    ${positionRules.map(r=>`<div class="verb-info" style="margin-top:4px"><span style="font-size:13px">${esc(r)}</span></div>`).join('')}` : '';
-
-  const posExHtml = examplePositions.length ? `
-    <div class="section-title" style="margin-top:10px">Position examples</div>
-    <ul class="variety-examples">${examplePositions.map(ex=>`<li>${esc(ex)}</li>`).join('')}</ul>` : '';
-
-  const examplesHtml = (adv.examples||[]).length ? `
-    <div class="section-title" style="margin-top:12px">Examples</div>
-    <ul class="variety-examples">${(adv.examples||[]).map(ex=>`<li>${esc(ex)}</li>`).join('')}</ul>` : '';
-
-  const tipHtml = tip ? `
-    <div class="verb-info" style="margin-top:8px;background:rgba(255,200,0,.1);border-radius:10px;padding:8px 10px;flex-direction:column;gap:4px">
-      <span class="label">💡 Tip</span><span style="font-size:13px">${esc(tip)}</span>
-    </div>` : '';
-
-  const mistakesHtml = commonMistakes.length ? `
-    <div class="verb-info" style="margin-top:8px;background:rgba(255,60,60,.07);border-radius:10px;padding:8px 10px;flex-direction:column;gap:4px">
-      <span class="label">⚠️ Common mistakes</span>
-      ${commonMistakes.map(m=>`<span style="font-size:12px">${esc(m)}</span>`).join('')}
-    </div>` : '';
-
-  card.innerHTML = `
-    <div class="verb-header">
-      <div>
-        <div class="verb-base">${esc(label)}</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German Adverbs Learning App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇩🇪</text></svg>">
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo"><a href="index.html" class="logo-home-link" title="Go to home">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="13.33" fill="#000"/>
+            <rect y="13.33" width="40" height="13.33" fill="#DD0000"/>
+            <rect y="26.67" width="40" height="13.33" fill="#FFCE00"/>
+          </svg>
+          <h1>German Adverbs</h1></a>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="btnGlobalSearch" type="button" aria-label="Search"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></button>
+          <button class="icon-btn" id="btnSaved" type="button" aria-label="Saved words"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg></button>
+          <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg></button>
+        </div>
       </div>
-      <button class="save-btn" type="button" data-save-id="${esc(saveId)}" data-save-label="${esc(label)}" data-save-trans="${esc((adv.translations||[])[0]||'')}" data-save-url="adverbs.html" aria-label="Save">♡</button>
     </div>
-    <div class="verb-info"><span class="label">Translation:</span><span class="value">${esc(trans)}</span></div>
-    ${derivedHtml}${metaHtml}${synonymsHtml}${antonymHtml}${posRulesHtml}${posExHtml}${examplesHtml}${tipHtml}${mistakesHtml}
-  `;
+  </header>
 
-  const btn=card.querySelector('.save-btn');
-  if(btn){
-    setSaveBtnState(btn,getSaved().has(saveId));
-    btn.addEventListener('click',()=>{
-      const s=getSaved();const m=window.SharedApp.getMeta();
-      if(s.has(saveId)){s.delete(saveId);delete m[saveId];}else{s.add(saveId);m[saveId]={label,translation:(adv.translations||[])[0]||'',url:'adverbs.html'};}
-      setSaved(s);window.SharedApp.setMeta(m);setSaveBtnState(btn,s.has(saveId));
-    });
-  }
-  return card;
-}
+  <div class="drawer-backdrop" hidden></div>
+  <aside class="drawer" hidden>
+    <div class="drawer-top">
+      <div class="drawer-title">Menu</div>
+      <button class="icon-btn drawer-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg></button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html" class="drawer-link">✦ Daily Idioms</a>
+      <a href="verbs.html" class="drawer-link">🔤 Verbs</a>
+      <a href="nouns.html" class="drawer-link">📦 Nouns</a>
+      <a href="adjectives.html" class="drawer-link">🎨 Adjectives</a>
+      <a href="adverbs.html" class="drawer-link drawer-link--active">💨 Adverbs</a>
+      <a href="practice.html" class="drawer-link">✅ Practice</a>
+      <a href="grammar.html" class="drawer-link">📖 Grammar</a>
+    </nav>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Review Progress</div>
+      <details class="drawer-acc">
+        <summary>✅ Learned</summary>
+        <div id="drawerLearnedList" class="drawer-list"></div>
+      </details>
+      <details class="drawer-acc">
+        <summary>📖 Not yet learned</summary>
+        <div id="drawerUnlearnedList" class="drawer-list"></div>
+      </details>
+    </div>
+  </aside>
 
-function wireDrawerReview(api) {
-  if(!api) return; const st=api.getState?.(); if(!st) return;
-  const lh=document.getElementById('drawerLearnedList'); const uh=document.getElementById('drawerUnlearnedList');
-  if(lh) lh.innerHTML=st.learned?.length?st.learned.map(x=>`<button class="drawer-item" data-jump="${x.i}">${esc(x.label)}</button>`).join(''):'<div class="drawer-empty">No learned words yet.</div>';
-  if(uh) uh.innerHTML=st.unlearned?.length?st.unlearned.map(x=>`<button class="drawer-item" data-jump="${x.i}">${esc(x.label)}</button>`).join(''):'<div class="drawer-empty">All learned 🎉</div>';
-  document.querySelectorAll('[data-jump]').forEach(b=>{b.onclick=()=>api.jumpTo(parseInt(b.dataset.jump,10));});
-  const ml=document.getElementById('btnMarkLearned'); const mu=document.getElementById('btnMarkUnlearned');
-  if(ml) ml.onclick=()=>{api.setLearned?.(true);wireDrawerReview(api);}; if(mu) mu.onclick=()=>{api.setLearned?.(false);wireDrawerReview(api);};
-}
-function updateCounts() { Object.keys(DB).forEach(level=>{const badge=document.getElementById(`count-${level}`);if(badge)badge.textContent=(DB[level]||[]).length;}); }
-function esc(s){return String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
+  <div class="modal" id="globalSearchModal" hidden>
+    <div class="modal__backdrop" data-close="globalSearchModal"></div>
+    <div class="modal__panel">
+      <div class="modal__top"><div class="modal__title">Search Words</div><button class="icon-btn" data-close="globalSearchModal" aria-label="Close">✕</button></div>
+      <input id="globalSearchInput" class="modal__input" placeholder="Search all verbs, nouns, adjectives, adverbs…" />
+      <div id="globalSearchResults" class="modal__results"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="savedModal" hidden>
+    <div class="modal__backdrop" data-close="savedModal"></div>
+    <div class="modal__panel">
+      <div class="modal__top"><div class="modal__title">Saved Words</div><button class="icon-btn" data-close="savedModal" aria-label="Close">✕</button></div>
+      <div id="savedResults" class="modal__results"></div>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="level-section level-section--sticky">
+        <div class="level-buttons-track"><div class="level-buttons">
+          <button class="level-btn active" data-level="a1"><span class="level-badge">A1</span><span class="level-name">Beginner</span><span class="level-count" id="count-a1">0</span><div class="level-dropdown" id="dropdown-a1"></div></button>
+          <button class="level-btn" data-level="a2"><span class="level-badge">A2</span><span class="level-name">Elementary</span><span class="level-count" id="count-a2">0</span><div class="level-dropdown" id="dropdown-a2"></div></button>
+          <button class="level-btn" data-level="b1"><span class="level-badge">B1</span><span class="level-name">Intermediate</span><span class="level-count" id="count-b1">0</span><div class="level-dropdown" id="dropdown-b1"></div></button>
+          <button class="level-btn" data-level="b2"><span class="level-badge">B2</span><span class="level-name">Upper Int.</span><span class="level-count" id="count-b2">0</span><div class="level-dropdown" id="dropdown-b2"></div></button>
+          <button class="level-btn" data-level="c1"><span class="level-badge">C1</span><span class="level-name">Advanced</span><span class="level-count" id="count-c1">0</span><div class="level-dropdown" id="dropdown-c1"></div></button>
+        </div></div>
+      </section>
+      <section class="verbs-section">
+        <div id="study-root" class="study-root"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="main-footer"><div class="container"><p>&copy; 2026 German Learning App | Built with ❤️ for language learners</p></div></footer>
+
+  <script src="shared.js"></script>
+  <script>
+    const menuBtn=document.querySelector(".menu-btn"),drawer=document.querySelector(".drawer"),backdrop=document.querySelector(".drawer-backdrop"),closeBtn=document.querySelector(".drawer-close");
+    function openMenu(){drawer.hidden=false;backdrop.hidden=false;menuBtn?.setAttribute("aria-expanded","true");document.body.classList.add('drawer-open');}
+    function closeMenu(){drawer.hidden=true;backdrop.hidden=true;menuBtn?.setAttribute("aria-expanded","false");document.body.classList.remove('drawer-open');}
+    menuBtn?.addEventListener("click",openMenu);closeBtn?.addEventListener("click",closeMenu);backdrop?.addEventListener("click",closeMenu);
+    SharedApp.initSavedModal();
+    SharedApp.initSearchModal();
+  </script>
+  <script type="module" src="adverbs.js"></script>
+</body>
+</html>
