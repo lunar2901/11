@@ -2,7 +2,7 @@
 (function () {
   const SAVED_KEY  = 'savedWordsV1';
   const SAVED_META = 'savedWordsMetaV1';
-  const SEARCH_IDX = 'searchIndexV1';
+  const SEARCH_IDX = 'searchIndexV2';
 
   function getSaved() { return new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || '[]')); }
   function setSaved(s) { localStorage.setItem(SAVED_KEY, JSON.stringify([...s])); }
