@@ -294,5 +294,157 @@ const nounsA2 = [
       "genitiv": { "singular": "des Geburtstags", "plural": "der Geburtstage" }
     }
   }
+,
+  {
+    "base": "Zeitung",
+    "level": "A2",
+    "article": "die",
+    "plural": "Zeitungen",
+    "category": "media",
+    "translations": [
+      "newspaper"
+    ],
+    "examples": [
+      "Ich lese jeden Morgen die Zeitung.",
+      "Hast du die Zeitung schon gelesen?",
+      "Die Zeitung kostet 2 Euro."
+    ],
+    "tip": "Die Zeitung — daily print news. Use with lesen (to read)."
+  },
+  {
+    "base": "Haustier",
+    "level": "A2",
+    "article": "das",
+    "plural": "Haustiere",
+    "category": "animals",
+    "translations": [
+      "pet"
+    ],
+    "examples": [
+      "Haben Sie ein Haustier?",
+      "Mein Haustier ist ein Hund.",
+      "Wir haben zwei Haustiere: eine Katze und einen Hund."
+    ],
+    "tip": "Haustier = Haus + Tier (house animal). Very common in everyday conversation."
+  },
+  {
+    "base": "Nachbar",
+    "level": "A2",
+    "article": "der",
+    "plural": "Nachbarn",
+    "category": "people",
+    "translations": [
+      "neighbour"
+    ],
+    "examples": [
+      "Mein Nachbar ist sehr freundlich.",
+      "Die Nachbarn machen viel Lärm.",
+      "Ich kenne meinen Nachbarn gut."
+    ],
+    "tip": "der Nachbar / die Nachbarin. Neighbours are often discussed when talking about apartment life in Germany."
+  },
+  {
+    "base": "Geschaeft",
+    "level": "A2",
+    "article": "das",
+    "plural": "Geschaefte",
+    "category": "places",
+    "translations": [
+      "shop",
+      "business"
+    ],
+    "examples": [
+      "Das Geschaeft oeffnet um 9 Uhr.",
+      "Ich gehe ins Geschaeft.",
+      "Die Geschaefte sind sonntags geschlossen."
+    ],
+    "tip": "Two meanings: 1) a shop/store, 2) business/dealings. Context usually makes it clear.",
+    "base_display": "Geschäft",
+    "plural_display": "Geschäfte"
+  },
+  {
+    "base": "Jahreszeit",
+    "level": "A2",
+    "article": "die",
+    "plural": "Jahreszeiten",
+    "category": "nature",
+    "translations": [
+      "season"
+    ],
+    "examples": [
+      "Meine Lieblingsjahrzeit ist der Sommer.",
+      "Es gibt vier Jahreszeiten.",
+      "Im Fruehling bluehen die Blumen."
+    ],
+    "tip": "Compound: Jahr (year) + Zeit (time). The four seasons: Fruehling, Sommer, Herbst, Winter."
+  },
+  {
+    "base": "Ausflug",
+    "level": "A2",
+    "article": "der",
+    "plural": "Ausfluge",
+    "category": "leisure",
+    "translations": [
+      "excursion",
+      "day trip"
+    ],
+    "examples": [
+      "Wir machen einen Ausflug ins Gruene.",
+      "Der Ausflug hat viel Spass gemacht.",
+      "Plant ihr einen Ausflug am Wochenende?"
+    ],
+    "tip": "einen Ausflug machen = to go on a day trip. Common weekend activity vocabulary.",
+    "plural_display": "Ausflüge"
+  },
+  {
+    "base": "Formular",
+    "level": "A2",
+    "article": "das",
+    "plural": "Formulare",
+    "category": "admin",
+    "translations": [
+      "form"
+    ],
+    "examples": [
+      "Bitte fuellen Sie das Formular aus.",
+      "Das Formular muss unterschrieben werden.",
+      "Wo bekomme ich dieses Formular?"
+    ],
+    "tip": "ein Formular ausfuellen = to fill in a form. Unavoidable in German bureaucracy!"
+  },
+  {
+    "base": "Ticket",
+    "level": "A2",
+    "article": "das",
+    "plural": "Tickets",
+    "category": "travel",
+    "translations": [
+      "ticket"
+    ],
+    "examples": [
+      "Ich habe das Ticket online gekauft.",
+      "Zeigen Sie mir bitte Ihr Ticket.",
+      "Das Ticket kostet 30 Euro."
+    ],
+    "tip": "Widely used alongside die Fahrkarte (train ticket). Ticket is used for events, flights, and modern transport."
+  },
+  {
+    "base": "Strassenbahnhaltestelle",
+    "level": "A2",
+    "article": "die",
+    "plural": "Haltestellen",
+    "category": "transport",
+    "translations": [
+      "bus stop",
+      "tram stop"
+    ],
+    "examples": [
+      "Wo ist die naechste Haltestelle?",
+      "Ich warte an der Haltestelle.",
+      "Bis zur Haltestelle sind es 5 Minuten."
+    ],
+    "tip": "Haltestelle = halt (stop) + Stelle (place). Works for bus, tram, and sometimes U-Bahn stops.",
+    "base_display": "Haltestelle"
+  }
 ];
 export default nounsA2;
