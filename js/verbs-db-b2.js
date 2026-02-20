@@ -1,255 +1,213 @@
-// verbs-db-b2.js — B2 Upper-Intermediate German Verbs (comprehensive)
+// verbs-db-b2.js
 const verbsB2 = [
+  {"base": "behaupten", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to claim", "to assert", "to maintain"], "conjugation": {"present_3sg": "behauptet", "past_participle": "behauptet"}, "examples": ["Er behauptet, unschuldig zu sein.", "Sie behauptet, alles gewusst zu haben.", "Das lässt sich nicht behaupten.", "Man kann nicht einfach behaupten, dass das stimmt."], "tip": "Requires 'zu' + infinitive or a subordinate clause."},
+  {"base": "begründen", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to justify", "to give reasons for", "to found"], "conjugation": {"present_3sg": "begründet", "past_participle": "begründet"}, "examples": ["Er begründete seine Entscheidung ausführlich.", "Wie begründen Sie das?", "Die Kritik ist gut begründet.", "Das Unternehmen wurde 1990 begründet."], "tip": "Can also mean 'to establish/found'."},
+  {"base": "überzeugen", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": true, "translations": ["to convince", "to persuade"], "conjugation": {"present_3sg": "überzeugt", "past_participle": "überzeugt"}, "examples": ["Er überzeugte die Gruppe von seiner Idee.", "Ich konnte ihn nicht überzeugen.", "Das Argument überzeugt mich nicht.", "Sie ist von ihrer Meinung überzeugt."], "tip": "Reflexive: sich überzeugen = to satisfy oneself, check."},
+  {"base": "vermeiden", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to avoid", "to prevent"], "conjugation": {"present_3sg": "vermeidet", "past_participle": "vermieden"}, "examples": ["Man sollte Missverständnisse vermeiden.", "Sie vermied es, das Thema anzusprechen.", "Konflikte lassen sich nicht immer vermeiden.", "Ich versuche, Fehler zu vermeiden."], "tip": "Takes 'zu' + infinitive."},
+  {"base": "vorschlagen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to suggest", "to propose", "to recommend"], "conjugation": {"present_3sg": "schlägt vor", "past_participle": "vorgeschlagen"}, "examples": ["Er schlug einen Kompromiss vor.", "Ich schlage vor, dass wir pausieren.", "Was würdest du vorschlagen?", "Sie schlug eine neue Strategie vor."], "tip": "Separable: schlägt vor. Takes Dativ of person + Akkusativ of thing."},
+  {"base": "ablehnen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to reject", "to refuse", "to decline"], "conjugation": {"present_3sg": "lehnt ab", "past_participle": "abgelehnt"}, "examples": ["Der Antrag wurde abgelehnt.", "Er lehnte das Angebot ab.", "Sie lehnte es ab, das zu kommentieren.", "Den Vorschlag muss ich ablehnen."], "tip": "Separable: lehnt ab."},
+  {"base": "genehmigen", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to approve", "to authorize", "to permit"], "conjugation": {"present_3sg": "genehmigt", "past_participle": "genehmigt"}, "examples": ["Der Antrag wurde genehmigt.", "Das Projekt wurde von der Behörde genehmigt.", "Können Sie das genehmigen?", "Die Baugenehmigung wurde erteilt."], "tip": "Official/formal approval."},
+  {"base": "ausdrücken", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": true, "translations": ["to express", "to articulate"], "conjugation": {"present_3sg": "drückt aus", "past_participle": "ausgedrückt"}, "examples": ["Er drückte seine Meinung klar aus.", "Wie kann ich das ausdrücken?", "Sie drückte ihre Dankbarkeit aus.", "Manchmal ist es schwer, Gefühle auszudrücken."], "tip": "Separable: drückt aus. Reflexive possible: sich ausdrücken."},
+  {"base": "zunehmen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to increase", "to grow", "to gain weight"], "conjugation": {"present_3sg": "nimmt zu", "past_participle": "zugenommen"}, "examples": ["Die Nachfrage nimmt zu.", "Er hat in letzter Zeit zugenommen.", "Die Probleme nehmen zu.", "Der Verkehr nimmt täglich zu."], "tip": "Separable: nimmt zu. Context determines meaning."},
+  {"base": "abnehmen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to decrease", "to lose weight", "to take off"], "conjugation": {"present_3sg": "nimmt ab", "past_participle": "abgenommen"}, "examples": ["Die Zahl der Beschwerden nimmt ab.", "Sie hat fünf Kilo abgenommen.", "Die Temperatur nimmt ab.", "Niemand nimmt das Telefon ab."], "tip": "Separable: nimmt ab. Multiple meanings by context."},
+  {"base": "herausfinden", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to find out", "to discover", "to figure out"], "conjugation": {"present_3sg": "findet heraus", "past_participle": "herausgefunden"}, "examples": ["Ich habe herausgefunden, warum das passiert.", "Kannst du herausfinden, wer das war?", "Es wurde herausgefunden, dass sie recht hatte.", "Wie findest du das heraus?"], "tip": "Separable: findet heraus."},
+  {"base": "berücksichtigen", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to take into account", "to consider", "to factor in"], "conjugation": {"present_3sg": "berücksichtigt", "past_participle": "berücksichtigt"}, "examples": ["Bitte berücksichtigen Sie alle Faktoren.", "Dieser Aspekt wurde nicht berücksichtigt.", "Wir müssen die Kosten berücksichtigen.", "Die Bedürfnisse der Mitarbeiter wurden berücksichtigt."], "tip": "Often used in formal/professional contexts."},
+  {"base": "anpassen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": true, "translations": ["to adapt", "to adjust", "to tailor"], "conjugation": {"present_3sg": "passt an", "past_participle": "angepasst"}, "examples": ["Er hat seinen Stil angepasst.", "Du musst dich an die neue Situation anpassen.", "Die Pläne wurden angepasst.", "Das Programm lässt sich individuell anpassen."], "tip": "Separable: passt an. Reflexive: sich anpassen."},
+  {"base": "auffordern", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to call on", "to ask", "to invite", "to urge"], "conjugation": {"present_3sg": "fordert auf", "past_participle": "aufgefordert"}, "examples": ["Er wurde aufgefordert, das Gebäude zu verlassen.", "Ich fordere Sie auf, Stellung zu nehmen.", "Die Polizei forderte ihn auf anzuhalten.", "Sie wurde aufgefordert, eine Erklärung abzugeben."], "tip": "Separable: fordert auf. Formal request or demand."},
+  {"base": "widersprechen", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to contradict", "to oppose", "to object to"], "conjugation": {"present_3sg": "widerspricht", "past_participle": "widersprochen"}, "examples": ["Er widersprach mir direkt.", "Das widerspricht den Tatsachen.", "Ich muss Ihnen widersprechen.", "Das widerspricht seiner früheren Aussage."], "tip": "Takes Dativ: jemandem widersprechen."},
+  {"base": "auswirken", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": true, "translations": ["to affect", "to have an effect on", "to impact"], "conjugation": {"present_3sg": "wirkt aus", "past_participle": "ausgewirkt"}, "examples": ["Das wirkt sich auf die Qualität aus.", "Wie wirkt sich das aus?", "Die Entscheidung hat sich negativ ausgewirkt.", "Stress wirkt sich auf die Gesundheit aus."], "tip": "Always reflexive: sich auswirken auf + Akkusativ."},
+  {"base": "einschätzen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to assess", "to evaluate", "to judge", "to estimate"], "conjugation": {"present_3sg": "schätzt ein", "past_participle": "eingeschätzt"}, "examples": ["Ich schätze die Lage falsch ein.", "Wie schätzen Sie das ein?", "Das Risiko wurde unterschätzt.", "Er ist schwer einzuschätzen."], "tip": "Separable: schätzt ein."},
+  {"base": "voraussetzen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to presuppose", "to require", "to assume"], "conjugation": {"present_3sg": "setzt voraus", "past_participle": "vorausgesetzt"}, "examples": ["Das setzt bestimmte Kenntnisse voraus.", "Gute Deutschkenntnisse werden vorausgesetzt.", "Ich setze voraus, dass du das weißt.", "Das setzt gegenseitiges Vertrauen voraus."], "tip": "Separable: setzt voraus."},
+  {"base": "nachweisen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to prove", "to demonstrate", "to verify"], "conjugation": {"present_3sg": "weist nach", "past_participle": "nachgewiesen"}, "examples": ["Er konnte seine Unschuld nachweisen.", "Das wurde wissenschaftlich nachgewiesen.", "Schuld muss nachgewiesen werden.", "Können Sie das nachweisen?"], "tip": "Separable: weist nach."},
+  {"base": "umsetzen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to implement", "to put into practice", "to convert"], "conjugation": {"present_3sg": "setzt um", "past_participle": "umgesetzt"}, "examples": ["Die Pläne wurden umgesetzt.", "Wie setzt man das um?", "Die Strategie wurde erfolgreich umgesetzt.", "Ideen in die Tat umsetzen."], "tip": "Separable: setzt um."},
+  {"base": "beitragen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to contribute", "to help bring about"], "conjugation": {"present_3sg": "trägt bei", "past_participle": "beigetragen"}, "examples": ["Er trägt viel zum Erfolg bei.", "Was kann ich beitragen?", "Jeder kann zur Lösung beitragen.", "Das trägt zur Qualität bei."], "tip": "Separable: trägt bei. Takes zu + Dativ."},
+  {"base": "vereinbaren", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to agree on", "to arrange", "to settle"], "conjugation": {"present_3sg": "vereinbart", "past_participle": "vereinbart"}, "examples": ["Wir haben einen Termin vereinbart.", "Das wurde so vereinbart.", "Bitte vereinbaren Sie einen Termin.", "Die Bedingungen wurden vereinbart."], "tip": "Common in professional and planning contexts."},
+  {"base": "gewährleisten", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to ensure", "to guarantee", "to safeguard"], "conjugation": {"present_3sg": "gewährleistet", "past_participle": "gewährleistet"}, "examples": ["Die Sicherheit muss gewährleistet werden.", "Das kann ich nicht gewährleisten.", "Qualität wird gewährleistet.", "Der Vertrag gewährleistet bestimmte Rechte."], "tip": "Formal; often used in legal/official language."},
+  {"base": "beeinflussen", "level": "B2", "auxiliary": "haben", "separable": false, "reflexive": false, "translations": ["to influence", "to affect"], "conjugation": {"present_3sg": "beeinflusst", "past_participle": "beeinflusst"}, "examples": ["Das Wetter beeinflusst meine Stimmung.", "Werbung beeinflusst das Kaufverhalten.", "Wer hat ihn beeinflusst?", "Die Entscheidung wird von vielen Faktoren beeinflusst."], "tip": "Common in analytical and descriptive contexts."},
+  {"base": "zurückführen", "level": "B2", "auxiliary": "haben", "separable": true, "reflexive": false, "translations": ["to attribute to", "to trace back to"], "conjugation": {"present_3sg": "führt zurück", "past_participle": "zurückgeführt"}, "examples": ["Das lässt sich auf Stress zurückführen.", "Der Fehler wird auf einen Irrtum zurückgeführt.", "Worauf führen Sie das zurück?", "Die Ursache wurde auf einen Mangel zurückgeführt."], "tip": "Separable: führt zurück. Always with 'auf + Akkusativ'."},
+,
   {
-    "base": "behaupten",
-    "level": "B2", "reflexive": false, "separable": false, "separable_prefix": null,
-    "translations": ["to claim", "to assert", "to maintain"],
-    "tip": "'Behaupten' implies asserting something that may be disputed. 'Er behauptet, dass...' = He claims that...",
-    "present": { "ich": "behaupte", "du": "behauptest", "er_sie_es": "behauptet", "wir": "behaupten", "ihr": "behauptet", "sie_Sie": "behaupten" },
-    "imperative": { "du": "behaupte!", "ihr": "behauptet!", "Sie": "behaupten Sie!" },
-    "past_tenses": { "präteritum": "behauptete", "partizip_ii": "behauptet" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat behauptet" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "behaupten + dass-Satz", "prepositions": [], "explanation": "To claim that something is true.", "examples": ["Er behauptet, dass er unschuldig ist.", "Sie behauptete, alles zu wissen."], "derived": null },
-      { "label": "sich behaupten (gegen)", "prepositions": ["gegen"], "explanation": "To assert/maintain oneself (against competition).", "examples": ["Er kann sich gegen die Konkurrenz behaupten.", "Sie hat sich gut behauptet."], "derived": null }
-    ]
-  },
-  {
-    "base": "begründen",
-    "level": "B2", "reflexive": false, "separable": false, "separable_prefix": null,
-    "translations": ["to justify", "to substantiate", "to found"],
-    "tip": "'Begründen' = to give reasons for something. 'Kannst du das begründen?' = Can you justify/explain that?",
-    "present": { "ich": "begründe", "du": "begründest", "er_sie_es": "begründet", "wir": "begründen", "ihr": "begründet", "sie_Sie": "begründen" },
-    "imperative": { "du": "begründe!", "ihr": "begründet!", "Sie": "begründen Sie!" },
-    "past_tenses": { "präteritum": "begründete", "partizip_ii": "begründet" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat begründet" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "begründen + mit + Dativ", "prepositions": ["mit"], "explanation": "To justify with a reason.", "examples": ["Er begründet seine Entscheidung mit Zeitmangel.", "Sie begründete ihren Antrag gut."], "derived": null }
-    ]
-  },
-  {
-    "base": "überzeugen",
-    "level": "B2", "reflexive": true, "separable": false, "separable_prefix": null,
-    "translations": ["to convince", "to persuade"],
-    "tip": "'Jemanden überzeugen' = to convince someone. 'Sich überzeugen von' = to convince oneself of / to check.",
-    "present": { "ich": "überzeuge", "du": "überzeugst", "er_sie_es": "überzeugt", "wir": "überzeugen", "ihr": "überzeugt", "sie_Sie": "überzeugen" },
-    "imperative": { "du": "überzeug!", "ihr": "überzeugt!", "Sie": "überzeugen Sie!" },
-    "past_tenses": { "präteritum": "überzeugte", "partizip_ii": "überzeugt" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat überzeugt" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "überzeugen + Akkusativ + von + Dativ", "prepositions": ["von"], "explanation": "To convince someone of something.", "examples": ["Ich überzeuge ihn von der Idee.", "Sie konnte das Team überzeugen."], "derived": null },
-      { "label": "sich überzeugen + von + Dativ", "prepositions": ["von"], "explanation": "To verify / to make sure of.", "examples": ["Ich überzeuge mich selbst davon.", "Er hat sich von der Qualität überzeugt."], "derived": null }
+    "base": "durchsetzen",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "setze durch",
+        "du": "setzt durch",
+        "er": "setzt durch"
+      },
+      "perfect": "hat durchgesetzt",
+      "preterite": "setzte durch"
+    },
+    "auxiliary": "haben",
+    "is_separable": true,
+    "translations": [
+      "to enforce",
+      "to assert",
+      "to prevail"
     ],
-    "reflexive_uses": [{ "label": "sich überzeugen von", "prepositions": ["von"], "explanation": "To convince oneself of / verify.", "examples": ["Ich überzeuge mich von der Richtigkeit."] }]
-  },
-  {
-    "base": "vermeiden",
-    "level": "B2", "reflexive": false, "separable": false, "separable_prefix": null,
-    "translations": ["to avoid"],
-    "tip": "Strong verb. 'Etwas vermeiden' = to avoid something. Noun: die Vermeidung.",
-    "present": { "ich": "vermeide", "du": "vermeidest", "er_sie_es": "vermeidet", "wir": "vermeiden", "ihr": "vermeidet", "sie_Sie": "vermeiden" },
-    "imperative": { "du": "vermeide!", "ihr": "vermeidet!", "Sie": "vermeiden Sie!" },
-    "past_tenses": { "präteritum": "vermied", "partizip_ii": "vermieden" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat vermieden" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "vermeiden + Akkusativ", "prepositions": [], "explanation": "To avoid something.", "examples": ["Er vermeidet Stress.", "Sie versucht Konflikte zu vermeiden.", "Fehler vermeiden."], "derived": null }
-    ]
-  },
-  {
-    "base": "vorschlagen",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "vor",
-    "translations": ["to suggest", "to propose"],
-    "tip": "Separable. Stem vowel change: a→ä. 'Vorschlagen' takes a direct object or 'dass'-clause.",
-    "present": { "ich": "schlage vor", "du": "schlägst vor", "er_sie_es": "schlägt vor", "wir": "schlagen vor", "ihr": "schlagt vor", "sie_Sie": "schlagen vor" },
-    "imperative": { "du": "schlag vor!", "ihr": "schlagt vor!", "Sie": "schlagen Sie vor!" },
-    "past_tenses": { "präteritum": "schlug vor", "partizip_ii": "vorgeschlagen" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat vorgeschlagen" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "vorschlagen + Akkusativ / dass-Satz", "prepositions": [], "explanation": "To suggest something.", "examples": ["Ich schlage eine Pause vor.", "Er schlägt vor, dass wir gehen.", "Was schlägst du vor?"], "derived": null }
-    ]
-  },
-  {
-    "base": "ablehnen",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "ab",
-    "translations": ["to reject", "to refuse", "to decline"],
-    "tip": "Separable. 'Ein Angebot ablehnen' = to decline an offer. Noun: die Ablehnung (rejection).",
-    "present": { "ich": "lehne ab", "du": "lehnst ab", "er_sie_es": "lehnt ab", "wir": "lehnen ab", "ihr": "lehnt ab", "sie_Sie": "lehnen ab" },
-    "imperative": { "du": "lehn ab!", "ihr": "lehnt ab!", "Sie": "lehnen Sie ab!" },
-    "past_tenses": { "präteritum": "lehnte ab", "partizip_ii": "abgelehnt" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat abgelehnt" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "ablehnen + Akkusativ", "prepositions": [], "explanation": "To reject or decline something.", "examples": ["Er lehnte das Angebot ab.", "Die Bewerbung wurde abgelehnt.", "Ich lehne das ab."], "derived": null }
-    ]
-  },
-  {
-    "base": "genehmigen",
-    "level": "B2", "reflexive": false, "separable": false, "separable_prefix": null,
-    "translations": ["to approve", "to authorize", "to grant"],
-    "tip": "Formal/official use. 'Einen Antrag genehmigen' = to approve an application. Noun: die Genehmigung.",
-    "present": { "ich": "genehmige", "du": "genehmigst", "er_sie_es": "genehmigt", "wir": "genehmigen", "ihr": "genehmigt", "sie_Sie": "genehmigen" },
-    "imperative": { "du": "genehmige!", "ihr": "genehmigt!", "Sie": "genehmigen Sie!" },
-    "past_tenses": { "präteritum": "genehmigte", "partizip_ii": "genehmigt" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat genehmigt" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "genehmigen + Akkusativ", "prepositions": [], "explanation": "To approve or grant something.", "examples": ["Der Chef genehmigt den Urlaub.", "Der Antrag wurde genehmigt.", "Das Projekt ist genehmigt."], "derived": null }
-    ]
-  },
-  {
-    "base": "ausdrücken",
-    "level": "B2", "reflexive": true, "separable": true, "separable_prefix": "aus",
-    "translations": ["to express"],
-    "tip": "Separable. 'Sich ausdrücken' = to express oneself. 'Einen Gedanken ausdrücken' = to express a thought.",
-    "present": { "ich": "drücke aus", "du": "drückst aus", "er_sie_es": "drückt aus", "wir": "drücken aus", "ihr": "drückt aus", "sie_Sie": "drücken aus" },
-    "imperative": { "du": "drück aus!", "ihr": "drückt aus!", "Sie": "drücken Sie aus!" },
-    "past_tenses": { "präteritum": "drückte aus", "partizip_ii": "ausgedrückt" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat ausgedrückt" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "ausdrücken + Akkusativ", "prepositions": [], "explanation": "To express an idea, feeling.", "examples": ["Er drückt seine Gedanken klar aus.", "Ich kann das nicht richtig ausdrücken."], "derived": null },
-      { "label": "sich ausdrücken", "prepositions": [], "explanation": "To express oneself.", "examples": ["Sie drückt sich gut aus.", "Er kann sich auf Deutsch gut ausdrücken."], "derived": null }
+    "examples": [
+      "Er konnte seine Meinung durchsetzen.",
+      "Das Gesetz muss durchgesetzt werden.",
+      "Sie hat sich in der Diskussion durchgesetzt."
     ],
-    "reflexive_uses": [{ "label": "sich ausdrücken", "prepositions": [], "explanation": "To express oneself.", "examples": ["Sie drückt sich eloquent aus."] }]
+    "tip": "sich durchsetzen (reflexive) = to prevail / get one's way. Very common in professional and political contexts."
   },
   {
-    "base": "zurückgehen",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "zurück",
-    "translations": ["to go back", "to decline", "to decrease"],
-    "tip": "Separable. Uses 'sein'. Multiple meanings: to return (go back) or to decrease (numbers).",
-    "present": { "ich": "gehe zurück", "du": "gehst zurück", "er_sie_es": "geht zurück", "wir": "gehen zurück", "ihr": "geht zurück", "sie_Sie": "gehen zurück" },
-    "imperative": { "du": "geh zurück!", "ihr": "geht zurück!", "Sie": "gehen Sie zurück!" },
-    "past_tenses": { "präteritum": "ging zurück", "partizip_ii": "zurückgegangen" },
-    "auxiliaries": [{ "aux": "sein", "condition": "always", "perfekt": "ist zurückgegangen" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "zurückgehen (movement)", "prepositions": ["nach", "zu"], "explanation": "To go back to a place.", "examples": ["Ich gehe nach Hause zurück.", "Geh zurück!"], "derived": null },
-      { "label": "zurückgehen (decrease)", "prepositions": [], "explanation": "To decrease, decline (numbers/statistics).", "examples": ["Die Zahlen sind zurückgegangen.", "Die Nachfrage geht zurück."], "derived": null }
-    ]
-  },
-  {
-    "base": "zunehmen",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "zu",
-    "translations": ["to increase", "to gain weight"],
-    "tip": "Separable. Stem vowel change: e→i. Two main uses: to increase (in general) or to gain weight (colloquial).",
-    "present": { "ich": "nehme zu", "du": "nimmst zu", "er_sie_es": "nimmt zu", "wir": "nehmen zu", "ihr": "nehmt zu", "sie_Sie": "nehmen zu" },
-    "imperative": { "du": "nimm zu!", "ihr": "nehmt zu!", "Sie": "nehmen Sie zu!" },
-    "past_tenses": { "präteritum": "nahm zu", "partizip_ii": "zugenommen" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat zugenommen" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "zunehmen (increase)", "prepositions": [], "explanation": "To increase (numbers, problems, etc.).", "examples": ["Die Probleme nehmen zu.", "Der Verkehr hat zugenommen."], "derived": null },
-      { "label": "zunehmen (weight)", "prepositions": [], "explanation": "To gain weight.", "examples": ["Er hat 5 Kilo zugenommen.", "Im Winter nehme ich immer zu."], "derived": null }
-    ]
-  },
-  {
-    "base": "abnehmen",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "ab",
-    "translations": ["to decrease", "to lose weight", "to take off"],
-    "tip": "Separable. Opposite of zunehmen. Multiple meanings depending on context.",
-    "present": { "ich": "nehme ab", "du": "nimmst ab", "er_sie_es": "nimmt ab", "wir": "nehmen ab", "ihr": "nehmt ab", "sie_Sie": "nehmen ab" },
-    "imperative": { "du": "nimm ab!", "ihr": "nehmt ab!", "Sie": "nehmen Sie ab!" },
-    "past_tenses": { "präteritum": "nahm ab", "partizip_ii": "abgenommen" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat abgenommen" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "abnehmen (decrease)", "prepositions": [], "explanation": "To decrease, diminish.", "examples": ["Die Zahl der Arbeitsplätze nimmt ab.", "Die Schmerzen nehmen ab."], "derived": null },
-      { "label": "abnehmen (lose weight)", "prepositions": [], "explanation": "To lose weight.", "examples": ["Er will 5 Kilo abnehmen.", "Ich habe abgenommen."], "derived": null },
-      { "label": "abnehmen + Dativ + Akkusativ", "prepositions": [], "explanation": "To take something from someone.", "examples": ["Der Zöllner hat ihm den Pass abgenommen.", "Kann ich dir etwas abnehmen?"], "derived": null }
-    ]
-  },
-  {
-    "base": "herausfinden",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "heraus",
-    "translations": ["to find out", "to discover"],
-    "tip": "Separable. 'Ich finde heraus' (present). Used to discover information.",
-    "present": { "ich": "finde heraus", "du": "findest heraus", "er_sie_es": "findet heraus", "wir": "finden heraus", "ihr": "findet heraus", "sie_Sie": "finden heraus" },
-    "imperative": { "du": "find heraus!", "ihr": "findet heraus!", "Sie": "finden Sie heraus!" },
-    "past_tenses": { "präteritum": "fand heraus", "partizip_ii": "herausgefunden" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat herausgefunden" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "herausfinden + Akkusativ / ob / wie / was", "prepositions": [], "explanation": "To find out information.", "examples": ["Ich finde die Wahrheit heraus.", "Wir müssen herausfinden, was passiert ist.", "Hast du herausgefunden, wo er wohnt?"], "derived": null }
-    ]
-  },
-  {
-    "base": "berücksichtigen",
-    "level": "B2", "reflexive": false, "separable": false, "separable_prefix": null,
-    "translations": ["to take into account", "to consider"],
-    "tip": "Formal word common in business and academic writing. 'Alle Faktoren berücksichtigen' = to consider all factors.",
-    "present": { "ich": "berücksichtige", "du": "berücksichtigst", "er_sie_es": "berücksichtigt", "wir": "berücksichtigen", "ihr": "berücksichtigt", "sie_Sie": "berücksichtigen" },
-    "imperative": { "du": "berücksichtige!", "ihr": "berücksichtigt!", "Sie": "berücksichtigen Sie!" },
-    "past_tenses": { "präteritum": "berücksichtigte", "partizip_ii": "berücksichtigt" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat berücksichtigt" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "berücksichtigen + Akkusativ", "prepositions": [], "explanation": "To take something into account.", "examples": ["Wir müssen alle Faktoren berücksichtigen.", "Ihr Antrag wurde berücksichtigt.", "Das sollte man berücksichtigen."], "derived": null }
-    ]
-  },
-  {
-    "base": "anpassen",
-    "level": "B2", "reflexive": true, "separable": true, "separable_prefix": "an",
-    "translations": ["to adapt", "to adjust"],
-    "tip": "Separable. 'Sich anpassen an' = to adapt to. Important in business and intercultural contexts.",
-    "present": { "ich": "passe an", "du": "passt an", "er_sie_es": "passt an", "wir": "passen an", "ihr": "passt an", "sie_Sie": "passen an" },
-    "imperative": { "du": "pass an!", "ihr": "passt an!", "Sie": "passen Sie an!" },
-    "past_tenses": { "präteritum": "passte an", "partizip_ii": "angepasst" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat angepasst" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "anpassen + Akkusativ + an + Akkusativ", "prepositions": ["an"], "explanation": "To adjust something to something else.", "examples": ["Wir passen das Angebot an die Nachfrage an.", "Er hat den Plan angepasst."], "derived": null },
-      { "label": "sich anpassen + an + Akkusativ", "prepositions": ["an"], "explanation": "To adapt oneself to something.", "examples": ["Sie passt sich schnell an.", "Er hat sich gut an die neue Situation angepasst."], "derived": null }
+    "base": "gefaehrden",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "gefaehrde",
+        "du": "gefaehrdest",
+        "er": "gefaehrdet"
+      },
+      "perfect": "hat gefaehrdet",
+      "preterite": "gefaehrdete"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to endanger",
+      "to threaten",
+      "to jeopardise"
     ],
-    "reflexive_uses": [{ "label": "sich anpassen an", "prepositions": ["an"], "explanation": "To adapt to something.", "examples": ["Ich passe mich an die neue Kultur an."] }]
-  },
-  {
-    "base": "auffordern",
-    "level": "B2", "reflexive": false, "separable": true, "separable_prefix": "auf",
-    "translations": ["to call upon", "to request", "to urge"],
-    "tip": "Separable. Formal request or demand. 'Auffordern + zu + Infinitiv' = to call upon to do something.",
-    "present": { "ich": "fordere auf", "du": "forderst auf", "er_sie_es": "fordert auf", "wir": "fordern auf", "ihr": "fordert auf", "sie_Sie": "fordern auf" },
-    "imperative": { "du": "forder auf!", "ihr": "fordert auf!", "Sie": "fordern Sie auf!" },
-    "past_tenses": { "präteritum": "forderte auf", "partizip_ii": "aufgefordert" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat aufgefordert" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "auffordern + Akkusativ + zu + Infinitiv", "prepositions": ["zu"], "explanation": "To request/urge someone to do something.", "examples": ["Er fordert sie auf, Platz zu nehmen.", "Die Regierung fordert die Bürger auf, zu wählen.", "Ich fordere dich auf, das zu ändern."], "derived": null }
-    ]
-  },
-  {
-    "base": "widersprechen",
-    "level": "B2", "reflexive": false, "separable": false, "separable_prefix": null,
-    "translations": ["to contradict", "to object"],
-    "tip": "Takes Dativ! 'Ich widerspreche dir' = I contradict you. Strong verb.",
-    "common_mistakes": ["The person contradicted is in Dativ: 'Ich widerspreche ihm' (NOT 'ihn')."],
-    "present": { "ich": "widerspreche", "du": "widersprichst", "er_sie_es": "widerspricht", "wir": "widersprechen", "ihr": "widersprecht", "sie_Sie": "widersprechen" },
-    "imperative": { "du": "widersprich!", "ihr": "widersprecht!", "Sie": "widersprechen Sie!" },
-    "past_tenses": { "präteritum": "widersprach", "partizip_ii": "widersprochen" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat widersprochen" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "widersprechen + Dativ", "prepositions": [], "explanation": "To contradict or object to someone.", "examples": ["Er widerspricht dem Chef.", "Ich muss dir widersprechen.", "Diese Aussage widerspricht den Fakten."], "derived": null }
-    ]
-  },
-  {
-    "base": "auswirken",
-    "level": "B2", "reflexive": true, "separable": true, "separable_prefix": "aus",
-    "translations": ["to have an effect", "to impact"],
-    "tip": "Always reflexive: 'sich auswirken auf'. Used for describing effects and impacts.",
-    "present": { "ich": "wirke aus", "du": "wirkst aus", "er_sie_es": "wirkt aus", "wir": "wirken aus", "ihr": "wirkt aus", "sie_Sie": "wirken aus" },
-    "imperative": { "du": "—", "ihr": "—", "Sie": "—" },
-    "past_tenses": { "präteritum": "wirkte aus", "partizip_ii": "ausgewirkt" },
-    "auxiliaries": [{ "aux": "haben", "condition": "always", "perfekt": "hat ausgewirkt" }],
-    "dual_auxiliary": false,
-    "patterns": [
-      { "label": "sich auswirken + auf + Akkusativ", "prepositions": ["auf"], "explanation": "To have an effect on something.", "examples": ["Das Wetter wirkt sich auf die Stimmung aus.", "Die Entscheidung hat sich negativ ausgewirkt.", "Wie wirkt sich das auf dich aus?"], "derived": null }
+    "examples": [
+      "Das gefaehrdet die oeffentliche Sicherheit.",
+      "Rauchen gefaehrdet Ihre Gesundheit.",
+      "Der Sturm gefaehrdet die Ernte."
     ],
-    "reflexive_uses": [{ "label": "sich auswirken auf", "prepositions": ["auf"], "explanation": "To have an effect on.", "examples": ["Die Krise wirkt sich auf die Wirtschaft aus."] }]
+    "tip": "Derived from 'Gefahr' (danger). Common in news media, health, and environment discussions.",
+    "base_display": "gefährden"
+  },
+  {
+    "base": "entsprechen",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "entspreche",
+        "du": "entsprichst",
+        "er": "entspricht"
+      },
+      "perfect": "hat entsprochen",
+      "preterite": "entsprach"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to correspond to",
+      "to comply with",
+      "to meet requirements"
+    ],
+    "examples": [
+      "Das entspricht meinen Erwartungen.",
+      "Das Produkt entspricht nicht dem Standard.",
+      "Der Bericht entspricht den Fakten."
+    ],
+    "tip": "Takes DATIVE: etwas (dat) entsprechen. Key phrase: den Anforderungen entsprechen = meet requirements."
+  },
+  {
+    "base": "verleihen",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "verleihe",
+        "du": "verleihst",
+        "er": "verleiht"
+      },
+      "perfect": "hat verliehen",
+      "preterite": "verlieh"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to lend",
+      "to award",
+      "to confer"
+    ],
+    "examples": [
+      "Die Stadt verleiht ihm den Preis.",
+      "Das verleiht dem Wort eine andere Bedeutung.",
+      "Man hat ihr die Ehrenbuergerschaft verliehen."
+    ],
+    "tip": "Different from 'leihen' — verleihen is more formal and also means to award or confer an honour."
+  },
+  {
+    "base": "scheitern",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "scheitere",
+        "du": "scheiterst",
+        "er": "scheitert"
+      },
+      "perfect": "ist gescheitert",
+      "preterite": "scheiterte"
+    },
+    "auxiliary": "sein",
+    "is_separable": false,
+    "translations": [
+      "to fail",
+      "to founder"
+    ],
+    "examples": [
+      "Das Projekt ist gescheitert.",
+      "Viele Ehen scheitern an Kommunikationsproblemen.",
+      "Der Plan scheiterte an fehlendem Geld."
+    ],
+    "tip": "Uses SEIN as auxiliary. Often followed by 'an + dative' to give the reason for failure."
+  },
+  {
+    "base": "einbeziehen",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "beziehe ein",
+        "du": "beziehst ein",
+        "er": "bezieht ein"
+      },
+      "perfect": "hat einbezogen",
+      "preterite": "bezog ein"
+    },
+    "auxiliary": "haben",
+    "is_separable": true,
+    "translations": [
+      "to include",
+      "to involve",
+      "to factor in"
+    ],
+    "examples": [
+      "Wir muessen alle Faktoren einbeziehen.",
+      "Die Bevoelkerung sollte einbezogen werden.",
+      "Das wurde nicht einbezogen."
+    ],
+    "tip": "Separable: bezieht ein. More formal than 'einschliessen'. Key in professional and political language."
+  },
+  {
+    "base": "staerken",
+    "level": "B2",
+    "conjugation": {
+      "present": {
+        "ich": "staerke",
+        "du": "staerkst",
+        "er": "staerkt"
+      },
+      "perfect": "hat gestaerkt",
+      "preterite": "staerkte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to strengthen",
+      "to reinforce"
+    ],
+    "examples": [
+      "Das staerkt das Vertrauen.",
+      "Sport staerkt den Koerper.",
+      "Diese Massnahme soll die Wirtschaft staerken."
+    ],
+    "tip": "Derived from 'stark' (strong). Common in political, economic, and motivational contexts.",
+    "base_display": "stärken"
   }
 ];
+
 export default verbsB2;
