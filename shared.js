@@ -2,7 +2,7 @@
 (function () {
   const SAVED_KEY  = 'savedWordsV1';
   const SAVED_META = 'savedWordsMetaV1';
-  const SEARCH_IDX = 'searchIndexV2';
+  const SEARCH_IDX = 'searchIndexV3';
 
   function getSaved() { return new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || '[]')); }
   function setSaved(s) { localStorage.setItem(SAVED_KEY, JSON.stringify([...s])); }
@@ -18,6 +18,11 @@
   function registerPageItems(items) {
     _pageItems = items;
     const idx = getIdx();
+    // Clear stale items for this category before re-registering
+    if (items.length) {
+      const cat = items[0].category;
+      if (cat) Object.keys(idx).forEach(k => { if ((idx[k].category||'')=== cat) delete idx[k]; });
+    }
     items.forEach(it => { idx[it.id] = it; });
     setIdx(idx);
   }
@@ -269,23 +274,4 @@
   window.SharedApp = { openModal, closeModal, getSaved, setSaved, getMeta, setMeta, setSaveBtnState, wireSaveButtons, initSavedModal, initSearchModal, registerPageItems, registerSearchItems, openLevelSheet, handleJumpHash };
   window.wireSaveButtons = wireSaveButtons;
 
-  // Ensure drawer is always treated as top-most overlay
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.querySelector('.menu-btn');
-    const closeBtn = document.querySelector('.drawer-close');
-    const backdrop = document.querySelector('.drawer-backdrop');
-    const drawer = document.querySelector('.drawer');
-
-    const setOpen = (isOpen) => {
-      document.body.classList.toggle('drawer-open', !!isOpen);
-    };
-
-    menuBtn?.addEventListener('click', () => setOpen(true));
-    closeBtn?.addEventListener('click', () => setOpen(false));
-    backdrop?.addEventListener('click', () => setOpen(false));
-
-    // Safety: if drawer is hidden by other code, keep class in sync
-    const obs = drawer ? new MutationObserver(() => setOpen(!drawer.hidden)) : null;
-    obs?.observe(drawer, { attributes:true, attributeFilter:['hidden'] });
-  });
 })();

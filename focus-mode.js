@@ -1,7 +1,7 @@
 // focus-mode.js - Focus mode UI + learned/unlearned lists API
 // This module is imported by verbs (app.js), nouns.js, adjectives.js, adverbs.js.
 
-export function initFocusMode({
+window.initFocusMode = function initFocusMode({
   rootId = "study-root",
   items = [],
   level = "a1",

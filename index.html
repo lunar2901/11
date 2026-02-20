@@ -723,7 +723,7 @@ function doSearch() {
   // Search word pages from localStorage index (populated by word pages via SharedApp)
   var wordHits = [];
   try {
-    var idx2 = JSON.parse(localStorage.getItem('searchIndexV1') || '{}');
+    var idx2 = JSON.parse(localStorage.getItem('searchIndexV3') || '{}');
     wordHits = Object.values(idx2).filter(function(it) {
       return (it.label||'').toLowerCase().indexOf(q) >= 0 ||
              (it.translation||'').toLowerCase().indexOf(q) >= 0;

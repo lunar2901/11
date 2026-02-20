@@ -1,11 +1,6 @@
 // adverbs.js - Focus mode with level dropdowns + save
-import adverbsA1 from './js/adverbs-db-a1.js'; import adverbsA2 from './js/adverbs-db-a2.js'; import adverbsB1 from './js/adverbs-db-b1.js'; import adverbsB2 from './js/adverbs-db-b2.js'; import adverbsC1 from './js/adverbs-db-c1.js';
-import verbsA1 from './js/verbs-db-a1.js'; import verbsA2 from './js/verbs-db-a2.js'; import verbsB1 from './js/verbs-db-b1.js'; import verbsB2 from './js/verbs-db-b2.js'; import verbsC1 from './js/verbs-db-c1.js';
-import nounsA1 from './js/nouns-db-a1.js'; import nounsA2 from './js/nouns-db-a2.js'; import nounsB1 from './js/nouns-db-b1.js'; import nounsB2 from './js/nouns-db-b2.js'; import nounsC1 from './js/nouns-db-c1.js';
-import adjectivesA1 from './js/adjectives-db-a1.js'; import adjectivesA2 from './js/adjectives-db-a2.js'; import adjectivesB1 from './js/adjectives-db-b1.js'; import adjectivesB2 from './js/adjectives-db-b2.js'; import adjectivesC1 from './js/adjectives-db-c1.js';
-import { initFocusMode } from './focus-mode.js';
 
-const DB = { a1: adverbsA1, a2: adverbsA2, b1: adverbsB1, b2: adverbsB2, c1: adverbsC1 };
+const DB = { a1: window.adverbsA1, a2: window.adverbsA2, b1: window.adverbsB1, b2: window.adverbsB2, c1: window.adverbsC1 };
 const levelBtns = document.querySelectorAll('.level-btn');
 let currentLevel = 'a1'; let focusApi = null;
 const { getSaved, setSaved, setSaveBtnState, initSearchModal, registerPageItems, registerSearchItems } = window.SharedApp;
@@ -17,9 +12,9 @@ function buildPageItems(level) {
 }
 function buildAllPageItems() { return Object.keys(DB).flatMap(l=>buildPageItems(l)); }
 function buildCrossPageItems() {
-  const vDB={a1:verbsA1,a2:verbsA2,b1:verbsB1,b2:verbsB2,c1:verbsC1};
-  const nDB={a1:nounsA1,a2:nounsA2,b1:nounsB1,b2:nounsB2,c1:nounsC1};
-  const aDB={a1:adjectivesA1,a2:adjectivesA2,b1:adjectivesB1,b2:adjectivesB2,c1:adjectivesC1};
+  const vDB={a1:window.verbsA1,a2:window.verbsA2,b1:window.verbsB1,b2:window.verbsB2,c1:window.verbsC1};
+  const nDB={a1:window.nounsA1,a2:window.nounsA2,b1:window.nounsB1,b2:window.nounsB2,c1:window.nounsC1};
+  const aDB={a1:window.adjectivesA1,a2:window.adjectivesA2,b1:window.adjectivesB1,b2:window.adjectivesB2,c1:window.adjectivesC1};
   return [
     ...Object.keys(vDB).flatMap(l=>(vDB[l]||[]).map((v,i)=>({id:`verbs:${l}:${v.base||''}`,label:v.base||'—',translation:((v.translations||[])[0])||'',index:i,level:l,category:'Verbs',url:'verbs.html'}))),
     ...Object.keys(nDB).flatMap(l=>(nDB[l]||[]).map((n,i)=>({id:`nouns:${l}:${n.base||''}`,label:n.base||'—',translation:(n.translations||[])[0]||'',index:i,level:l,category:'Nouns',url:'nouns.html'}))),
@@ -60,7 +55,7 @@ function renderCurrent() {
   const countEl=document.getElementById('adverb-count');
   if(countEl) countEl.textContent=`${list.length} ${list.length===1?'adverb':'adverbs'}`;
   if(!list.length){root.innerHTML='<div class="no-results"><p>No adverbs in this level yet.</p></div>';return;}
-  focusApi=initFocusMode({rootId:'study-root',items:list,level:currentLevel,storageKey:'adverbs',
+  focusApi=window.initFocusMode({rootId:'study-root',items:list,level:currentLevel,storageKey:'adverbs',
     getId:(a)=>`adverbs:${currentLevel}:${getLabel(a)}`, getLabel:(a)=>getLabel(a), renderCard:(a)=>createCard(a)});
   wireDrawerReview(focusApi);
   if(focusApi) focusApi.onChange=()=>wireDrawerReview(focusApi);
@@ -106,14 +101,17 @@ function createCard(adv) {
   let derivedHtml = '';
   if (derivedFrom) {
     const dLevel = (derivedFrom.level||'a1').toLowerCase();
-    const dBase  = derivedFrom.base||'';
+    const dBase  = (derivedFrom.base||'');
     const dArr   = (DB[dLevel]||[]);
     const dIdx   = dArr.findIndex(x=>(x.base||x.word||x.noun||'')===dBase);
-    const dUrl   = dIdx>=0 ? 'adverbs.html#jump:'+dLevel+':'+dIdx : 'adverbs.html';
-    derivedHtml  = `
+    const dHref  = dIdx>=0 ? 'adverbs.html#jump:'+dLevel+':'+dIdx : 'adverbs.html';
+    derivedHtml = `
     <div class="verb-info" style="background:rgba(80,120,255,.07);border-radius:10px;padding:6px 10px;margin-top:8px">
       <span class="label">Base word:</span>
-      <a href="${dUrl}" class="value" style="color:#3a60d4;text-decoration:none;font-weight:600" title="Go to ${esc(dBase)}">${esc(dBase)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span>  →</a>
+      <a href="${dHref}" class="value" style="color:#3a60d4;text-decoration:none;font-weight:600">
+        ${esc(dBase)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span>
+        ${derivedFrom.type ? `<span style="opacity:.4;font-size:11px;"> · ${esc(derivedFrom.type)}</span>` : ''} →
+      </a>
     </div>`;
   }
 

@@ -1,28 +1,7 @@
 // app.js - Verb focus mode with level dropdowns + save
-import { initFocusMode } from './focus-mode.js';
-import verbsA1 from './js/verbs-db-a1.js';
-import verbsA2 from './js/verbs-db-a2.js';
-import verbsB1 from './js/verbs-db-b1.js';
-import verbsB2 from './js/verbs-db-b2.js';
-import verbsC1 from './js/verbs-db-c1.js';
 // Cross-page DB imports so global search works from this page without needing to visit others first
-import nounsA1 from './js/nouns-db-a1.js';
-import nounsA2 from './js/nouns-db-a2.js';
-import nounsB1 from './js/nouns-db-b1.js';
-import nounsB2 from './js/nouns-db-b2.js';
-import nounsC1 from './js/nouns-db-c1.js';
-import adjectivesA1 from './js/adjectives-db-a1.js';
-import adjectivesA2 from './js/adjectives-db-a2.js';
-import adjectivesB1 from './js/adjectives-db-b1.js';
-import adjectivesB2 from './js/adjectives-db-b2.js';
-import adjectivesC1 from './js/adjectives-db-c1.js';
-import adverbsA1 from './js/adverbs-db-a1.js';
-import adverbsA2 from './js/adverbs-db-a2.js';
-import adverbsB1 from './js/adverbs-db-b1.js';
-import adverbsB2 from './js/adverbs-db-b2.js';
-import adverbsC1 from './js/adverbs-db-c1.js';
 
-const verbsDB = { a1: verbsA1, a2: verbsA2, b1: verbsB1, b2: verbsB2, c1: verbsC1 };
+const verbsDB = { a1: window.verbsA1, a2: window.verbsA2, b1: window.verbsB1, b2: window.verbsB2, c1: window.verbsC1 };
 const levelBtns = document.querySelectorAll('.level-btn');
 
 let currentLevel = 'a1';
@@ -166,9 +145,9 @@ function buildAllPageItems() {
 
 // Cross-page item builders so search finds all words without visiting other pages
 function buildCrossPageItems() {
-  const nounDB = { a1: nounsA1, a2: nounsA2, b1: nounsB1, b2: nounsB2, c1: nounsC1 };
-  const adjDB  = { a1: adjectivesA1, a2: adjectivesA2, b1: adjectivesB1, b2: adjectivesB2, c1: adjectivesC1 };
-  const advDB  = { a1: adverbsA1, a2: adverbsA2, b1: adverbsB1, b2: adverbsB2, c1: adverbsC1 };
+  const nounDB = { a1: window.nounsA1, a2: window.nounsA2, b1: window.nounsB1, b2: window.nounsB2, c1: window.nounsC1 };
+  const adjDB  = { a1: window.adjectivesA1, a2: window.adjectivesA2, b1: window.adjectivesB1, b2: window.adjectivesB2, c1: window.adjectivesC1 };
+  const advDB  = { a1: window.adverbsA1, a2: window.adverbsA2, b1: window.adverbsB1, b2: window.adverbsB2, c1: window.adverbsC1 };
 
   const nouns = Object.keys(nounDB).flatMap(l => (nounDB[l]||[]).map((n,i) => ({
     id: `nouns:${l}:${n.base||n.word}`, label: n.base||n.word||'—', translation: (n.translations||[])[0]||'',
@@ -256,7 +235,7 @@ function renderCurrent() {
     return;
   }
 
-  focusApi = initFocusMode({
+  focusApi = window.initFocusMode({
     rootId,
     items: list,
     level: currentLevel,
@@ -476,16 +455,25 @@ function createVerbCard(v, idx) {
   let derivedHtml = '';
   if (derivedFrom) {
     const dLevel = (derivedFrom.level||'a1').toLowerCase();
-    const dBase  = derivedFrom.base||'';
-    const dArr   = (verbsDB[dLevel]||[]);
+    const dBase  = (derivedFrom.base||'');
+    const dArr   = (window.verbsDB || verbsDB || {})[dLevel] || [];
     const dIdx   = dArr.findIndex(x=>(x.base||x.word||'')===dBase);
-    const dUrl   = dIdx>=0 ? 'verbs.html#jump:'+dLevel+':'+dIdx : 'verbs.html';
-    derivedHtml  = `
+    const dHref  = dIdx>=0 ? 'verbs.html#jump:'+dLevel+':'+dIdx : 'verbs.html';
+    derivedHtml = `
     <div class="verb-info" style="margin-top:10px;background:rgba(80,120,255,.07);border-radius:10px;padding:6px 10px">
       <span class="label">Base word:</span>
-      <a href="${dUrl}" class="value" style="color:#3a60d4;text-decoration:none;font-weight:600">${escapeHtml(dBase)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span> <span style="opacity:.4;font-size:11px;">(${escapeHtml(derivedFrom.type||'')} →)</span></a>
+      <a href="${dHref}" class="value" style="color:#3a60d4;text-decoration:none;font-weight:600">
+        ${escapeHtml(dBase)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span>
+        ${derivedFrom.type ? `<span style="opacity:.4;font-size:11px;"> · ${escapeHtml(derivedFrom.type)}</span>` : ''} →
+      </a>
     </div>`;
   }
+
+  // Old pattern variants
+  const oldVarHtml = oldVariants.length ? `
+    <div class="section-title" style="margin-top:12px">Usage patterns</div>
+    ${oldVariants.map(vr=>{
+      if (typeof vr === 'string') return `<details class="variety"><summary>${escapeHtml(vr)}<span style="opacity:.4">▾</span></summary></details>`;
       const title = vr.label || vr.variant || vr.name || 'Usage';
       const preps = (vr.prepositions||[]).map(p=>`<span class="prep-badge">${escapeHtml(p)}</span>`).join(' ');
       const exs = (vr.examples||[]).map(e=>`<li>${escapeHtml(e)}</li>`).join('');
