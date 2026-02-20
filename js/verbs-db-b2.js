@@ -207,6 +207,88 @@ const verbsB2 = [
     ],
     "tip": "Derived from 'stark' (strong). Common in political, economic, and motivational contexts.",
     "base_display": "stärken"
+  },
+{
+    "base": "auseinandersetzen",
+    "level": "B2",
+    "separable": true,
+    "separable_prefix": "auseinander",
+    "reflexive": true,
+    "translations": ["to deal with", "to engage with", "to confront"],
+    "tip": "sich auseinandersetzen mit + Dativ = to engage with/confront a topic or person.",
+    "present": {"ich": "setze auseinander", "du": "setzt auseinander", "er_sie_es": "setzt auseinander", "wir": "setzen auseinander", "ihr": "setzt auseinander", "sie_Sie": "setzen auseinander"},
+    "past_tenses": {"präteritum": "setzte auseinander", "partizip_ii": "auseinandergesetzt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat sich auseinandergesetzt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "sich auseinandersetzen mit + Dativ", "prepositions": ["mit"], "explanation": "Deal with or engage seriously with a topic.", "examples": ["Ich setze mich mit dem Problem auseinander.", "Er hat sich damit auseinandergesetzt.", "Wir müssen uns mit dem Thema auseinandersetzen."]}]
+  },
+  {
+    "base": "einschränken",
+    "level": "B2",
+    "separable": true,
+    "separable_prefix": "ein",
+    "translations": ["to restrict", "to limit", "to reduce"],
+    "tip": "sich einschränken = to cut back (on spending, habits). Used in economic and health contexts.",
+    "reflexive": true,
+    "present": {"ich": "schränke ein", "du": "schränkst ein", "er_sie_es": "schränkt ein", "wir": "schränken ein", "ihr": "schränkt ein", "sie_Sie": "schränken ein"},
+    "past_tenses": {"präteritum": "schränkte ein", "partizip_ii": "eingeschränkt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat eingeschränkt"}],
+    "dual_auxiliary": false,
+    "patterns": [
+      {"label": "einschränken + Akkusativ", "prepositions": [], "explanation": "Limit/restrict something.", "examples": ["Das Gesetz schränkt die Freiheit ein.", "Die Maßnahmen schränken den Handel ein."]},
+      {"label": "sich einschränken", "prepositions": [], "explanation": "Limit oneself / cut back.", "examples": ["Ich muss mich einschränken.", "Sie hat sich sehr eingeschränkt."]}
+    ]
+  },
+  {
+    "base": "überwinden",
+    "level": "B2",
+    "translations": ["to overcome", "to conquer"],
+    "tip": "Sich überwinden = to force oneself (to do something difficult). Strong irregular verb.",
+    "reflexive": true,
+    "present": {"ich": "überwinde", "du": "überwindest", "er_sie_es": "überwindet", "wir": "überwinden", "ihr": "überwindet", "sie_Sie": "überwinden"},
+    "past_tenses": {"präteritum": "überwand", "partizip_ii": "überwunden"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat überwunden"}],
+    "dual_auxiliary": false,
+    "patterns": [
+      {"label": "überwinden + Akkusativ", "prepositions": [], "explanation": "Overcome an obstacle/feeling.", "examples": ["Er überwindet seine Angst.", "Wir müssen diese Krise überwinden."]},
+      {"label": "sich überwinden + zu-Inf.", "prepositions": [], "explanation": "Force oneself to do something.", "examples": ["Ich habe mich überwunden, anzurufen.", "Sie überwand sich und entschuldigte sich."]}
+    ]
+  },
+  {
+    "base": "berücksichtigen",
+    "level": "B2",
+    "translations": ["to take into account", "to consider", "to bear in mind"],
+    "tip": "Formal and widely used in written German. Often appears in official/bureaucratic contexts.",
+    "present": {"ich": "berücksichtige", "du": "berücksichtigst", "er_sie_es": "berücksichtigt", "wir": "berücksichtigen", "ihr": "berücksichtigt", "sie_Sie": "berücksichtigen"},
+    "past_tenses": {"präteritum": "berücksichtigte", "partizip_ii": "berücksichtigt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat berücksichtigt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "berücksichtigen + Akkusativ", "prepositions": [], "explanation": "Take something into account.", "examples": ["Bitte berücksichtigen Sie meine Anfrage.", "Das wurde nicht berücksichtigt.", "Alle Aspekte wurden berücksichtigt."]}]
+  },
+  {
+    "base": "widersprechen",
+    "level": "B2",
+    "translations": ["to contradict", "to object", "to oppose"],
+    "tip": "Takes Dative! widersprechen + Dativ. Strong verb.",
+    "common_mistakes": ["Takes Dative: 'Ich widerspreche ihm' not 'Ich widerspreche ihn'."],
+    "present": {"ich": "widerspreche", "du": "widersprichst", "er_sie_es": "widerspricht", "wir": "widersprechen", "ihr": "widersprecht", "sie_Sie": "widersprechen"},
+    "past_tenses": {"präteritum": "widersprach", "partizip_ii": "widersprochen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat widersprochen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "widersprechen + Dativ", "prepositions": [], "explanation": "Contradict or oppose someone/something (Dative).", "examples": ["Ich widerspreche dir.", "Das widerspricht dem Gesetz.", "Sie hat ihm klar widersprochen."]}]
+  },
+  {
+    "base": "aufrechterhalten",
+    "level": "B2",
+    "separable": true,
+    "separable_prefix": "aufrecht",
+    "translations": ["to maintain", "to uphold", "to preserve"],
+    "tip": "Long compound separable verb. Used for maintaining contact, standards, order.",
+    "present": {"ich": "erhalte aufrecht", "du": "erhältst aufrecht", "er_sie_es": "erhält aufrecht", "wir": "erhalten aufrecht", "ihr": "erhaltet aufrecht", "sie_Sie": "erhalten aufrecht"},
+    "past_tenses": {"präteritum": "erhielt aufrecht", "partizip_ii": "aufrechterhalten"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat aufrechterhalten"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "aufrechterhalten + Akkusativ", "prepositions": [], "explanation": "Maintain or uphold something.", "examples": ["Den Kontakt aufrechterhalten.", "Die Ordnung wurde aufrechterhalten.", "Er erhielt die Hoffnung aufrecht."]}]
   }
 ];
 

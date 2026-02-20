@@ -549,6 +549,199 @@ const verbsA2 = [
       "Ich glaube, es wird regnen."
     ],
     "tip": "Two patterns: jemandem glauben (dat) = believe a person. an etwas glauben = believe in something."
+  },
+{
+    "base": "aufräumen",
+    "level": "A2",
+    "separable": true,
+    "separable_prefix": "auf",
+    "translations": ["to tidy up", "to clean up"],
+    "tip": "Separable: ich räume auf. Commonly used for tidying a room or clearing a mess.",
+    "present": {"ich": "räume auf", "du": "räumst auf", "er_sie_es": "räumt auf", "wir": "räumen auf", "ihr": "räumt auf", "sie_Sie": "räumen auf"},
+    "past_tenses": {"präteritum": "räumte auf", "partizip_ii": "aufgeräumt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat aufgeräumt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "aufräumen + (Akkusativ)", "prepositions": [], "explanation": "Tidy/clean up a place.", "examples": ["Ich räume mein Zimmer auf.", "Räum bitte auf!", "Wir haben aufgeräumt."]}]
+  },
+  {
+    "base": "einkaufen",
+    "level": "A2",
+    "separable": true,
+    "separable_prefix": "ein",
+    "translations": ["to shop", "to go shopping"],
+    "tip": "Separable: ich kaufe ein. einkaufen gehen = to go shopping.",
+    "present": {"ich": "kaufe ein", "du": "kaufst ein", "er_sie_es": "kauft ein", "wir": "kaufen ein", "ihr": "kauft ein", "sie_Sie": "kaufen ein"},
+    "past_tenses": {"präteritum": "kaufte ein", "partizip_ii": "eingekauft"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat eingekauft"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "einkaufen + (place/items)", "prepositions": [], "explanation": "Buy groceries or shop.", "examples": ["Ich kaufe im Supermarkt ein.", "Wir sind einkaufen gegangen.", "Was soll ich einkaufen?"]}]
+  },
+  {
+    "base": "kochen",
+    "level": "A2",
+    "translations": ["to cook", "to boil"],
+    "tip": "Very versatile: Ich koche Nudeln = I'm boiling pasta. Ich koche Abendessen = I'm cooking dinner.",
+    "present": {"ich": "koche", "du": "kochst", "er_sie_es": "kocht", "wir": "kochen", "ihr": "kocht", "sie_Sie": "kochen"},
+    "past_tenses": {"präteritum": "kochte", "partizip_ii": "gekocht"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gekocht"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "kochen + Akkusativ", "prepositions": [], "explanation": "Cook a meal or boil food.", "examples": ["Ich koche Suppe.", "Was kochst du heute?", "Das Wasser kocht."]}]
+  },
+  {
+    "base": "spülen",
+    "level": "A2",
+    "translations": ["to rinse", "to wash (dishes)"],
+    "tip": "Geschirr spülen = to wash the dishes. Also used in the dishwasher context: die Spülmaschine.",
+    "present": {"ich": "spüle", "du": "spülst", "er_sie_es": "spült", "wir": "spülen", "ihr": "spült", "sie_Sie": "spülen"},
+    "past_tenses": {"präteritum": "spülte", "partizip_ii": "gespült"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gespült"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "Geschirr spülen", "prepositions": [], "explanation": "Wash the dishes.", "examples": ["Ich spüle das Geschirr.", "Hast du gespült?", "Die Maschine spült."]}]
+  },
+  {
+    "base": "putzen",
+    "level": "A2",
+    "translations": ["to clean", "to brush"],
+    "tip": "Zähne putzen = to brush teeth. Fenster putzen = to clean windows. Sehr vielseitig.",
+    "present": {"ich": "putze", "du": "putzt", "er_sie_es": "putzt", "wir": "putzen", "ihr": "putzt", "sie_Sie": "putzen"},
+    "past_tenses": {"präteritum": "putzte", "partizip_ii": "geputzt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat geputzt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "putzen + Akkusativ", "prepositions": [], "explanation": "Clean or brush something.", "examples": ["Ich putze meine Zähne.", "Wir putzen die Wohnung.", "Er putzt das Auto."]}]
+  },
+  {
+    "base": "waschen",
+    "level": "A2",
+    "translations": ["to wash"],
+    "tip": "Strong verb, irregular present: du wäschst, er wäscht. sich waschen = to wash oneself.",
+    "reflexive": true,
+    "present": {"ich": "wasche", "du": "wäschst", "er_sie_es": "wäscht", "wir": "waschen", "ihr": "wascht", "sie_Sie": "waschen"},
+    "past_tenses": {"präteritum": "wusch", "partizip_ii": "gewaschen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gewaschen"}],
+    "dual_auxiliary": false,
+    "patterns": [
+      {"label": "waschen + Akkusativ", "prepositions": [], "explanation": "Wash something or someone.", "examples": ["Ich wasche das Auto.", "Sie wäscht die Wäsche.", "Wasch die Hände!"]},
+      {"label": "sich waschen", "prepositions": [], "explanation": "Wash oneself.", "examples": ["Ich wasche mich.", "Er hat sich gewaschen."]}
+    ]
+  },
+  {
+    "base": "bestellen",
+    "level": "A2",
+    "translations": ["to order", "to book"],
+    "tip": "Used in restaurants (food), online shopping, and booking services.",
+    "present": {"ich": "bestelle", "du": "bestellst", "er_sie_es": "bestellt", "wir": "bestellen", "ihr": "bestellt", "sie_Sie": "bestellen"},
+    "past_tenses": {"präteritum": "bestellte", "partizip_ii": "bestellt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat bestellt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "bestellen + Akkusativ", "prepositions": [], "explanation": "Order something (food, products).", "examples": ["Ich bestelle eine Pizza.", "Hast du schon bestellt?", "Ich habe online bestellt."]}]
+  },
+  {
+    "base": "reservieren",
+    "level": "A2",
+    "translations": ["to reserve", "to book"],
+    "tip": "Common in restaurants, hotels, cinemas. Einen Tisch reservieren = to book a table.",
+    "present": {"ich": "reserviere", "du": "reservierst", "er_sie_es": "reserviert", "wir": "reservieren", "ihr": "reserviert", "sie_Sie": "reservieren"},
+    "past_tenses": {"präteritum": "reservierte", "partizip_ii": "reserviert"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat reserviert"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "reservieren + Akkusativ", "prepositions": [], "explanation": "Book/reserve in advance.", "examples": ["Ich reserviere einen Tisch.", "Haben Sie reserviert?", "Ein Zimmer reservieren."]}]
+  },
+  {
+    "base": "packen",
+    "level": "A2",
+    "translations": ["to pack", "to grab", "to manage"],
+    "tip": "den Koffer packen = to pack a suitcase. Das packe ich! = I can handle it! / I'll manage!",
+    "present": {"ich": "packe", "du": "packst", "er_sie_es": "packt", "wir": "packen", "ihr": "packt", "sie_Sie": "packen"},
+    "past_tenses": {"präteritum": "packte", "partizip_ii": "gepackt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gepackt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "packen + Akkusativ", "prepositions": [], "explanation": "Pack something, or grab/seize.", "examples": ["Ich packe den Koffer.", "Pack das ein!", "Er packte ihr am Arm."]}]
+  },
+  {
+    "base": "umziehen",
+    "level": "A2",
+    "separable": true,
+    "separable_prefix": "um",
+    "translations": ["to move (house)", "to change clothes"],
+    "tip": "Separable verb with two meanings: umziehen = to relocate OR to change clothes (sich umziehen).",
+    "reflexive": true,
+    "present": {"ich": "ziehe um", "du": "ziehst um", "er_sie_es": "zieht um", "wir": "ziehen um", "ihr": "zieht um", "sie_Sie": "ziehen um"},
+    "past_tenses": {"präteritum": "zog um", "partizip_ii": "umgezogen"},
+    "auxiliaries": [{"aux": "sein", "condition": "moving house"}, {"aux": "haben", "condition": "changing clothes (sich umziehen)"}],
+    "dual_auxiliary": true,
+    "patterns": [
+      {"label": "umziehen (relocate)", "prepositions": ["nach", "in"], "explanation": "Move to a new place.", "examples": ["Ich ziehe nach Berlin um.", "Sie sind umgezogen."]},
+      {"label": "sich umziehen (change clothes)", "prepositions": [], "explanation": "Change one's clothes.", "examples": ["Ich ziehe mich um.", "Er hat sich umgezogen."]}
+    ]
+  },
+  {
+    "base": "erklären",
+    "level": "A2",
+    "translations": ["to explain", "to declare"],
+    "tip": "jemandem etwas erklären = to explain something to someone. Very common in academic and daily contexts.",
+    "present": {"ich": "erkläre", "du": "erklärst", "er_sie_es": "erklärt", "wir": "erklären", "ihr": "erklärt", "sie_Sie": "erklären"},
+    "past_tenses": {"präteritum": "erklärte", "partizip_ii": "erklärt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat erklärt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "erklären + Dativ + Akkusativ", "prepositions": [], "explanation": "Explain something to someone.", "examples": ["Er erklärt mir die Regel.", "Kannst du das erklären?", "Sie hat alles erklärt."]}]
+  },
+  {
+    "base": "einladen",
+    "level": "A2",
+    "separable": true,
+    "separable_prefix": "ein",
+    "translations": ["to invite"],
+    "tip": "Separable strong verb: ich lade ein, du lädst ein. jemanden einladen = to invite someone.",
+    "present": {"ich": "lade ein", "du": "lädst ein", "er_sie_es": "lädt ein", "wir": "laden ein", "ihr": "ladet ein", "sie_Sie": "laden ein"},
+    "past_tenses": {"präteritum": "lud ein", "partizip_ii": "eingeladen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat eingeladen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "einladen + Akkusativ + (zu)", "prepositions": ["zu"], "explanation": "Invite someone to something.", "examples": ["Ich lade dich ein.", "Er lädt uns zur Party ein.", "Sie hat alle eingeladen."]}]
+  },
+  {
+    "base": "vorstellen",
+    "level": "A2",
+    "separable": true,
+    "separable_prefix": "vor",
+    "reflexive": true,
+    "translations": ["to introduce", "to imagine"],
+    "tip": "jemanden vorstellen = to introduce someone. sich vorstellen = to introduce oneself OR to imagine.",
+    "present": {"ich": "stelle vor", "du": "stellst vor", "er_sie_es": "stellt vor", "wir": "stellen vor", "ihr": "stellt vor", "sie_Sie": "stellen vor"},
+    "past_tenses": {"präteritum": "stellte vor", "partizip_ii": "vorgestellt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat vorgestellt"}],
+    "dual_auxiliary": false,
+    "patterns": [
+      {"label": "sich vorstellen (introduce)", "prepositions": [], "explanation": "Introduce oneself.", "examples": ["Ich stelle mich vor.", "Darf ich mich vorstellen?"]},
+      {"label": "sich (Dat.) etwas vorstellen (imagine)", "prepositions": [], "explanation": "Imagine something.", "examples": ["Ich kann mir das gut vorstellen.", "Stell dir vor!"]}
+    ]
+  },
+  {
+    "base": "gefallen",
+    "level": "A2",
+    "translations": ["to please", "to like (be pleasing to)"],
+    "tip": "Reversed structure! 'Das gefällt mir' = 'I like that' (lit. 'That pleases me'). Subject is the thing liked.",
+    "common_mistakes": ["'Das gefällt mir' NOT 'Ich gefalle das'. The thing liked is the subject; the person is Dative."],
+    "present": {"ich": "gefalle", "du": "gefällst", "er_sie_es": "gefällt", "wir": "gefallen", "ihr": "gefallt", "sie_Sie": "gefallen"},
+    "past_tenses": {"präteritum": "gefiel", "partizip_ii": "gefallen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gefallen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "Etwas gefällt + Dativ", "prepositions": [], "explanation": "Something is pleasing to someone (i.e. someone likes something).", "examples": ["Das gefällt mir sehr.", "Gefällt dir der Film?", "Das hat mir gut gefallen."]}]
+  },
+  {
+    "base": "fehlen",
+    "level": "A2",
+    "translations": ["to be missing", "to be absent", "to lack", "to miss (be missed)"],
+    "tip": "Reversed structure like gefallen! 'Du fehlst mir' = 'I miss you' (lit. 'You are missing to me').",
+    "common_mistakes": ["'Du fehlst mir' (I miss you) NOT 'Ich vermisse dich fehlt'. Both constructions exist but differ in nuance."],
+    "present": {"ich": "fehle", "du": "fehlst", "er_sie_es": "fehlt", "wir": "fehlen", "ihr": "fehlt", "sie_Sie": "fehlen"},
+    "past_tenses": {"präteritum": "fehlte", "partizip_ii": "gefehlt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gefehlt"}],
+    "dual_auxiliary": false,
+    "patterns": [
+      {"label": "Etwas fehlt + Dativ", "prepositions": [], "explanation": "Something is missing to someone.", "examples": ["Mir fehlt das Geld.", "Was fehlt dir?", "Es fehlt an Zeit."]},
+      {"label": "Person fehlt + Dativ (to miss)", "prepositions": [], "explanation": "Someone is missed by someone.", "examples": ["Du fehlst mir.", "Er fehlt uns sehr."]}
+    ]
   }
 ];
+
 window.verbsA2 = verbsA2;

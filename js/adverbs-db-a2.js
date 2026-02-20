@@ -201,6 +201,17 @@ const adverbsA2 = [
     "examples": ["Ich trinke lieber Tee als Kaffee.", "Er geht lieber zu Fuß.", "Ich würde lieber zu Hause bleiben."],
     "position_rules": ["Usually in the middle field after the verb."],
     "example_positions": ["Ich fahre lieber mit dem Zug.", "Er bleibt lieber zu Hause."]
-  }
+  },
+{"base":"eigentlich","level":"A2","category":"modal","translations":["actually","really","in fact"],"examples":["Eigentlich wollte ich schlafen.","Was meinst du eigentlich?","Ich bin eigentlich nicht müde."],"position_rules":["Position 1 or Mittelfeld; often softens a statement"],"tip":"eigentlich can soften statements or signal a contrasting truth."},
+  {"base":"bestimmt","level":"A2","category":"modal","translations":["certainly","definitely","surely"],"examples":["Das ist bestimmt richtig.","Er kommt bestimmt.","Das weißt du bestimmt."],"position_rules":["Mittelfeld or position 1"]},
+  {"base":"trotzdem","level":"A2","category":"concessive","translations":["nevertheless","still","anyway"],"examples":["Es regnet, trotzdem gehe ich raus.","Ich war müde, trotzdem habe ich gelernt.","Trotzdem danke!"],"position_rules":["Position 1 or Mittelfeld; inverts verb-subject when at position 1"]},
+  {"base":"außerdem","level":"A2","category":"additive","translations":["besides","furthermore","in addition"],"examples":["Außerdem habe ich Hunger.","Er ist klug. Außerdem ist er fleißig.","Das ist zu teuer. Außerdem gefällt es mir nicht."],"position_rules":["Position 1, causing subject-verb inversion"]},
+  {"base":"deshalb","level":"A2","category":"causal","translations":["therefore","that's why","so"],"examples":["Es regnet, deshalb bleibe ich zu Hause.","Er war krank, deshalb kam er nicht.","Deshalb habe ich nichts gesagt."],"position_rules":["Position 1, causing inversion; or Mittelfeld"]},
+  {"base":"deswegen","level":"A2","category":"causal","translations":["therefore","because of that"],"examples":["Er hat gelogen, deswegen vertraue ich ihm nicht.","Deswegen bin ich hier.","Ich habe verschlafen, deswegen war ich zu spät."],"position_rules":["Position 1 or Mittelfeld; interchangeable with deshalb"]},
+  {"base":"übrigens","level":"A2","category":"modal","translations":["by the way","incidentally"],"examples":["Übrigens, hast du Peter gesehen?","Das weiß ich übrigens schon.","Übrigens ist das meine Lieblingsfarbe."],"position_rules":["Often at position 1 or before the relevant info"]},
+  {"base":"inzwischen","level":"A2","category":"temporal","translations":["meanwhile","by now","in the meantime"],"examples":["Er ist inzwischen angekommen.","Das ist inzwischen bekannt.","Inzwischen hat sich alles geändert."],"position_rules":["Position 1 or Mittelfeld"]},
+  {"base":"seitdem","level":"A2","category":"temporal","translations":["since then","ever since"],"examples":["Seitdem habe ich ihn nicht gesehen.","Er ist seitdem verändert.","Das Gespräch war wichtig – seitdem sind wir Freunde."],"position_rules":["Position 1 or Mittelfeld"]},
+  {"base":"zunächst","level":"A2","category":"ordering","translations":["first","initially","to begin with"],"examples":["Zunächst möchte ich mich vorstellen.","Zunächst war ich überrascht.","Zunächst müssen wir das klären."],"position_rules":["Position 1 or Mittelfeld"]}
 ];
+
 window.adverbsA2 = adverbsA2;

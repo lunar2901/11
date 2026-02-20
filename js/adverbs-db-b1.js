@@ -536,6 +536,17 @@ const adverbsB1 = [
       "Er kommt wahrscheinlich nicht.",
       "Das klappt wahrscheinlich nicht."
     ]
-  }
+  },
+{"base":"allerdings","level":"B1","category":"concessive","translations":["however","admittedly","though"],"examples":["Das Konzept ist gut, allerdings fehlt das Geld.","Ich komme, allerdings etwas später.","Allerdings muss man das bedenken."],"position_rules":["Position 1 (inverts) or Mittelfeld; concessive connector"],"tip":"allerdings is stronger than aber — it signals a more notable contrast."},
+  {"base":"hingegen","level":"B1","category":"contrastive","translations":["on the other hand","whereas","in contrast"],"examples":["Er ist fleißig, sie hingegen ist faul.","Das Wetter hier ist schlecht, in Italien hingegen herrlich.","Hingegen muss man fairerweise sagen..."],"position_rules":["Often in Mittelfeld or after subject, creating contrast"]},
+  {"base":"demnach","level":"B1","category":"causal","translations":["therefore","accordingly","consequently"],"examples":["Die Regel gilt für alle, demnach auch für dich.","Er hat gelogen, demnach ist er unglaubwürdig.","Demnach ist alles in Ordnung."],"position_rules":["Position 1 (inverts) or Mittelfeld"]},
+  {"base":"keineswegs","level":"B1","category":"negation","translations":["by no means","not at all","in no way"],"examples":["Das ist keineswegs sicher.","Ich bin keineswegs dagegen.","Keineswegs wollte ich dich beleidigen."],"position_rules":["Mittelfeld or position 1 for emphasis"],"tip":"Stronger negation than 'nicht wirklich' — very emphatic."},
+  {"base":"zudem","level":"B1","category":"additive","translations":["in addition","furthermore","moreover"],"examples":["Er ist talentiert und zudem sehr fleißig.","Das Essen war teuer, zudem war es nicht lecker.","Zudem kommt noch der Transport dazu."],"position_rules":["Position 1 (inverts) or Mittelfeld"]},
+  {"base":"wiederum","level":"B1","category":"contrastive","translations":["in turn","on the other hand","again"],"examples":["Das führt wiederum zu Problemen.","Er hat recht, ich wiederum sehe das anders.","Das wiederum ist interessant."],"position_rules":["Mittelfeld or after subject for contrast/continuation"]},
+  {"base":"mitunter","level":"B1","category":"frequency","translations":["sometimes","occasionally","at times"],"examples":["Das kann mitunter problematisch sein.","Er ist mitunter schwierig.","Mitunter braucht man Geduld."],"position_rules":["Position 1 or Mittelfeld; slightly formal synonym for manchmal"]},
+  {"base":"überwiegend","level":"B1","category":"degree","translations":["predominantly","mainly","mostly"],"examples":["Das Feedback war überwiegend positiv.","Überwiegend wurde zugestimmt.","Die Bevölkerung ist überwiegend jung."],"position_rules":["Mittelfeld or before adjective/participle"]},
+  {"base":"nahezu","level":"B1","category":"degree","translations":["almost","nearly","virtually"],"examples":["Das ist nahezu unmöglich.","Nahezu alle waren einverstanden.","Die Arbeit ist nahezu fertig."],"position_rules":["Before adjective or adverb; intensifier"]},
+  {"base":"insbesondere","level":"B1","category":"focusing","translations":["in particular","especially","notably"],"examples":["Insbesondere Kinder sind betroffen.","Das gilt insbesondere für dich.","Ich danke insbesondere meinem Team."],"position_rules":["Position 1 or before the element it focuses on"]}
 ];
+
 window.adverbsB1 = adverbsB1;

@@ -261,6 +261,22 @@ const adjectivesA1 = [
     "translations": ["easy", "simple", "just"],
     "tip": "Also used as intensifier/filler: 'Das ist einfach schön!' = That's just beautiful! Also: single (ticket).",
     "examples": ["Die Übung ist einfach.", "Einmal Hamburg, einfach, bitte.", "Das ist einfach wunderbar!"]
-  }
+  },
+{"base":"müde","level":"A1","translations":["tired"],"examples":["Ich bin sehr müde.","Du siehst müde aus.","Warum bist du so müde?"],"comparison":{"positive":"müde","comparative":"müder","superlative_predicative":"am müdesten"}},
+  {"base":"krank","level":"A1","translations":["ill","sick"],"examples":["Ich bin krank.","Sie ist krank zu Hause.","Der kranke Mann liegt im Bett."],"comparison":{"positive":"krank","comparative":"kränker","superlative_predicative":"am kränksten"},"tip":"'Ich bin krank' = I am sick. The comparative kränker is irregular."},
+  {"base":"gesund","level":"A1","translations":["healthy","well"],"examples":["Ich bin gesund.","Obst ist gesund.","Bleib gesund!"],"comparison":{"positive":"gesund","comparative":"gesünder","superlative_predicative":"am gesündesten"}},
+  {"base":"hungrig","level":"A1","translations":["hungry"],"examples":["Ich bin sehr hungrig.","Bist du hungrig?","Die Kinder sind hungrig."],"comparison":{"positive":"hungrig","comparative":"hungriger","superlative_predicative":"am hungrigsten"}},
+  {"base":"durstig","level":"A1","translations":["thirsty"],"examples":["Ich bin durstig.","Bist du durstig?","Nach dem Sport bin ich immer durstig."],"comparison":{"positive":"durstig","comparative":"durstiger","superlative_predicative":"am durstigsten"}},
+  {"base":"warm","level":"A1","translations":["warm","hot"],"examples":["Es ist heute warm.","Das Wasser ist warm.","Ich mag warmes Wetter."],"comparison":{"positive":"warm","comparative":"wärmer","superlative_predicative":"am wärmsten"}},
+  {"base":"kalt","level":"A1","translations":["cold"],"examples":["Es ist kalt heute.","Das Essen ist kalt.","Im Winter ist es sehr kalt."],"comparison":{"positive":"kalt","comparative":"kälter","superlative_predicative":"am kältesten"}},
+  {"base":"heiß","level":"A1","translations":["hot"],"examples":["Der Tee ist heiß.","Es ist heute sehr heiß.","Pass auf – das ist heiß!"],"comparison":{"positive":"heiß","comparative":"heißer","superlative_predicative":"am heißesten"}},
+  {"base":"richtig","level":"A1","translations":["correct","right","proper"],"examples":["Das ist richtig.","Ist das richtig?","Du machst das richtig."],"comparison":{"positive":"richtig","comparative":"richtiger","superlative_predicative":"am richtigsten"}},
+  {"base":"falsch","level":"A1","translations":["wrong","false","incorrect"],"examples":["Das ist falsch.","Die Antwort ist falsch.","Du liegst falsch."],"comparison":{"positive":"falsch","comparative":"falscher","superlative_predicative":"am falschesten"}},
+  {"base":"leicht","level":"A1","translations":["easy","light"],"examples":["Das ist leicht.","Der Koffer ist leicht.","Die Aufgabe ist leicht."],"comparison":{"positive":"leicht","comparative":"leichter","superlative_predicative":"am leichtesten"},"tip":"leicht = both 'easy' and 'light (weight)'. Context determines meaning."},
+  {"base":"schwer","level":"A1","translations":["heavy","difficult"],"examples":["Das ist schwer.","Der Koffer ist schwer.","Die Prüfung war schwer."],"comparison":{"positive":"schwer","comparative":"schwerer","superlative_predicative":"am schwersten"},"tip":"schwer = both 'heavy' and 'difficult'. Like leicht, context determines meaning."},
+  {"base":"langsam","level":"A1","translations":["slow","slowly"],"examples":["Das Auto fährt langsam.","Sprich bitte langsamer!","Er ist sehr langsam."],"comparison":{"positive":"langsam","comparative":"langsamer","superlative_predicative":"am langsamsten"}},
+  {"base":"schnell","level":"A1","translations":["fast","quickly"],"examples":["Das Auto ist schnell.","Geh schnell!","Er läuft sehr schnell."],"comparison":{"positive":"schnell","comparative":"schneller","superlative_predicative":"am schnellsten"}},
+  {"base":"laut","level":"A1","translations":["loud","noisy"],"examples":["Die Musik ist zu laut.","Sei nicht so laut!","Er spricht laut."],"comparison":{"positive":"laut","comparative":"lauter","superlative_predicative":"am lautesten"}}
 ];
+
 window.adjectivesA1 = adjectivesA1;

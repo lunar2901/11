@@ -229,6 +229,79 @@ const verbsC1 = [
     ],
     "tip": "Two meanings: 1) justify/give reasons (very common in formal writing), 2) found/establish an organisation.",
     "base_display": "begründen"
+  },
+{
+    "base": "inbetrachtziehen",
+    "level": "C1",
+    "separable": false,
+    "translations": ["to consider", "to take into consideration"],
+    "tip": "Often written as 'in Betracht ziehen' (two words). Formal and used in written/academic German.",
+    "present": {"ich": "ziehe in Betracht", "du": "ziehst in Betracht", "er_sie_es": "zieht in Betracht", "wir": "ziehen in Betracht", "ihr": "zieht in Betracht", "sie_Sie": "ziehen in Betracht"},
+    "past_tenses": {"präteritum": "zog in Betracht", "partizip_ii": "in Betracht gezogen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat in Betracht gezogen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "in Betracht ziehen + Akkusativ", "prepositions": [], "explanation": "Take something into consideration.", "examples": ["Wir ziehen alle Optionen in Betracht.", "Das muss in Betracht gezogen werden.", "Haben Sie das in Betracht gezogen?"]}]
+  },
+  {
+    "base": "gewährleisten",
+    "level": "C1",
+    "translations": ["to ensure", "to guarantee", "to safeguard"],
+    "tip": "Formal verb, common in legal, political, and official contexts. Stronger than sicherstellen.",
+    "present": {"ich": "gewährleiste", "du": "gewährleistest", "er_sie_es": "gewährleistet", "wir": "gewährleisten", "ihr": "gewährleistet", "sie_Sie": "gewährleisten"},
+    "past_tenses": {"präteritum": "gewährleistete", "partizip_ii": "gewährleistet"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gewährleistet"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "gewährleisten + Akkusativ", "prepositions": [], "explanation": "Guarantee or ensure something.", "examples": ["Das Gesetz gewährleistet die Grundrechte.", "Die Sicherheit muss gewährleistet werden.", "Das kann ich nicht gewährleisten."]}]
+  },
+  {
+    "base": "herbeiführen",
+    "level": "C1",
+    "separable": true,
+    "separable_prefix": "herbei",
+    "translations": ["to bring about", "to cause", "to produce"],
+    "tip": "Formal. Refers to causing or producing a change, outcome, or situation.",
+    "present": {"ich": "führe herbei", "du": "führst herbei", "er_sie_es": "führt herbei", "wir": "führen herbei", "ihr": "führt herbei", "sie_Sie": "führen herbei"},
+    "past_tenses": {"präteritum": "führte herbei", "partizip_ii": "herbeigeführt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat herbeigeführt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "herbeiführen + Akkusativ", "prepositions": [], "explanation": "Bring about or cause a result.", "examples": ["Die Reform hat Veränderungen herbeigeführt.", "Er hat den Wandel herbeigeführt.", "Das kann eine Einigung herbeiführen."]}]
+  },
+  {
+    "base": "veranschaulichen",
+    "level": "C1",
+    "translations": ["to illustrate", "to demonstrate", "to make clear"],
+    "tip": "Academic and formal. Used to clarify abstract ideas with examples or visuals.",
+    "present": {"ich": "veranschauliche", "du": "veranschaulichst", "er_sie_es": "veranschaulicht", "wir": "veranschaulichen", "ihr": "veranschaulicht", "sie_Sie": "veranschaulichen"},
+    "past_tenses": {"präteritum": "veranschaulichte", "partizip_ii": "veranschaulicht"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat veranschaulicht"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "veranschaulichen + Akkusativ", "prepositions": [], "explanation": "Illustrate or make something concrete.", "examples": ["Das Beispiel veranschaulicht den Punkt.", "Er veranschaulicht das Prinzip mit Grafiken.", "Diese Statistik veranschaulicht das Problem."]}]
+  },
+  {
+    "base": "abwägen",
+    "level": "C1",
+    "separable": true,
+    "separable_prefix": "ab",
+    "translations": ["to weigh up", "to consider carefully", "to balance"],
+    "tip": "Used for carefully weighing pros and cons. Vor- und Nachteile abwägen = to weigh up advantages and disadvantages.",
+    "present": {"ich": "wäge ab", "du": "wägst ab", "er_sie_es": "wägt ab", "wir": "wägen ab", "ihr": "wägt ab", "sie_Sie": "wägen ab"},
+    "past_tenses": {"präteritum": "wog ab", "partizip_ii": "abgewogen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat abgewogen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "abwägen + Akkusativ (gegen)", "prepositions": ["gegen"], "explanation": "Carefully weigh up options.", "examples": ["Ich wäge die Optionen ab.", "Er hat die Vor- und Nachteile abgewogen.", "Man muss Risiken und Chancen abwägen."]}]
+  },
+  {
+    "base": "einwenden",
+    "level": "C1",
+    "separable": true,
+    "separable_prefix": "ein",
+    "translations": ["to object", "to raise an objection"],
+    "tip": "Formal. Often in legal, academic, or debate contexts. Etwas einwenden gegen = to object to something.",
+    "present": {"ich": "wende ein", "du": "wendest ein", "er_sie_es": "wendet ein", "wir": "wenden ein", "ihr": "wendet ein", "sie_Sie": "wenden ein"},
+    "past_tenses": {"präteritum": "wandte ein", "partizip_ii": "eingewandt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat eingewandt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "einwenden + dass / gegen + Akkusativ", "prepositions": ["gegen"], "explanation": "Raise an objection.", "examples": ["Er wendet ein, dass das zu teuer ist.", "Ich habe nichts einzuwenden.", "Sie wandte ein, dass das falsch sei."]}]
   }
 ];
 

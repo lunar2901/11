@@ -385,6 +385,17 @@ const adjectivesA2 = [
       "Hast du genug Geld?"
     ],
     "tip": "Indeclinable — does not change form. Always placed AFTER the adjective: alt genug (old enough)."
-  }
+  },
+{"base":"pünktlich","level":"A2","translations":["punctual","on time"],"examples":["Er ist immer pünktlich.","Bitte komm pünktlich.","Der Zug ist pünktlich."],"comparison":{"positive":"pünktlich","comparative":"pünktlicher","superlative_predicative":"am pünktlichsten"},"tip":"Germans value Pünktlichkeit highly. Being late is considered disrespectful."},
+  {"base":"höflich","level":"A2","translations":["polite","courteous"],"examples":["Sei bitte höflich.","Er ist immer höflich.","Das war nicht sehr höflich."],"comparison":{"positive":"höflich","comparative":"höflicher","superlative_predicative":"am höflichsten"}},
+  {"base":"unhöflich","level":"A2","translations":["rude","impolite"],"examples":["Das war unhöflich.","Er ist manchmal unhöflich.","Unterbrich mich nicht – das ist unhöflich."],"comparison":{"positive":"unhöflich","comparative":"unhöflicher","superlative_predicative":"am unhöflichsten"}},
+  {"base":"günstig","level":"A2","translations":["cheap","affordable","favourable"],"examples":["Das ist günstig.","Ein günstiges Angebot.","Der Preis ist sehr günstig."],"comparison":{"positive":"günstig","comparative":"günstiger","superlative_predicative":"am günstigsten"},"tip":"günstig ≠ billig. Günstig = good value; billig = cheap/low quality."},
+  {"base":"teuer","level":"A2","translations":["expensive"],"examples":["Das ist zu teuer.","Das Kleid ist sehr teuer.","Ist das wirklich so teuer?"],"comparison":{"positive":"teuer","comparative":"teurer","superlative_predicative":"am teuersten"}},
+  {"base":"billig","level":"A2","translations":["cheap","inexpensive","low-quality"],"examples":["Das ist sehr billig.","Die Qualität ist billig.","Ein billiges Hotel."],"comparison":{"positive":"billig","comparative":"billiger","superlative_predicative":"am billigsten"},"tip":"billig carries a slightly negative connotation (cheap-feeling). Use günstig for 'good value'."},
+  {"base":"frisch","level":"A2","translations":["fresh"],"examples":["Das Brot ist frisch.","Die Luft ist frisch.","Frische Tomaten bitte."],"comparison":{"positive":"frisch","comparative":"frischer","superlative_predicative":"am frischesten"}},
+  {"base":"leer","level":"A2","translations":["empty"],"examples":["Das Glas ist leer.","Der Kühlschrank ist leer.","Die Straße ist leer."],"comparison":{"positive":"leer","comparative":"leerer","superlative_predicative":"am leersten"}},
+  {"base":"voll","level":"A2","translations":["full"],"examples":["Das Glas ist voll.","Der Zug ist voll.","Ich bin voll – ich habe genug gegessen."],"comparison":{"positive":"voll","comparative":"voller","superlative_predicative":"am vollsten"}},
+  {"base":"bequem","level":"A2","translations":["comfortable","convenient"],"examples":["Das Sofa ist bequem.","Bequeme Schuhe sind wichtig.","Das ist sehr bequem."],"comparison":{"positive":"bequem","comparative":"bequemer","superlative_predicative":"am bequemsten"}}
 ];
+
 window.adjectivesA2 = adjectivesA2;

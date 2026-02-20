@@ -204,6 +204,17 @@ const adverbsA1 = [
     "examples": ["Natürlich komme ich!", "Er kann natürlich Deutsch.", "Das ist natürlich richtig."],
     "position_rules": ["Often in position 1 or middle field."],
     "example_positions": ["Natürlich helfe ich dir.", "Das ist natürlich möglich."]
-  }
+  },
+{"base":"auch","level":"A1","category":"general","translations":["also","too","as well"],"examples":["Ich komme auch.","Das mag ich auch.","Auch du hast Recht."],"position_rules":["Mittelfeld, after the verb"],"tip":"auch vs. noch: auch = also; noch = still/yet."},
+  {"base":"noch","level":"A1","category":"temporal","translations":["still","yet","more"],"examples":["Ich lerne noch Deutsch.","Hast du noch Hunger?","Er schläft noch."],"position_rules":["Mittelfeld, after finite verb"],"tip":"noch = still (ongoing); nicht mehr = no longer."},
+  {"base":"schon","level":"A1","category":"temporal","translations":["already","ever"],"examples":["Ich habe schon gegessen.","Bist du schon fertig?","Das habe ich schon gemacht."],"position_rules":["Mittelfeld, usually before main content"]},
+  {"base":"immer","level":"A1","category":"frequency","translations":["always","all the time"],"examples":["Er ist immer pünktlich.","Das mache ich immer so.","Immer wenn ich komme, regnet es."],"position_rules":["Mittelfeld or position 1"]},
+  {"base":"nie","level":"A1","category":"frequency","translations":["never"],"examples":["Ich trinke nie Alkohol.","Das mache ich nie.","Er kommt nie zu spät."],"position_rules":["Mittelfeld, after verb"],"tip":"nie = never. Negative adverb, needs no 'nicht'."},
+  {"base":"manchmal","level":"A1","category":"frequency","translations":["sometimes"],"examples":["Manchmal gehe ich ins Kino.","Ich bin manchmal müde.","Sie ruft manchmal an."],"position_rules":["Position 1 or Mittelfeld"]},
+  {"base":"oft","level":"A1","category":"frequency","translations":["often","frequently"],"examples":["Ich gehe oft ins Kino.","Er kommt oft zu spät.","Wie oft gehst du ins Fitnessstudio?"],"position_rules":["Mittelfeld or position 1"]},
+  {"base":"selten","level":"A1","category":"frequency","translations":["rarely","seldom"],"examples":["Ich esse selten Fleisch.","Er kommt selten zu Besuch.","Das passiert selten."],"position_rules":["Mittelfeld or position 1"]},
+  {"base":"bitte","level":"A1","category":"social","translations":["please","you're welcome"],"examples":["Bitte gib mir das Buch.","Ein Wasser, bitte.","Bitte sehr!"],"tip":"bitte = please (request) and also = you're welcome (response to Danke)."},
+  {"base":"gern","level":"A1","category":"manner","translations":["gladly","willingly","with pleasure","like to"],"examples":["Ich trinke gern Kaffee.","Er hilft gern.","Gern! (= With pleasure!)"],"tip":"Ich + verb + gern = I like to do something. Gerne is an equally common form."}
 ];
+
 window.adverbsA1 = adverbsA1;

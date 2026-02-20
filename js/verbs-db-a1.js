@@ -807,6 +807,183 @@ const verbsA1 = [
     "patterns": [
       { "label": "warten + auf + Akkusativ", "prepositions": ["auf"], "explanation": "To wait for someone/something.", "examples": ["Ich warte auf den Bus.", "Warte auf mich!", "Er hat lang auf sie gewartet."], "derived": null }
     ]
+  },
+{
+    "base": "schlafen",
+    "level": "A1",
+    "translations": ["to sleep"],
+    "tip": "Strong verb. Irregular in present: ich schlafe, du schläfst, er schläft.",
+    "common_mistakes": ["Don't confuse einschlafen (to fall asleep) with schlafen (to sleep)"],
+    "present": {"ich": "schlafe", "du": "schläfst", "er_sie_es": "schläft", "wir": "schlafen", "ihr": "schlaft", "sie_Sie": "schlafen"},
+    "past_tenses": {"präteritum": "schlief", "partizip_ii": "geschlafen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat geschlafen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "schlafen + (duration/place)", "prepositions": [], "explanation": "Describes sleeping with time or location.", "examples": ["Ich schlafe acht Stunden.", "Sie schläft im Bett."]}]
+  },
+  {
+    "base": "aufwachen",
+    "level": "A1",
+    "separable": true,
+    "separable_prefix": "auf",
+    "translations": ["to wake up"],
+    "tip": "Separable verb: Ich wache auf. Motion toward a new state → uses sein in Perfekt.",
+    "present": {"ich": "wache auf", "du": "wachst auf", "er_sie_es": "wacht auf", "wir": "wachen auf", "ihr": "wacht auf", "sie_Sie": "wachen auf"},
+    "past_tenses": {"präteritum": "wachte auf", "partizip_ii": "aufgewacht"},
+    "auxiliaries": [{"aux": "sein", "condition": "always", "perfekt": "ist aufgewacht"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "aufwachen + time", "prepositions": [], "explanation": "Waking at a specific time.", "examples": ["Ich wache um 7 Uhr auf.", "Er ist früh aufgewacht."]}]
+  },
+  {
+    "base": "brauchen",
+    "level": "A1",
+    "translations": ["to need", "to require"],
+    "tip": "Very common. 'Ich brauche' = I need. Don't confuse with möchten (to want/would like).",
+    "common_mistakes": ["'Ich brauche ein Buch' (accusative), not 'Ich brauche einem Buch'"],
+    "present": {"ich": "brauche", "du": "brauchst", "er_sie_es": "braucht", "wir": "brauchen", "ihr": "braucht", "sie_Sie": "brauchen"},
+    "past_tenses": {"präteritum": "brauchte", "partizip_ii": "gebraucht"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gebraucht"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "brauchen + Akkusativ", "prepositions": [], "explanation": "Need something (accusative).", "examples": ["Ich brauche Hilfe.", "Sie braucht mehr Zeit.", "Wir brauchen ein Taxi."]}]
+  },
+  {
+    "base": "öffnen",
+    "level": "A1",
+    "translations": ["to open"],
+    "tip": "Regular verb. Transitive: öffnen (to open something). Intransitive: sich öffnen (to open/open up).",
+    "present": {"ich": "öffne", "du": "öffnest", "er_sie_es": "öffnet", "wir": "öffnen", "ihr": "öffnet", "sie_Sie": "öffnen"},
+    "past_tenses": {"präteritum": "öffnete", "partizip_ii": "geöffnet"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat geöffnet"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "öffnen + Akkusativ", "prepositions": [], "explanation": "Open something.", "examples": ["Ich öffne die Tür.", "Sie öffnet das Fenster.", "Der Laden öffnet um 9 Uhr."]}]
+  },
+  {
+    "base": "schließen",
+    "level": "A1",
+    "translations": ["to close", "to shut", "to conclude"],
+    "tip": "Strong irregular verb. Partizip II: geschlossen (note double s→ssen).",
+    "present": {"ich": "schließe", "du": "schließt", "er_sie_es": "schließt", "wir": "schließen", "ihr": "schließt", "sie_Sie": "schließen"},
+    "past_tenses": {"präteritum": "schloss", "partizip_ii": "geschlossen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat geschlossen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "schließen + Akkusativ", "prepositions": [], "explanation": "Close something.", "examples": ["Ich schließe die Tür.", "Das Geschäft schließt um 20 Uhr.", "Schließen Sie bitte das Fenster."]}]
+  },
+  {
+    "base": "bezahlen",
+    "level": "A1",
+    "translations": ["to pay", "to pay for"],
+    "tip": "Can be used with or without an object. Die Rechnung bezahlen = to pay the bill. Also: zahlen (slightly more informal).",
+    "present": {"ich": "bezahle", "du": "bezahlst", "er_sie_es": "bezahlt", "wir": "bezahlen", "ihr": "bezahlt", "sie_Sie": "bezahlen"},
+    "past_tenses": {"präteritum": "bezahlte", "partizip_ii": "bezahlt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat bezahlt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "bezahlen + Akkusativ", "prepositions": [], "explanation": "Pay for something.", "examples": ["Ich bezahle die Rechnung.", "Hast du bezahlt?", "Das habe ich schon bezahlt."]}]
+  },
+  {
+    "base": "warten",
+    "level": "A1",
+    "translations": ["to wait"],
+    "tip": "warten auf + Akkusativ = to wait for someone/something.",
+    "common_mistakes": ["warten auf takes Akkusativ: 'Ich warte auf dich' not 'Ich warte auf dir'"],
+    "present": {"ich": "warte", "du": "wartest", "er_sie_es": "wartet", "wir": "warten", "ihr": "wartet", "sie_Sie": "warten"},
+    "past_tenses": {"präteritum": "wartete", "partizip_ii": "gewartet"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gewartet"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "warten auf + Akkusativ", "prepositions": ["auf"], "explanation": "Wait for someone or something.", "examples": ["Ich warte auf den Bus.", "Worauf wartest du?", "Wir warten auf dich."]}]
+  },
+  {
+    "base": "fragen",
+    "level": "A1",
+    "translations": ["to ask"],
+    "tip": "fragen + Akkusativ (person asked). fragen nach + Dativ (what is asked about).",
+    "present": {"ich": "frage", "du": "fragst", "er_sie_es": "fragt", "wir": "fragen", "ihr": "fragt", "sie_Sie": "fragen"},
+    "past_tenses": {"präteritum": "fragte", "partizip_ii": "gefragt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gefragt"}],
+    "dual_auxiliary": false,
+    "patterns": [
+      {"label": "fragen + Person (Akk.)", "prepositions": [], "explanation": "Ask a person something.", "examples": ["Ich frage den Lehrer.", "Sie fragt mich nach dem Weg."]},
+      {"label": "fragen nach + Dativ", "prepositions": ["nach"], "explanation": "Ask about something.", "examples": ["Er fragt nach dem Preis.", "Sie fragte nach dem Weg."]}
+    ]
+  },
+  {
+    "base": "antworten",
+    "level": "A1",
+    "translations": ["to answer", "to reply"],
+    "tip": "antworten + Dativ (person answered) OR antworten auf + Akkusativ (what is answered).",
+    "common_mistakes": ["antworten takes Dative for the person: 'Ich antworte ihm' not 'Ich antworte ihn'"],
+    "present": {"ich": "antworte", "du": "antwortest", "er_sie_es": "antwortet", "wir": "antworten", "ihr": "antwortet", "sie_Sie": "antworten"},
+    "past_tenses": {"präteritum": "antwortete", "partizip_ii": "geantwortet"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat geantwortet"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "antworten + Dativ", "prepositions": [], "explanation": "Answer a person.", "examples": ["Ich antworte ihm.", "Antwort mir bitte!", "Sie hat auf seine Frage geantwortet."]}]
+  },
+  {
+    "base": "zeigen",
+    "level": "A1",
+    "translations": ["to show", "to point", "to demonstrate"],
+    "tip": "zeigen + Dativ (person shown) + Akkusativ (thing shown). jemandem etwas zeigen.",
+    "present": {"ich": "zeige", "du": "zeigst", "er_sie_es": "zeigt", "wir": "zeigen", "ihr": "zeigt", "sie_Sie": "zeigen"},
+    "past_tenses": {"präteritum": "zeigte", "partizip_ii": "gezeigt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gezeigt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "jemandem etwas zeigen", "prepositions": [], "explanation": "Show someone something (Dative + Accusative).", "examples": ["Zeig mir das!", "Er zeigt ihr den Weg.", "Ich zeige dir mein Zimmer."]}]
+  },
+  {
+    "base": "hören",
+    "level": "A1",
+    "translations": ["to hear", "to listen"],
+    "tip": "hören = to hear (passively). zuhören = to listen (actively). Radio hören = to listen to the radio.",
+    "present": {"ich": "höre", "du": "hörst", "er_sie_es": "hört", "wir": "hören", "ihr": "hört", "sie_Sie": "hören"},
+    "past_tenses": {"präteritum": "hörte", "partizip_ii": "gehört"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gehört"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "hören + Akkusativ", "prepositions": [], "explanation": "Hear something.", "examples": ["Ich höre Musik.", "Hörst du das?", "Wir hören Radio."]}]
+  },
+  {
+    "base": "sehen",
+    "level": "A1",
+    "translations": ["to see", "to look", "to watch"],
+    "tip": "Strong verb. Irregular present: du siehst, er sieht. Fernsehen = to watch TV.",
+    "present": {"ich": "sehe", "du": "siehst", "er_sie_es": "sieht", "wir": "sehen", "ihr": "seht", "sie_Sie": "sehen"},
+    "past_tenses": {"präteritum": "sah", "partizip_ii": "gesehen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gesehen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "sehen + Akkusativ", "prepositions": [], "explanation": "See something or someone.", "examples": ["Ich sehe einen Hund.", "Hast du ihn gesehen?", "Wir sehen fern."]}]
+  },
+  {
+    "base": "kennen",
+    "level": "A1",
+    "translations": ["to know (a person/place)", "to be familiar with"],
+    "tip": "kennen = to know (be acquainted with). Don't confuse with wissen = to know (a fact).",
+    "common_mistakes": ["'Ich kenne ihn' (I know him) vs 'Ich weiß es' (I know it/that). Kennen for people/places, wissen for facts."],
+    "present": {"ich": "kenne", "du": "kennst", "er_sie_es": "kennt", "wir": "kennen", "ihr": "kennt", "sie_Sie": "kennen"},
+    "past_tenses": {"präteritum": "kannte", "partizip_ii": "gekannt"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat gekannt"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "kennen + Akkusativ", "prepositions": [], "explanation": "Know someone or a place.", "examples": ["Ich kenne ihn gut.", "Kennst du Berlin?", "Sie kennt die Antwort nicht."]}]
+  },
+  {
+    "base": "verstehen",
+    "level": "A1",
+    "translations": ["to understand"],
+    "tip": "Strong irregular verb. Very useful for language learning: 'Ich verstehe das nicht.' = 'I don't understand.'",
+    "present": {"ich": "verstehe", "du": "verstehst", "er_sie_es": "versteht", "wir": "verstehen", "ihr": "versteht", "sie_Sie": "verstehen"},
+    "past_tenses": {"präteritum": "verstand", "partizip_ii": "verstanden"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat verstanden"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "verstehen + Akkusativ", "prepositions": [], "explanation": "Understand something.", "examples": ["Ich verstehe das nicht.", "Verstehst du mich?", "Sie hat alles verstanden."]}]
+  },
+  {
+    "base": "vergessen",
+    "level": "A1",
+    "translations": ["to forget"],
+    "tip": "Strong verb with irregular present: du vergisst, er vergisst. Very common in daily life.",
+    "common_mistakes": ["Don't say 'Ich habe vergessen es' — correct: 'Ich habe es vergessen' (object before Partizip)."],
+    "present": {"ich": "vergesse", "du": "vergisst", "er_sie_es": "vergisst", "wir": "vergessen", "ihr": "vergesst", "sie_Sie": "vergessen"},
+    "past_tenses": {"präteritum": "vergaß", "partizip_ii": "vergessen"},
+    "auxiliaries": [{"aux": "haben", "condition": "always", "perfekt": "hat vergessen"}],
+    "dual_auxiliary": false,
+    "patterns": [{"label": "vergessen + Akkusativ / zu-Infinitiv", "prepositions": [], "explanation": "Forget something or to do something.", "examples": ["Ich habe meinen Schlüssel vergessen.", "Er vergaß anzurufen.", "Vergiss es nicht!"]}]
   }
 ];
+
 window.verbsA1 = verbsA1;
