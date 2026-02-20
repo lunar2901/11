@@ -16,7 +16,6 @@ let __verbCardStylesInjected = false;
 
 function injectVerbCardStylesOnce() {
   if (__verbCardStylesInjected) return;
-  __verbCardStylesInjected = true;
 
   const css = `
   .verb-card{
@@ -121,10 +120,13 @@ function injectVerbCardStylesOnce() {
   }
   `;
 
-  const style = document.createElement('style');
-  style.setAttribute('data-verb-card-styles', '1');
-  style.textContent = css;
-  document.head.appendChild(style);
+  try {
+    const style = document.createElement('style');
+    style.setAttribute('data-verb-card-styles', '1');
+    style.textContent = css;
+    document.head.appendChild(style);
+  } catch(e) {}
+  __verbCardStylesInjected = true;
 }
 
 /* ========================= Build page items for global search ========================= */
@@ -314,13 +316,12 @@ function getForms(v) {
   // past_tenses object {präteritum, partizip_ii} — extract fields
   const pastTenses = v.past_tenses || {};
 
-  // ── Auxiliaries section ──
-  const auxArr = Array.isArray(v.auxiliaries) ? v.auxiliaries : [];
-  const dualAux = v.dual_auxiliary || false;
   const past     = v.past ?? v.prateritum ?? v.präteritum ?? pastTenses.präteritum ?? v.forms?.past ?? v?.principalParts?.[1];
   const partizip2 = v.partizip2 ?? v.partizipII ?? v.participle ?? v.pp ?? pastTenses.partizip_ii ?? v.forms?.partizip2 ?? v?.principalParts?.[2];
 
-  // aux from auxiliaries array (used in getForms)
+  // aux from auxiliaries array
+  const auxArr2 = Array.isArray(v.auxiliaries) ? v.auxiliaries : [];
+  const auxFromArr = auxArr2[0]?.aux || '';
   const aux = v.aux ?? v.auxiliary ?? v.hilfsverb ?? v.forms?.aux ?? auxFromArr;
 
   let p = asText(presentIch), pa = asText(past), pp = asText(partizip2), a = asText(aux);
