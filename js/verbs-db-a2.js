@@ -373,5 +373,182 @@ const verbsA2 = [
       { "label": "bestellen + Akkusativ", "prepositions": [], "explanation": "To order something.", "examples": ["Ich bestelle einen Kaffee.", "Haben Sie schon bestellt?", "Er hat online bestellt."], "derived": null }
     ]
   }
+,
+  {
+    "base": "vergessen",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "vergesse",
+        "du": "vergisst",
+        "er": "vergisst"
+      },
+      "perfect": "hat vergessen",
+      "preterite": "vergass"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to forget"
+    ],
+    "examples": [
+      "Ich habe meinen Schluessel vergessen.",
+      "Vergiss das nicht!",
+      "Er vergisst immer alles."
+    ],
+    "tip": "Strong irregular verb. Pattern: vergessen vergass vergessen. Very common!"
+  },
+  {
+    "base": "erklaeren",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "erklaere",
+        "du": "erklaerst",
+        "er": "erklaert"
+      },
+      "perfect": "hat erklaert",
+      "preterite": "erklaerte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to explain"
+    ],
+    "examples": [
+      "Kannst du das erklaeren?",
+      "Er erklaert die Aufgabe sehr gut.",
+      "Sie hat uns den Weg erklaert."
+    ],
+    "tip": "Regular verb. jemandem etwas erklaeren = to explain something to someone. Dative + Accusative.",
+    "base_display": "erklären"
+  },
+  {
+    "base": "waehlen",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "waehle",
+        "du": "waehlst",
+        "er": "waehlt"
+      },
+      "perfect": "hat gewaehlt",
+      "preterite": "waehlte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to choose",
+      "to vote",
+      "to dial"
+    ],
+    "examples": [
+      "Ich waehle die rote Option.",
+      "Wir haben einen neuen Praesident gewaehlt.",
+      "Welches Gericht waehlst du?"
+    ],
+    "tip": "Three meanings depending on context: choose from options, vote in an election, or dial a phone number.",
+    "base_display": "wählen"
+  },
+  {
+    "base": "bezahlen",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "bezahle",
+        "du": "bezahlst",
+        "er": "bezahlt"
+      },
+      "perfect": "hat bezahlt",
+      "preterite": "bezahlte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to pay",
+      "to pay for"
+    ],
+    "examples": [
+      "Ich moechte bezahlen, bitte.",
+      "Kannst du das fuer mich bezahlen?",
+      "Er hat die Rechnung bezahlt."
+    ],
+    "tip": "Use 'bezahlen' for paying a bill or item. Use 'zahlen' for more general paying. Both are common."
+  },
+  {
+    "base": "wiederholen",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "wiederhole",
+        "du": "wiederholst",
+        "er": "wiederholt"
+      },
+      "perfect": "hat wiederholt",
+      "preterite": "wiederholte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to repeat",
+      "to revise"
+    ],
+    "examples": [
+      "Koennen Sie das bitte wiederholen?",
+      "Wir haben die Grammatik wiederholt.",
+      "Ich muss das Vokabular wiederholen."
+    ],
+    "tip": "NOT separable even though 'wieder' looks like a prefix. One word: wiederholen, wiederholte, wiederholt."
+  },
+  {
+    "base": "zeigen",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "zeige",
+        "du": "zeigst",
+        "er": "zeigt"
+      },
+      "perfect": "hat gezeigt",
+      "preterite": "zeigte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to show",
+      "to point"
+    ],
+    "examples": [
+      "Zeig mir dein Buch!",
+      "Er hat mir den Weg gezeigt.",
+      "Das zeigt, dass er recht hat."
+    ],
+    "tip": "Pattern: jemandem etwas zeigen (dative + accusative). 'Das zeigt...' is very useful for arguments."
+  },
+  {
+    "base": "glauben",
+    "level": "A2",
+    "conjugation": {
+      "present": {
+        "ich": "glaube",
+        "du": "glaubst",
+        "er": "glaubt"
+      },
+      "perfect": "hat geglaubt",
+      "preterite": "glaubte"
+    },
+    "auxiliary": "haben",
+    "is_separable": false,
+    "translations": [
+      "to believe",
+      "to think"
+    ],
+    "examples": [
+      "Ich glaube dir.",
+      "Glaubst du das wirklich?",
+      "Ich glaube, es wird regnen."
+    ],
+    "tip": "Two patterns: jemandem glauben (dat) = believe a person. an etwas glauben = believe in something."
+  }
 ];
 export default verbsA2;
