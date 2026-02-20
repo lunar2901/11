@@ -1,6 +1,5 @@
 // idioms.js — Daily idiom home page logic
-// ONLY idioms-db is a static import — rendering works even if word DBs fail
-import idiomsDB from './idioms-db.js';
+const idiomsDB = window.idiomsDB || [];
 
 /* ── Seeded daily shuffle ─────────────────────────────────────────── */
 function seededShuffle(arr, seed) {
@@ -147,33 +146,4 @@ const idiomItems = idiomsDB.map((item, i) => ({
 }));
 SharedApp.registerPageItems?.(idiomItems);
 
-/* ── Dynamically load word DBs for cross-page search ─────────────── */
-// Each import is independent — a failure in one won't affect others or rendering
-const wordDBs = [
-  { files: ['verbs-db-a1','verbs-db-a2','verbs-db-b1','verbs-db-b2','verbs-db-c1'], cat: 'Verbs', url: 'verbs.html', key: w => w.base },
-  { files: ['nouns-db-a1','nouns-db-a2','nouns-db-b1','nouns-db-b2','nouns-db-c1'], cat: 'Nouns', url: 'nouns.html', key: w => w.base || w.word },
-  { files: ['adjectives-db-a1','adjectives-db-a2','adjectives-db-b1','adjectives-db-b2','adjectives-db-c1'], cat: 'Adjectives', url: 'adjectives.html', key: w => w.base },
-  { files: ['adverbs-db-a1','adverbs-db-a2','adverbs-db-b1','adverbs-db-b2','adverbs-db-c1'], cat: 'Adverbs', url: 'adverbs.html', key: w => w.base },
-];
-
-(async () => {
-  for (const { files, cat, url, key } of wordDBs) {
-    for (const file of files) {
-      const level = file.split('-').pop(); // a1, a2, b1, b2, c1
-      try {
-        const mod = await import(`./js/${file}.js`);
-        const data = mod.default || [];
-        const items = data.map((w, i) => ({
-          id: `${cat.toLowerCase()}:${level}:${key(w) || ''}`,
-          label: key(w) || '—',
-          translation: (w.translations || [])[0] || '',
-          index: i, level, category: cat, url,
-        }));
-        SharedApp.registerSearchItems?.(items);
-      } catch (e) {
-        // One DB failing silently — won't crash rendering or other DBs
-        console.warn(`Search: could not load ${file}.js`, e.message);
-      }
-    }
-  }
-})();
+/* Word DBs loaded as <script> tags — registerSearchItems called by page JS files */

@@ -228,5 +228,4 @@ const idiomsDB = [
   { id: 199, german: "Schnell gewonnen, schnell zerronnen.", literal: "Quickly won, quickly melted.", meaning: "Easy come, easy go.", example: "Er hat das Geld beim Glücksspiel verloren – schnell gewonnen, schnell zerronnen.", category: "money", type: "proverb", tags: ["money", "luck", "spending"] },
   { id: 200, german: "Mit dem Kopf durch die Wand wollen.", literal: "To want to go through the wall with one's head.", meaning: "To be pig-headed; to stubbornly try to force something impossible.", example: "Er will immer mit dem Kopf durch die Wand – ohne Kompromiss.", category: "stubbornness", type: "idiom", tags: ["stubborn", "wall", "head"] }
 ];
-
-export default idiomsDB;
+window.idiomsDB = idiomsDB;

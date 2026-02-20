@@ -2261,3 +2261,122 @@ body.modal-open #grammarTopBar{ visibility:hidden; }
   color: inherit;
 }
 .logo-home-link:hover { opacity: 0.75; }
+
+/* ===== Word Card Shared Styles (Nouns / Adjectives / Adverbs) ===== */
+
+/* Form boxes — coloured pill style */
+.form-item {
+  background: rgba(0,0,0,.035) !important;
+  border-radius: 12px !important;
+  padding: 8px 10px !important;
+}
+
+.form-label {
+  display: block !important;
+  font-size: 11px !important;
+  opacity: .65 !important;
+  margin-bottom: 2px !important;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.form-value {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  color: #111 !important;
+}
+
+/* verb-forms grid for conjugation / declension tables */
+.verb-forms {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-top: 10px !important;
+}
+
+/* Section dividers (Examples, Collocations, etc.) */
+.section-title {
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  opacity: .6 !important;
+  margin: 12px 0 8px !important;
+}
+
+/* Meta chips (synonyms, register, category chips) */
+.meta-chip {
+  display: inline-block;
+  background: rgba(0,0,0,.05) !important;
+  border-radius: 999px !important;
+  padding: 3px 9px !important;
+  font-size: 12px !important;
+  font-weight: 700;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* Example list */
+.variety-examples {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+.variety-examples li {
+  margin: 5px 0;
+  color: #444;
+}
+
+/* Coloured info blocks */
+.verb-info {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.verb-info .label {
+  font-size: 12px;
+  opacity: .7;
+  min-width: 80px;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.verb-info .value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Tip block — yellow tint */
+.tip-block {
+  background: rgba(255,200,0,.12);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* Mistakes block — red tint */
+.mistakes-block {
+  background: rgba(220,38,38,.07);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* Derived/base word block — blue tint */
+.derived-block {
+  background: rgba(80,120,255,.07);
+  border-radius: 10px;
+  padding: 6px 10px;
+  margin-top: 8px;
+}
+

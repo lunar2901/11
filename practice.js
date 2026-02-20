@@ -1,17 +1,12 @@
 // practice.js - Practice mode with various exercise types
 
-import verbsA1 from './js/verbs-db-a1.js';
-import verbsA2 from './js/verbs-db-a2.js';
-import verbsB1 from './js/verbs-db-b1.js';
-import verbsB2 from './js/verbs-db-b2.js';
-import verbsC1 from './js/verbs-db-c1.js';
 
 const verbsDB = { 
-  a1: verbsA1, 
-  a2: verbsA2, 
-  b1: verbsB1, 
-  b2: verbsB2, 
-  c1: verbsC1 
+  a1: window.verbsA1, 
+  a2: window.verbsA2, 
+  b1: window.verbsB1, 
+  b2: window.verbsB2, 
+  c1: window.verbsC1 
 };
 
 // DOM elements
