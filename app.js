@@ -135,7 +135,7 @@ function buildPageItems(level) {
     id: `verbs:${level}:${getVerbBase(v)}`,
     label: getVerbBase(v),
     translation: getTranslations(v).slice(0, 2).join(', '),
-    index: i, level, category: 'Verbs', url: 'index.html',
+    index: i, level, category: 'Verbs', url: 'verbs.html',
   }));
 }
 
@@ -313,12 +313,14 @@ function getForms(v) {
 
   // past_tenses object {präteritum, partizip_ii} — extract fields
   const pastTenses = v.past_tenses || {};
+
+  // ── Auxiliaries section ──
+  const auxArr = Array.isArray(v.auxiliaries) ? v.auxiliaries : [];
+  const dualAux = v.dual_auxiliary || false;
   const past     = v.past ?? v.prateritum ?? v.präteritum ?? pastTenses.präteritum ?? v.forms?.past ?? v?.principalParts?.[1];
   const partizip2 = v.partizip2 ?? v.partizipII ?? v.participle ?? v.pp ?? pastTenses.partizip_ii ?? v.forms?.partizip2 ?? v?.principalParts?.[2];
 
-  // aux from auxiliaries array
-  const auxArr = Array.isArray(v.auxiliaries) ? v.auxiliaries : [];
-  const auxFromArr = auxArr[0]?.aux || '';
+  // aux from auxiliaries array (used in getForms)
   const aux = v.aux ?? v.auxiliary ?? v.hilfsverb ?? v.forms?.aux ?? auxFromArr;
 
   let p = asText(presentIch), pa = asText(past), pp = asText(partizip2), a = asText(aux);
@@ -359,7 +361,8 @@ function getTranslations(v) {
 }
 
 function getVariants(v) {
-  const va = v.variants ?? v.variant ?? v.alternatives ?? v.varieties;
+  // Check v.patterns first (new DB schema), then fall back to old field names
+  const va = v.patterns ?? v.variants ?? v.variant ?? v.alternatives ?? v.varieties;
   if (Array.isArray(va)) return va;
   if (va && typeof va === 'object') return [va];
   return [];
@@ -405,6 +408,10 @@ function createVerbCard(v, idx) {
   const konjII  = v.konjunktiv_ii || null;
   const imperative = (v.imperative && typeof v.imperative === 'object') ? v.imperative : null;
   const pastTenses = v.past_tenses || {};
+
+  // ── Auxiliaries section ──
+  const auxArr = Array.isArray(v.auxiliaries) ? v.auxiliaries : [];
+  const dualAux = v.dual_auxiliary || false;
 
   // ── Extra learning fields ──
   const tip            = v.tip || '';
@@ -469,6 +476,28 @@ function createVerbCard(v, idx) {
     </div>`;
   }
 
+  // Auxiliaries (haben/sein/both)
+  function buildAuxBadge(a) {
+    const badgeStyle = a.aux === 'sein'
+      ? 'background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7'
+      : a.aux === 'haben'
+        ? 'background:#e3f2fd;color:#1565c0;border:1px solid #90caf9'
+        : 'background:#fff3e0;color:#e65100;border:1px solid #ffcc02';
+    const perfektStr = a.perfekt ? ' → <em>' + escapeHtml(a.perfekt) + '</em>' : '';
+    return '<div style="display:flex;align-items:center;gap:8px;margin-top:4px">'
+      + '<span style="font-size:13px;font-weight:800;padding:2px 10px;border-radius:999px;' + badgeStyle + '">' + escapeHtml(a.aux) + '</span>'
+      + '<span style="font-size:12px;color:#666">' + escapeHtml(a.condition||'') + perfektStr + '</span>'
+      + '</div>';
+  }
+  let auxSectionHtml = '';
+  if (auxArr.length) {
+    auxSectionHtml = '<div class="verb-info" style="margin-top:8px;background:rgba(0,150,80,.07);border-radius:10px;padding:8px 12px;flex-direction:column;gap:4px">'
+      + '<span class="label">⚡ Auxiliary (Perfekt)</span>'
+      + auxArr.map(buildAuxBadge).join('')
+      + (dualAux ? '<span style="font-size:11px;opacity:.6;margin-top:4px">⚠ Both auxiliaries possible depending on usage</span>' : '')
+      + '</div>';
+  }
+
   // Old pattern variants
   const oldVarHtml = oldVariants.length ? `
     <div class="section-title" style="margin-top:12px">Usage patterns</div>
@@ -513,7 +542,7 @@ function createVerbCard(v, idx) {
         data-save-id="${escapeHtml(saveId)}"
         data-save-label="${escapeHtml(infinitive)}"
         data-save-trans="${escapeHtml(translations[0] || '')}"
-        data-save-url="index.html"
+        data-save-url="verbs.html"
         aria-label="Save">♡</button>
     </div>
 
@@ -535,6 +564,7 @@ function createVerbCard(v, idx) {
     ${translations.length ? `<div class="verb-info"><span class="label">Translation:</span><span class="value">${escapeHtml(translations.join(', '))}</span></div>` : ''}
 
     ${derivedHtml}
+    ${auxSectionHtml}
     ${presHtml}
     ${impHtml}
     ${konjHtml}
@@ -555,7 +585,7 @@ function createVerbCard(v, idx) {
       const s = getSaved();
       const m = window.SharedApp.getMeta();
       if (s.has(saveId)) { s.delete(saveId); delete m[saveId]; }
-      else { s.add(saveId); m[saveId] = { label: infinitive, translation: translations[0] || '', url: 'index.html' }; }
+      else { s.add(saveId); m[saveId] = { label: infinitive, translation: translations[0] || '', url: 'verbs.html' }; }
       setSaved(s); window.SharedApp.setMeta(m);
       setSaveBtnState(btn, s.has(saveId));
     });
