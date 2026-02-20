@@ -156,7 +156,7 @@ function buildPageItems(level) {
     id: `verbs:${level}:${getVerbBase(v)}`,
     label: getVerbBase(v),
     translation: getTranslations(v).slice(0, 2).join(', '),
-    index: i, level, category: 'Verbs', url: 'verbs.html',
+    index: i, level, category: 'Verbs', url: 'index.html',
   }));
 }
 
@@ -473,17 +473,19 @@ function createVerbCard(v, idx) {
         <span style="font-size:11px;opacity:.55">${escapeHtml((lv.translations||[]).join(', '))}</span>
       </div>`).join('')}` : '';
 
-  const derivedHtml = derivedFrom ? `
+  let derivedHtml = '';
+  if (derivedFrom) {
+    const dLevel = (derivedFrom.level||'a1').toLowerCase();
+    const dBase  = derivedFrom.base||'';
+    const dArr   = (verbsDB[dLevel]||[]);
+    const dIdx   = dArr.findIndex(x=>(x.base||x.word||'')===dBase);
+    const dUrl   = dIdx>=0 ? 'verbs.html#jump:'+dLevel+':'+dIdx : 'verbs.html';
+    derivedHtml  = `
     <div class="verb-info" style="margin-top:10px;background:rgba(80,120,255,.07);border-radius:10px;padding:6px 10px">
       <span class="label">Base word:</span>
-      <span class="value">${escapeHtml(derivedFrom.base)} <span style="opacity:.55;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span> <span style="opacity:.4;font-size:11px;">(${escapeHtml(derivedFrom.type||'')})</span></span>
-    </div>` : '';
-
-  // Old pattern variants
-  const oldVarHtml = oldVariants.length ? `
-    <div class="section-title" style="margin-top:12px">Usage patterns</div>
-    ${oldVariants.map(vr=>{
-      if (typeof vr === 'string') return `<details class="variety"><summary>${escapeHtml(vr)}<span style="opacity:.4">▾</span></summary></details>`;
+      <a href="${dUrl}" class="value" style="color:#3a60d4;text-decoration:none;font-weight:600">${escapeHtml(dBase)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span> <span style="opacity:.4;font-size:11px;">(${escapeHtml(derivedFrom.type||'')} →)</span></a>
+    </div>`;
+  }
       const title = vr.label || vr.variant || vr.name || 'Usage';
       const preps = (vr.prepositions||[]).map(p=>`<span class="prep-badge">${escapeHtml(p)}</span>`).join(' ');
       const exs = (vr.examples||[]).map(e=>`<li>${escapeHtml(e)}</li>`).join('');
@@ -523,7 +525,7 @@ function createVerbCard(v, idx) {
         data-save-id="${escapeHtml(saveId)}"
         data-save-label="${escapeHtml(infinitive)}"
         data-save-trans="${escapeHtml(translations[0] || '')}"
-        data-save-url="verbs.html"
+        data-save-url="index.html"
         aria-label="Save">♡</button>
     </div>
 
@@ -565,7 +567,7 @@ function createVerbCard(v, idx) {
       const s = getSaved();
       const m = window.SharedApp.getMeta();
       if (s.has(saveId)) { s.delete(saveId); delete m[saveId]; }
-      else { s.add(saveId); m[saveId] = { label: infinitive, translation: translations[0] || '', url: 'verbs.html' }; }
+      else { s.add(saveId); m[saveId] = { label: infinitive, translation: translations[0] || '', url: 'index.html' }; }
       setSaved(s); window.SharedApp.setMeta(m);
       setSaveBtnState(btn, s.has(saveId));
     });
