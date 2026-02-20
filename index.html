@@ -61,6 +61,17 @@ body {
 @media(max-width:640px){
   #topnav { display:none !important; }
   #logo-txt { display:none !important; }
+  #topacts { display:flex !important; margin-left:auto; gap:8px; }
+  .ibtn {
+    width:38px !important; height:38px !important;
+    background:#fff !important;
+    border:1.5px solid rgba(0,0,0,.22) !important;
+    box-shadow:0 1px 5px rgba(0,0,0,.13) !important;
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    flex-shrink:0 !important;
+  }
 }
 
 /* Drawer */
@@ -363,18 +374,18 @@ onerror = function(msg, src, line, col, err) {
   return false;
 };
 
-// Drawer
+
 function openDrw()  { document.getElementById('drw').classList.add('open');    document.getElementById('drw-bk').classList.add('open'); }
 function closeDrw() { document.getElementById('drw').classList.remove('open'); document.getElementById('drw-bk').classList.remove('open'); }
 document.getElementById('btnMenu').addEventListener('click', openDrw);
 
-// Modals
+
 function openM(id)  { document.getElementById(id).classList.add('open'); }
 function closeM(id) { document.getElementById(id).classList.remove('open'); }
 document.getElementById('btnSearch').addEventListener('click', function() { openM('mSearch'); setTimeout(function(){ document.getElementById('sq').focus(); }, 80); });
 document.getElementById('btnSaved').addEventListener('click', function()  { openM('mSaved');  renderSaved(); });
 
-// ── Saved (localStorage with fallback) ──────────────────────────
+
 var saved = [], savedMeta = {};
 try {
   saved     = JSON.parse(localStorage.getItem('dtSaved') || '[]');
@@ -387,7 +398,7 @@ function isSaved(id) { return saved.indexOf(id) >= 0; }
 function addSaved(id, meta) { if (!isSaved(id)) saved.push(id); savedMeta[id] = meta; storeSaved(); }
 function remSaved(id) { saved = saved.filter(function(x){ return x !== id; }); delete savedMeta[id]; storeSaved(); }
 
-// ── Data ─────────────────────────────────────────────────────────
+
 var DB = [
   { id: 1, german: "Das ist nicht mein Bier.", literal: "That is not my beer.", meaning: "That's not my problem / not my business.", example: "Kümmere dich nicht darum – das ist nicht mein Bier.", category: "everyday", type: "idiom", tags: ["beer", "responsibility"] },
   { id: 2, german: "Den Teufel an die Wand malen.", literal: "To paint the devil on the wall.", meaning: "To tempt fate by expecting the worst; to be overly pessimistic.", example: "Mal nicht den Teufel an die Wand – es wird schon gut gehen.", category: "attitude", type: "idiom", tags: ["superstition", "pessimism"] },
@@ -604,7 +615,7 @@ var DB = [
   { id: 200, german: "Mit dem Kopf durch die Wand wollen.", literal: "To want to go through the wall with one's head.", meaning: "To be pig-headed; to stubbornly try to force something impossible.", example: "Er will immer mit dem Kopf durch die Wand – ohne Kompromiss.", category: "stubbornness", type: "idiom", tags: ["stubborn", "wall", "head"] }
 ];
 
-// ── Shuffle ───────────────────────────────────────────────────────
+
 function shuffle(arr, seed) {
   var s = (seed >>> 0), a = arr.slice(), i = a.length, j, t;
   function r() { s = ((s * 1664525 + 1013904223) & 0xFFFFFFFF) >>> 0; return s / 4294967295; }
@@ -616,17 +627,17 @@ var seed  = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.g
 var order = shuffle(DB, seed);
 var idx   = 0;
 
-// Date
+
 document.getElementById('ddate').textContent = today.toLocaleDateString('en-GB', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-// ── Emoji map ─────────────────────────────────────────────────────
-var CE = {everyday:'☕',attitude:'🧠',problem:'🔧',mistakes:'❌',distance:'📍',luck:'🍀',
-  secrets:'🤫',society:'👥',action:'⚡',futility:'🌀',money:'💶',work:'💼',family:'👨‍👩‍👧',
-  learning:'📚',honesty:'✅',relationships:'❤️',hope:'🌅',time:'⏰',patience:'⌛',
-  communication:'💬',conflict:'⚔️',fear:'😨',courage:'🦁',humor:'😄',happiness:'🌟',
-  food:'🍽️',wisdom:'🦉',culture:'🌍',independence:'🦅',anger:'🔥',emotion:'💭',
-  celebration:'🎉',caution:'⚠️',laziness:'🛋️',love:'💕',death:'🌑',age:'🎂',
-  surprise:'😲',indifference:'🤷',deception:'🃏',persistence:'💪',fate:'⭐'};
+
+var CE = {everyday:'[coffee]',attitude:'[mind]',problem:'[tool]',mistakes:'[x]',distance:'[pin]',luck:'[clover]',
+  secrets:'[shh]',society:'[group]',action:'[bolt]',futility:'[spiral]',money:'[euro]',work:'[brief]',family:'[family]',
+  learning:'[book]',honesty:'[check]',relationships:'[heart]',hope:'[sunrise]',time:'[clock]',patience:'[hourglass]',
+  communication:'[chat]',conflict:'[swords]',fear:'[scared]',courage:'[lion]',humor:'[laugh]',happiness:'[star]',
+  food:'[food]',wisdom:'[owl]',culture:'[globe]',independence:'[eagle]',anger:'[fire]',emotion:'[thought]',
+  celebration:'[party]',caution:'[warn]',laziness:'[sofa]',love:'[love]',death:'[moon]',age:'[cake]',
+  surprise:'[wow]',indifference:'[shrug]',deception:'[card]',persistence:'[muscle]',fate:'[star2]'};
 var TL = {idiom:'Idiom', proverb:'Sprichwort', saying:'Redewendung'};
 
 function g(id) { return document.getElementById(id); }
@@ -640,7 +651,7 @@ function updateSaveBtn(it) {
   g('sbtn').classList.toggle('saved', sv);
 }
 
-// ── Render ────────────────────────────────────────────────────────
+
 function applyRender(it) {
   g('gtxt').textContent      = it.german;
   g('vLit').textContent      = it.literal;
@@ -666,13 +677,13 @@ function render(animate) {
   }
 }
 
-// ── Nav ───────────────────────────────────────────────────────────
+
 function prev() { idx = (idx - 1 + order.length) % order.length; render(true); }
 function next() { idx = (idx + 1) % order.length; render(true); }
 g('btnP').addEventListener('click', prev);
 g('btnN').addEventListener('click', next);
 
-// ── Save ──────────────────────────────────────────────────────────
+
 g('sbtn').addEventListener('click', function() {
   var it = order[idx], id = sid(it);
   if (isSaved(id)) { remSaved(id); } 
@@ -680,7 +691,7 @@ g('sbtn').addEventListener('click', function() {
   updateSaveBtn(it);
 });
 
-// ── Keyboard ──────────────────────────────────────────────────────
+
 document.addEventListener('keydown', function(e) {
   if (e.target.tagName === 'INPUT') return;
   if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
@@ -688,7 +699,7 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 's' || e.key === 'S') { g('sbtn').click(); }
 });
 
-// ── Swipe ─────────────────────────────────────────────────────────
+
 var tx = 0;
 document.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, {passive:true});
 document.addEventListener('touchend',   function(e) {
@@ -696,32 +707,88 @@ document.addEventListener('touchend',   function(e) {
   if (Math.abs(dx) > 55) { dx < 0 ? next() : prev(); }
 }, {passive:true});
 
-// ── Search ────────────────────────────────────────────────────────
+
 function doSearch() {
   var q = g('sq').value.trim().toLowerCase();
   var res = g('sres');
-  if (!q) { res.innerHTML = '<p style="color:#aaa;font-size:13px;padding:8px 0">Start typing…</p>'; return; }
-  var hits = DB.filter(function(it) {
+  if (!q) { res.innerHTML = '<p style="color:#aaa;font-size:13px;padding:8px 0">Start typing to search idioms and all word pages…</p>'; return; }
+
+  // Search idioms locally
+  var idiomHits = DB.filter(function(it) {
     return it.german.toLowerCase().indexOf(q) >= 0 ||
            it.meaning.toLowerCase().indexOf(q) >= 0 ||
            (it.category||'').toLowerCase().indexOf(q) >= 0;
   });
-  if (!hits.length) { res.innerHTML = '<p style="color:#aaa;font-size:13px;padding:8px 0">No matches.</p>'; return; }
-  res.innerHTML = '';
-  hits.slice(0, 40).forEach(function(it) {
-    var div = document.createElement('div');
-    div.className = 'mrow';
-    div.innerHTML = '<div><strong style="font-size:14px">' + esc(it.german) + '</strong><br><small style="color:#888;font-size:12px">' + esc(it.meaning.slice(0,70)) + '</small></div>';
-    div.addEventListener('click', function() {
-      var i = order.indexOf(it);
-      if (i < 0) { order.unshift(it); i = 0; }
-      idx = i; render(false); closeM('mSearch');
+
+  // Search word pages from localStorage index (populated by word pages via SharedApp)
+  var wordHits = [];
+  try {
+    var idx2 = JSON.parse(localStorage.getItem('searchIndexV1') || '{}');
+    wordHits = Object.values(idx2).filter(function(it) {
+      return (it.label||'').toLowerCase().indexOf(q) >= 0 ||
+             (it.translation||'').toLowerCase().indexOf(q) >= 0;
     });
-    res.appendChild(div);
-  });
+    // Exclude idiom results already shown
+    wordHits = wordHits.filter(function(it) { return it.category !== 'Idioms'; });
+  } catch(e) {}
+
+  if (!idiomHits.length && !wordHits.length) {
+    res.innerHTML = '<p style="color:#aaa;font-size:13px;padding:8px 0">No matches found.</p>';
+    return;
+  }
+
+  res.innerHTML = '';
+
+  // Idiom results (navigate in-page)
+  if (idiomHits.length) {
+    var hdr = document.createElement('div');
+    hdr.style.cssText = 'font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#999;padding:8px 4px 4px;font-weight:700;border-bottom:1px solid #f0f0f0;';
+    hdr.textContent = 'Idioms & Proverbs';
+    res.appendChild(hdr);
+    idiomHits.slice(0, 20).forEach(function(it) {
+      var div = document.createElement('div');
+      div.className = 'mrow';
+      div.innerHTML = '<div><strong style="font-size:14px">' + esc(it.german) + '</strong><br><small style="color:#888;font-size:12px">' + esc(it.meaning.slice(0,65)) + '</small></div>';
+      div.addEventListener('click', function() {
+        var i = order.indexOf(it);
+        if (i < 0) { order.unshift(it); i = 0; }
+        idx = i; render(false); closeM('mSearch');
+      });
+      res.appendChild(div);
+    });
+  }
+
+  // Word results grouped by category (navigate to their page)
+  if (wordHits.length) {
+    var cats = {};
+    wordHits.slice(0, 60).forEach(function(it) {
+      var c = it.category || 'Words';
+      if (!cats[c]) cats[c] = [];
+      cats[c].push(it);
+    });
+    Object.keys(cats).sort().forEach(function(cat) {
+      var hdr2 = document.createElement('div');
+      hdr2.style.cssText = 'font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#999;padding:8px 4px 4px;font-weight:700;border-bottom:1px solid #f0f0f0;margin-top:6px;';
+      hdr2.textContent = cat;
+      res.appendChild(hdr2);
+      cats[cat].forEach(function(it) {
+        var div = document.createElement('div');
+        div.className = 'mrow';
+        var dest = (it.url || '#') + (it.level && it.index !== undefined ? '#jump:' + it.level + ':' + it.index : '');
+        div.innerHTML = '<div><strong style="font-size:14px">' + esc(it.label||'') + '</strong>' +
+          (it.level ? '<span style="font-size:10px;color:#bbb;margin-left:6px">' + it.level.toUpperCase() + '</span>' : '') +
+          '<br><small style="color:#888;font-size:12px">' + esc((it.translation||'').slice(0,65)) + '</small></div>' +
+          '<span style="font-size:11px;color:#aaa;white-space:nowrap;padding:2px 8px;border:1px solid #eee;border-radius:6px;flex-shrink:0">' + esc((it.url||'').replace('.html','')) + '</span>';
+        div.addEventListener('click', function() {
+          window.location.href = dest;
+        });
+        res.appendChild(div);
+      });
+    });
+  }
 }
 
-// ── Saved modal ───────────────────────────────────────────────────
+
 function renderSaved() {
   var res = g('svres');
   if (!saved.length) { res.innerHTML = '<p style="color:#aaa;font-size:13px;padding:8px 0">Nothing saved yet — tap ♡ on a phrase.</p>'; return; }
@@ -739,7 +806,7 @@ function renderSaved() {
   });
 }
 
-// ── GO — run after page is ready ──────────────────────────────────
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() { render(false); });
 } else {
