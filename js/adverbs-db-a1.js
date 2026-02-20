@@ -206,4 +206,4 @@ const adverbsA1 = [
     "example_positions": ["Natürlich helfe ich dir.", "Das ist natürlich möglich."]
   }
 ];
-export default adverbsA1;
+window.adverbsA1 = adverbsA1;

@@ -232,4 +232,4 @@ const verbsC1 = [
   }
 ];
 
-export default verbsC1;
+window.verbsC1 = verbsC1;

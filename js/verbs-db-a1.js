@@ -809,4 +809,4 @@ const verbsA1 = [
     ]
   }
 ];
-export default verbsA1;
+window.verbsA1 = verbsA1;

@@ -551,4 +551,4 @@ const verbsA2 = [
     "tip": "Two patterns: jemandem glauben (dat) = believe a person. an etwas glauben = believe in something."
   }
 ];
-export default verbsA2;
+window.verbsA2 = verbsA2;

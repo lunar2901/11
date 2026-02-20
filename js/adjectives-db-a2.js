@@ -233,5 +233,158 @@ const adjectivesA2 = [
     "tip": "'Beliebt bei' = popular with. 'Das beliebteste Restaurant' = the most popular restaurant.",
     "examples": ["Das ist sehr beliebt.", "Er ist bei seinen Kollegen beliebt.", "Das beliebteste Gericht ist Schnitzel."]
   }
+,
+  {
+    "base": "laut",
+    "level": "A2",
+    "comparison": {
+      "positive": "laut",
+      "comparative": "lauter",
+      "superlative_predicative": "am lautesten",
+      "superlative_attributive": "lauteste"
+    },
+    "translations": [
+      "loud",
+      "noisy"
+    ],
+    "category": "sound",
+    "examples": [
+      "Die Musik ist sehr laut.",
+      "Sprich nicht so laut!",
+      "Der Laerm ist zu laut."
+    ],
+    "tip": "Antonym: leise (quiet). Essential for describing sounds and environments.",
+    "antonym": "leise"
+  },
+  {
+    "base": "leise",
+    "level": "A2",
+    "comparison": {
+      "positive": "leise",
+      "comparative": "leiser",
+      "superlative_predicative": "am leisesten",
+      "superlative_attributive": "leiseste"
+    },
+    "translations": [
+      "quiet",
+      "soft (sound)"
+    ],
+    "category": "sound",
+    "examples": [
+      "Bitte sei leise!",
+      "Das Baby schlaeft — sprich leise.",
+      "Die Musik ist zu leise."
+    ],
+    "tip": "Antonym: laut (loud). Also means 'softly' when used as adverb.",
+    "antonym": "laut"
+  },
+  {
+    "base": "einfach",
+    "level": "A2",
+    "comparison": {
+      "positive": "einfach",
+      "comparative": "einfacher",
+      "superlative_predicative": "am einfachsten",
+      "superlative_attributive": "einfachste"
+    },
+    "translations": [
+      "simple",
+      "easy",
+      "just"
+    ],
+    "category": "degree",
+    "examples": [
+      "Das ist einfach zu machen.",
+      "Hast du eine einfache Erklaerung?",
+      "Das ist ganz einfach."
+    ],
+    "tip": "Very versatile. As an adjective: easy/simple. As a particle: 'just' (einfach toll = just great)."
+  },
+  {
+    "base": "kompliziert",
+    "level": "A2",
+    "comparison": {
+      "positive": "kompliziert",
+      "comparative": "komplizierter",
+      "superlative_predicative": "am kompliziertesten",
+      "superlative_attributive": "komplizierteste"
+    },
+    "translations": [
+      "complicated",
+      "complex"
+    ],
+    "category": "degree",
+    "examples": [
+      "Die Aufgabe ist kompliziert.",
+      "Das ist nicht so kompliziert, wie es aussieht.",
+      "Er macht alles kompliziert."
+    ],
+    "tip": "Antonym: einfach (simple). Loan word, cognate to English complicated.",
+    "antonym": "einfach"
+  },
+  {
+    "base": "gleich",
+    "level": "A2",
+    "comparison": {
+      "positive": "gleich",
+      "comparative": "gleicher",
+      "superlative_predicative": "am gleichsten",
+      "superlative_attributive": "gleiche"
+    },
+    "translations": [
+      "same",
+      "equal",
+      "in a moment"
+    ],
+    "category": "relation",
+    "examples": [
+      "Wir haben die gleiche Meinung.",
+      "Ich komme gleich.",
+      "Das ist das Gleiche."
+    ],
+    "tip": "Watch context: as adjective means same/equal; as adverb means in a moment / right away."
+  },
+  {
+    "base": "anders",
+    "level": "A2",
+    "comparison": {
+      "positive": "anders",
+      "comparative": "—",
+      "superlative_predicative": "—",
+      "superlative_attributive": "ander-"
+    },
+    "translations": [
+      "different",
+      "other"
+    ],
+    "category": "relation",
+    "examples": [
+      "Ich denke anders darueber.",
+      "Das ist etwas ganz anderes.",
+      "Er ist heute irgendwie anders."
+    ],
+    "tip": "Note: attributive form is 'ander-' (ein anderes Auto). 'anders' is typically used predicatively or as adverb."
+  },
+  {
+    "base": "genug",
+    "level": "A2",
+    "comparison": {
+      "positive": "genug",
+      "comparative": "—",
+      "superlative_predicative": "—",
+      "superlative_attributive": "—"
+    },
+    "translations": [
+      "enough",
+      "sufficient"
+    ],
+    "category": "degree",
+    "examples": [
+      "Ich habe genug gegessen.",
+      "Das ist genug.",
+      "Hast du genug Geld?"
+    ],
+    "tip": "Indeclinable — does not change form. Always placed AFTER the adjective: alt genug (old enough)."
+  }
 ];
-export default adjectivesA2;
+window.adjectivesA2 = adjectivesA2;

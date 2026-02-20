@@ -1,100 +1,30 @@
-// adverbs-db-b2.js — B2 Upper-Intermediate German Adverbs (comprehensive)
+// adverbs-db-b2.js
 const adverbsB2 = [
-  {
-    "base": "allerdings", "level": "B2", "category": "concession",
-    "translations": ["however", "though", "indeed (but)"],
-    "tip": "Signals a contrast or qualification. Softer than 'aber'. Can also confirm with reservation: 'Das stimmt allerdings' = That is true, however.",
-    "examples": ["Das stimmt, allerdings gibt es Ausnahmen.", "Er ist intelligent, allerdings faul.", "Allerdings hätte ich das anders gemacht."],
-    "position_rules": ["Usually in position 1 for contrast, or in the middle field."],
-    "example_positions": ["Allerdings ist das nicht ganz richtig.", "Das geht, allerdings dauert es lange."]
-  },
-  {
-    "base": "hingegen", "level": "B2", "category": "contrast",
-    "translations": ["however", "on the other hand", "by contrast"],
-    "tip": "Used to contrast two things. More formal than 'aber'. Typical in written German.",
-    "examples": ["Er arbeitet viel. Sie hingegen hat Zeit.", "Die Kosten steigen; der Nutzen hingegen sinkt.", "In Deutschland ist es kalt, in Spanien hingegen warm."],
-    "position_rules": ["Usually in the middle field after the verb to show contrast."],
-    "example_positions": ["Er ist ruhig, sie hingegen ist laut.", "Das ist billig, das hier hingegen teuer."]
-  },
-  {
-    "base": "dennoch", "level": "B2", "category": "concession",
-    "translations": ["nevertheless", "yet", "still"],
-    "tip": "Stronger than 'trotzdem'. Signals unexpected continuation despite obstacles. Used in formal writing.",
-    "examples": ["Es regnete, dennoch gingen wir spazieren.", "Er war krank, dennoch kam er zur Arbeit.", "Das Projekt war schwierig, dennoch erfolgreich."],
-    "position_rules": ["Usually in position 1 after a contrast clause."],
-    "example_positions": ["Dennoch muss man weitermachen.", "Er scheiterte, dennoch gab er nicht auf."]
-  },
-  {
-    "base": "insgesamt", "level": "B2", "category": "summary",
-    "translations": ["overall", "in total", "altogether"],
-    "tip": "Used to summarize or total something. 'Insgesamt' can precede a number (total) or summarize an argument.",
-    "examples": ["Insgesamt hat das Projekt gut funktioniert.", "Es haben insgesamt 50 Personen teilgenommen.", "Insgesamt war es ein gutes Jahr."],
-    "position_rules": ["Often in position 1 for summaries, or before numbers."],
-    "example_positions": ["Insgesamt bin ich zufrieden.", "Wir haben insgesamt 200 Euro ausgegeben."]
-  },
-  {
-    "base": "grundsätzlich", "level": "B2", "category": "manner",
-    "translations": ["fundamentally", "in principle", "generally"],
-    "tip": "Expresses a fundamental stance. 'Grundsätzlich bin ich einverstanden' = In principle I agree. Can also mean 'always' (without exception).",
-    "examples": ["Grundsätzlich bin ich dafür.", "Er lehnt das grundsätzlich ab.", "Das sollte man grundsätzlich beachten."],
-    "position_rules": ["Usually in position 1 for emphasis or middle field."],
-    "example_positions": ["Grundsätzlich stimme ich zu.", "Ich bin grundsätzlich gegen diese Idee."]
-  },
-  {
-    "base": "letztendlich", "level": "B2", "category": "time/summary",
-    "translations": ["ultimately", "in the end", "after all"],
-    "tip": "Indicates the final conclusion or result. Synonym: 'letztlich', 'am Ende'. Used in reasoning and arguments.",
-    "examples": ["Letztendlich hat er recht.", "Letztendlich liegt die Entscheidung bei ihm.", "Das ist letztendlich egal."],
-    "position_rules": ["Usually in position 1 or middle field."],
-    "example_positions": ["Letztendlich müssen wir entscheiden.", "Er hat letztendlich nachgegeben."]
-  },
-  {
-    "base": "keineswegs", "level": "B2", "category": "negation",
-    "translations": ["by no means", "not at all", "in no way"],
-    "tip": "Strong formal negation. More emphatic than 'nicht'. 'Das ist keineswegs klar' = That is by no means clear.",
-    "examples": ["Das ist keineswegs sicher.", "Er ist keineswegs der Einzige.", "Das stimmt keineswegs."],
-    "position_rules": ["Usually in the middle field for emphasis."],
-    "example_positions": ["Das ist keineswegs einfach.", "Er ist keineswegs zufrieden."]
-  },
-  {
-    "base": "einerseits... andererseits", "level": "B2", "category": "contrast",
-    "translations": ["on the one hand... on the other hand"],
-    "tip": "Used to present two contrasting aspects of an argument. Common in essays and discussions.",
-    "examples": ["Einerseits ist das günstig, andererseits zeitaufwendig.", "Einerseits will ich reisen, andererseits habe ich kein Geld."],
-    "position_rules": ["Usually in position 1 in each contrasting clause."],
-    "example_positions": ["Einerseits stimmt das. Andererseits ist es kompliziert."]
-  },
-  {
-    "base": "bereits", "level": "B2", "category": "time",
-    "translations": ["already", "as early as"],
-    "tip": "More formal than 'schon'. 'Bereits im 18. Jahrhundert' = As early as the 18th century. Used in formal writing.",
-    "examples": ["Er hat bereits die Hälfte geschafft.", "Bereits gestern war das Problem bekannt.", "Das weiß ich bereits."],
-    "position_rules": ["Usually in the middle field, similar to 'schon'."],
-    "example_positions": ["Ich bin bereits fertig.", "Das hat er bereits gestern gesagt."]
-  },
-  {
-    "base": "kaum", "level": "B2", "category": "degree",
-    "translations": ["hardly", "barely", "scarcely"],
-    "tip": "'Kaum' negates almost completely. 'Ich kann es kaum glauben' = I can hardly believe it. Often causes verb-second word order.",
-    "examples": ["Ich kann es kaum glauben.", "Er schläft kaum.", "Kaum hatte er das gesagt, da klingelte das Telefon."],
-    "position_rules": ["Usually in the middle field; in position 1 with narrative inversion."],
-    "example_positions": ["Er versteht kaum Deutsch.", "Kaum war er da, fing es an zu regnen."]
-  },
-  {
-    "base": "zumindest", "level": "B2", "category": "restriction",
-    "translations": ["at least"],
-    "tip": "Indicates a minimum. Synonym: 'mindestens' (for numbers), 'wenigstens' (for consolation). 'Zumindest' is more neutral.",
-    "examples": ["Er kommt zumindest am Wochenende.", "Das ist zumindest ein Anfang.", "Kannst du zumindest eine E-Mail schreiben?"],
-    "position_rules": ["Usually in the middle field or before the word it limits."],
-    "example_positions": ["Zumindest hat er es versucht.", "Das sollte zumindest klar sein."]
-  },
-  {
-    "base": "weitgehend", "level": "B2", "category": "degree",
-    "translations": ["largely", "to a great extent", "mostly"],
-    "tip": "Indicates that something is mostly but not entirely true. 'Weitgehend fertig' = largely finished.",
-    "examples": ["Die Arbeit ist weitgehend abgeschlossen.", "Das stimmt weitgehend.", "Er ist weitgehend gesund."],
-    "position_rules": ["Usually before the adjective or in the middle field."],
-    "example_positions": ["Das Problem ist weitgehend gelöst.", "Wir sind weitgehend einig."]
-  }
+  {"base": "allerdings", "level": "B2", "category": "general", "translations": ["however", "though", "admittedly"], "examples": ["Er kommt, allerdings etwas später.", "Das Ergebnis ist gut, allerdings nicht perfekt.", "Allerdings muss man das bedenken.", "Ich stimme zu, allerdings mit Vorbehalt."], "position_rules": ["Can be used to introduce a contrasting point or restriction."], "example_positions": ["Er kommt, allerdings etwas später.", "Das Ergebnis ist gut, allerdings nicht perfekt."]},
+  {"base": "hingegen", "level": "B2", "category": "general", "translations": ["on the other hand", "in contrast", "however"], "examples": ["Er ist ruhig, sie hingegen sehr laut.", "Die Stadt ist modern, das Dorf hingegen traditionell.", "Hingegen ist das andere Argument überzeugend.", "Sein Verhalten hingegen war nicht akzeptabel."], "position_rules": ["Typically in second position or after subject to signal contrast."], "example_positions": ["Er ist ruhig, sie hingegen sehr laut.", "Die Stadt ist modern, das Dorf hingegen traditionell."]},
+  {"base": "dennoch", "level": "B2", "category": "general", "translations": ["nevertheless", "nonetheless", "yet"], "examples": ["Es regnete, dennoch gingen wir spazieren.", "Das ist schwierig, dennoch versuche ich es.", "Dennoch gab er nicht auf.", "Die Lage ist schlecht, dennoch bleibe ich optimistisch."], "position_rules": ["Position 1 or Mittelfeld; signals perseverance despite obstacles."], "example_positions": ["Es regnete, dennoch gingen wir spazieren.", "Das ist schwierig, dennoch versuche ich es."]},
+  {"base": "insgesamt", "level": "B2", "category": "general", "translations": ["overall", "in total", "all in all"], "examples": ["Insgesamt war es ein Erfolg.", "Wir haben insgesamt 50 Teilnehmer.", "Das Projekt kostete insgesamt 10.000 Euro.", "Insgesamt bin ich zufrieden."], "position_rules": ["Often in position 1 for summary; can appear in Mittelfeld."], "example_positions": ["Insgesamt war es ein Erfolg.", "Wir haben insgesamt 50 Teilnehmer."]},
+  {"base": "grundsätzlich", "level": "B2", "category": "general", "translations": ["in principle", "fundamentally", "generally"], "examples": ["Grundsätzlich bin ich einverstanden.", "Er ist grundsätzlich optimistisch.", "Grundsätzlich ist das eine gute Idee.", "Das ist grundsätzlich falsch."], "position_rules": ["Signals a general stance or principle; often in position 1."], "example_positions": ["Grundsätzlich bin ich einverstanden.", "Er ist grundsätzlich optimistisch."]},
+  {"base": "letztendlich", "level": "B2", "category": "general", "translations": ["ultimately", "in the end", "finally"], "examples": ["Letztendlich liegt die Entscheidung bei dir.", "Er gab letztendlich nach.", "Letztendlich kommt es auf die Qualität an.", "Was zählt letztendlich?"], "position_rules": ["Usually in position 1 or before the verb in Mittelfeld."], "example_positions": ["Letztendlich liegt die Entscheidung bei dir.", "Er gab letztendlich nach."]},
+  {"base": "keineswegs", "level": "B2", "category": "general", "translations": ["by no means", "not at all", "in no way"], "examples": ["Das ist keineswegs einfach.", "Er ist keineswegs zufrieden.", "Keineswegs sollte man das unterschätzen.", "Das stimmt keineswegs."], "position_rules": ["Strong negation; typically in Mittelfeld or position 1 for emphasis."], "example_positions": ["Das ist keineswegs einfach.", "Er ist keineswegs zufrieden."]},
+  {"base": "bereits", "level": "B2", "category": "temporal", "translations": ["already", "as early as"], "examples": ["Ich habe bereits gegessen.", "Er war bereits um 7 Uhr im Büro.", "Das wurde bereits besprochen.", "Sie hat bereits drei Bücher geschrieben."], "position_rules": ["Used like 'schon' but often more formal in written German."], "example_positions": ["Ich habe bereits gegessen.", "Er war bereits um 7 Uhr im Büro."]},
+  {"base": "kaum", "level": "B2", "category": "general", "translations": ["hardly", "barely", "scarcely"], "examples": ["Ich konnte kaum schlafen.", "Er hat kaum Zeit.", "Das ist kaum möglich.", "Kaum jemand weiß das."], "position_rules": ["Can appear in Mittelfeld or at position 1 for emphasis."], "example_positions": ["Ich konnte kaum schlafen.", "Er hat kaum Zeit."]},
+  {"base": "zumindest", "level": "B2", "category": "general", "translations": ["at least", "at any rate"], "examples": ["Zumindest hat er versucht.", "Es war zumindest ein Teilerfolg.", "Du könntest dich zumindest entschuldigen.", "Zumindest bin ich ehrlich."], "position_rules": ["Marks a minimum expectation or concession."], "example_positions": ["Zumindest hat er versucht.", "Es war zumindest ein Teilerfolg."]},
+  {"base": "weitgehend", "level": "B2", "category": "general", "translations": ["largely", "extensively", "to a great extent"], "examples": ["Das Problem ist weitgehend gelöst.", "Er hat weitgehend recht.", "Die Pläne wurden weitgehend umgesetzt.", "Weitgehend stimmt das."], "position_rules": ["Typically in Mittelfeld to modify extent."], "example_positions": ["Das Problem ist weitgehend gelöst.", "Er hat weitgehend recht."]},
+  {"base": "einerseits", "level": "B2", "category": "general", "translations": ["on the one hand"], "examples": ["Einerseits ist es teuer, andererseits qualitativ hochwertig.", "Einerseits mag ich es, andererseits nicht.", "Einerseits verstehe ich ihn.", "Das hat einerseits Vorteile."], "position_rules": ["Always paired with 'andererseits'; einerseits in position 1."], "example_positions": ["Einerseits ist es teuer, andererseits qualitativ hochwertig.", "Einerseits mag ich es, andererseits nicht."]},
+  {"base": "andererseits", "level": "B2", "category": "general", "translations": ["on the other hand"], "examples": ["Andererseits hat es auch Nachteile.", "Das kostet Zeit, andererseits lohnt es sich.", "Andererseits kann man das verstehen.", "Ich sehe das, andererseits bin ich skeptisch."], "position_rules": ["Used in second clause after 'einerseits'; in position 1 or Mittelfeld."], "example_positions": ["Andererseits hat es auch Nachteile.", "Das kostet Zeit, andererseits lohnt es sich."]},
+  {"base": "infolgedessen", "level": "B2", "category": "general", "translations": ["as a result", "consequently"], "examples": ["Er war krank, infolgedessen blieb er zu Hause.", "Die Preise stiegen, infolgedessen kauften weniger Leute.", "Infolgedessen wurde die Sitzung abgesagt.", "Er fehlte, infolgedessen musste alles verschoben werden."], "position_rules": ["Formal connector; used in position 1 of the following clause."], "example_positions": ["Er war krank, infolgedessen blieb er zu Hause.", "Infolgedessen wurde die Sitzung abgesagt."]},
+  {"base": "demzufolge", "level": "B2", "category": "general", "translations": ["accordingly", "consequently", "hence"], "examples": ["Das Gesetz ist neu, demzufolge gelten andere Regeln.", "Er hat unterschrieben, demzufolge ist er verpflichtet.", "Demzufolge müssen wir handeln.", "Die Ergebnisse sind eindeutig, demzufolge ist die Entscheidung klar."], "position_rules": ["Formal; often appears in position 1 to draw logical conclusion."], "example_positions": ["Das Gesetz ist neu, demzufolge gelten andere Regeln.", "Demzufolge müssen wir handeln."]},
+  {"base": "überdies", "level": "B2", "category": "general", "translations": ["moreover", "furthermore", "besides"], "examples": ["Er ist kompetent und überdies sehr sympathisch.", "Das ist teuer und überdies unnötig.", "Überdies fehlen die nötigen Ressourcen.", "Sie spricht drei Sprachen und überdies Latein."], "position_rules": ["Formal alternative to 'außerdem'; position 1 or Mittelfeld."], "example_positions": ["Er ist kompetent und überdies sehr sympathisch.", "Das ist teuer und überdies unnötig."]},
+  {"base": "nichtsdestotrotz", "level": "B2", "category": "general", "translations": ["nevertheless", "nonetheless"], "examples": ["Nichtsdestotrotz gab er nicht auf.", "Die Aufgabe war schwer, nichtsdestotrotz gelang es.", "Nichtsdestotrotz bin ich optimistisch.", "Es regnete, nichtsdestotrotz fand das Fest statt."], "position_rules": ["Formal, slightly emphatic version of 'dennoch'."], "example_positions": ["Nichtsdestotrotz gab er nicht auf.", "Die Aufgabe war schwer, nichtsdestotrotz gelang es."]},
+  {"base": "schlichtweg", "level": "B2", "category": "general", "translations": ["simply", "just", "plain and simple"], "examples": ["Das ist schlichtweg falsch.", "Er lügt schlichtweg.", "Schlichtweg unmöglich, das zu glauben.", "Das stimmt schlichtweg nicht."], "position_rules": ["Emphasizes the blunt or plain nature of a statement; Mittelfeld or position 1."], "example_positions": ["Das ist schlichtweg falsch.", "Er lügt schlichtweg."]},
+  {"base": "geradezu", "level": "B2", "category": "general", "translations": ["virtually", "practically", "almost"], "examples": ["Das ist geradezu unmöglich.", "Er war geradezu begeistert.", "Das grenzt geradezu an Betrug.", "Geradezu lächerlich, was er behauptet."], "position_rules": ["Adds intensity; can appear in Mittelfeld or before adjective."], "example_positions": ["Das ist geradezu unmöglich.", "Er war geradezu begeistert."]},
+  {"base": "zudem", "level": "B2", "category": "general", "translations": ["moreover", "in addition", "furthermore"], "examples": ["Er ist klug und zudem fleißig.", "Zudem fehlt das Geld.", "Das Essen war lecker und zudem günstig.", "Zudem haben wir keine Zeit mehr."], "position_rules": ["Shorter and slightly more formal than 'außerdem'."], "example_positions": ["Er ist klug und zudem fleißig.", "Zudem fehlt das Geld."]},
+  {"base": "nach wie vor", "level": "B2", "category": "temporal", "translations": ["still", "as before", "as ever"], "examples": ["Das Problem besteht nach wie vor.", "Er ist nach wie vor optimistisch.", "Nach wie vor fehlen die Ergebnisse.", "Die Lage ist nach wie vor unklar."], "position_rules": ["Emphasizes continuity from past to present; Mittelfeld."], "example_positions": ["Das Problem besteht nach wie vor.", "Er ist nach wie vor optimistisch."]},
+  {"base": "womöglich", "level": "B2", "category": "modal", "translations": ["possibly", "perhaps", "for all we know"], "examples": ["Das könnte womöglich klappen.", "Womöglich hat er das nicht gewusst.", "Er ist womöglich noch unterwegs.", "Das klappt womöglich nicht."], "position_rules": ["Softer than 'vielleicht'; implies some degree of uncertainty."], "example_positions": ["Das könnte womöglich klappen.", "Womöglich hat er das nicht gewusst."]},
+  {"base": "folglich", "level": "B2", "category": "general", "translations": ["consequently", "therefore", "thus"], "examples": ["Er hat nicht gelernt, folglich hat er versagt.", "Folglich muss eine Lösung her.", "Sie ist krank, folglich bleibt sie zu Hause.", "Das ist bewiesen, folglich stimmt die These."], "position_rules": ["Formal connector drawing logical conclusion; usually position 1."], "example_positions": ["Er hat nicht gelernt, folglich hat er versagt.", "Folglich muss eine Lösung her."]},
+  {"base": "keinesfalls", "level": "B2", "category": "general", "translations": ["under no circumstances", "by no means", "not under any conditions"], "examples": ["Das darfst du keinesfalls tun.", "Keinesfalls sollte man das unterschätzen.", "Das ist keinesfalls akzeptabel.", "Keinesfalls werde ich zustimmen."], "position_rules": ["Strong prohibition or negation; position 1 or Mittelfeld."], "example_positions": ["Das darfst du keinesfalls tun.", "Keinesfalls sollte man das unterschätzen."]},
+  {"base": "seither", "level": "B2", "category": "temporal", "translations": ["since then", "ever since"], "examples": ["Er hat seither nichts gesagt.", "Seither ist alles anders.", "Das Gespräch fand statt und seither hat sich nichts geändert.", "Seither meidet er das Thema."], "position_rules": ["Temporal adverb referring to a point in the past; position 1 or Mittelfeld."], "example_positions": ["Er hat seither nichts gesagt.", "Seither ist alles anders."]},
 ];
-export default adverbsB2;
+
+window.adverbsB2 = adverbsB2;

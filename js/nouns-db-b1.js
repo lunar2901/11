@@ -1107,4 +1107,4 @@ const nounsB1 = [
     }
   }
 ];
-export default nounsB1;
+window.nounsB1 = nounsB1;

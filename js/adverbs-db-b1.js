@@ -538,4 +538,4 @@ const adverbsB1 = [
     ]
   }
 ];
-export default adverbsB1;
+window.adverbsB1 = adverbsB1;

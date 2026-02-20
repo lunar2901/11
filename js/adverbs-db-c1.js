@@ -241,4 +241,4 @@ const adverbsC1 = [
   }
 ];
 
-export default adverbsC1;
+window.adverbsC1 = adverbsC1;

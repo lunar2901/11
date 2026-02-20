@@ -210,4 +210,4 @@ const verbsB2 = [
   }
 ];
 
-export default verbsB2;
+window.verbsB2 = verbsB2;

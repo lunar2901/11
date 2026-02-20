@@ -408,4 +408,4 @@ const nounsA1 = [
     }
   }
 ];
-export default nounsA1;
+window.nounsA1 = nounsA1;

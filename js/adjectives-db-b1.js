@@ -775,4 +775,4 @@ const adjectivesB1 = [
     ]
   }
 ];
-export default adjectivesB1;
+window.adjectivesB1 = adjectivesB1;

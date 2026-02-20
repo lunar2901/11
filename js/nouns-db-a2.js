@@ -447,4 +447,4 @@ const nounsA2 = [
     "base_display": "Haltestelle"
   }
 ];
-export default nounsA2;
+window.nounsA2 = nounsA2;

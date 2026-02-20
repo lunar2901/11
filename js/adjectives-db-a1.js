@@ -263,4 +263,4 @@ const adjectivesA1 = [
     "examples": ["Die Übung ist einfach.", "Einmal Hamburg, einfach, bitte.", "Das ist einfach wunderbar!"]
   }
 ];
-export default adjectivesA1;
+window.adjectivesA1 = adjectivesA1;
