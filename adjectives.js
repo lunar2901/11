@@ -122,11 +122,19 @@ function createCard(adj) {
   const tip            = adj.tip || '';
   const commonMistakes = Array.isArray(adj.common_mistakes) ? adj.common_mistakes : [];
 
-  const derivedHtml = derivedFrom ? `
+  let derivedHtml = '';
+  if (derivedFrom) {
+    const dLevel = (derivedFrom.level||'a1').toLowerCase();
+    const dBase  = derivedFrom.base||'';
+    const dArr   = (DB[dLevel]||[]);
+    const dIdx   = dArr.findIndex(x=>(x.base||x.word||'')===dBase);
+    const dUrl   = dIdx>=0 ? 'adjectives.html#jump:'+dLevel+':'+dIdx : 'adjectives.html';
+    derivedHtml  = `
     <div class="verb-info" style="background:rgba(80,120,255,.07);border-radius:10px;padding:6px 10px;margin-top:8px">
       <span class="label">Base word:</span>
-      <span class="value">${esc(derivedFrom.base)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span> <span style="opacity:.4;font-size:11px;">(${esc(derivedFrom.type||'')})</span></span>
-    </div>` : '';
+      <a href="${dUrl}" class="value" style="color:#3a60d4;text-decoration:none;font-weight:600" title="Go to ${esc(dBase)}">${esc(dBase)} <span style="opacity:.5;font-size:11px;">[${(derivedFrom.level||'').toUpperCase()}]</span> <span style="opacity:.4;font-size:11px;">(${esc(derivedFrom.type||'')})  →</span></a>
+    </div>`;
+  }
 
   const compHtml = `
     <div class="verb-forms" style="margin-top:10px">
